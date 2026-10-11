@@ -341,3 +341,45 @@ footer a:hover {
   color: #38bdf8 !important;
 }
 
+/* ==========================================================================
+   RESPONSIVE TOPBAR, MOBILE NAV & USER DROPDOWN (Zero Horizontal Overflow)
+   ========================================================================== */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+.topbar {
+  padding: 0 28px;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 0 14px !important;
+    height: 64px !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .nav-btn-hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-name-label {
+    display: none !important;
+  }
+}
+

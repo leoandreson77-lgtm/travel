@@ -17,6 +17,12 @@ export default function Navbar() {
     } catch (e) {}
   }, []);
 
+  // Close dropdown and drawer whenever user navigates
+  useEffect(() => {
+    setDropdownOpen(false);
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   const switchRole = (role) => {
     let newUser;
     if (role === 'Super Admin') newUser = { name: 'Aarav Malhotra', role: 'Super Admin', email: 'admin@trippie.com' };
@@ -29,138 +35,425 @@ export default function Navbar() {
     window.location.reload();
   };
 
+  const navLinks = [
+    { href: '/', label: 'Explore' },
+    { href: '/destination', label: 'Destinations' },
+    { href: '/hotels', label: 'Hotels' },
+    { href: '/apartments', label: 'Apartments', badge: 'SUITES' },
+    { href: '/packages', label: 'Packages' },
+    { href: '/cars', label: 'Rentals' },
+    { href: '/taxi', label: 'Taxi' },
+    { href: '/trekking', label: 'Treks' },
+    { href: '/jungle-safari', label: 'Safari' },
+  ];
+
   return (
     <>
       <header className="topbar glass-nav" id="top" style={{
         height: '72px',
-        padding: '0 28px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         position: 'sticky',
         top: 0,
         zIndex: 1000,
-        transition: 'all 0.3s ease'
+        transition: 'all 0.3s ease',
+        background: 'rgba(255, 255, 255, 0.94)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid #d9f0fb'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
-          <Link href="/" className="brand" style={{ fontSize: '24px', fontWeight: 800, color: 'var(--navy)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '3px' }}>
-            <span style={{ fontFamily: 'Playfair Display, serif', color: 'var(--blue)', fontSize: '32px' }}>t</span>
+        {/* Left Side: Brand Logo & Desktop Nav Links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <Link href="/" className="brand" style={{ fontSize: '22px', fontWeight: 800, color: 'var(--navy)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '2px', whiteSpace: 'nowrap' }}>
+            <span style={{ fontFamily: 'Playfair Display, serif', color: 'var(--blue)', fontSize: '30px' }}>t</span>
             <span style={{ letterSpacing: '-0.5px' }}>rippie</span>
-            <span style={{ fontSize: '9px', fontWeight: 800, background: 'linear-gradient(135deg,#279ed3,#164b68)', color: '#fff', padding: '2px 6px', borderRadius: '10px', marginLeft: '6px', letterSpacing: '0.5px' }}>LUXE</span>
+            <span style={{ fontSize: '9px', fontWeight: 800, background: 'linear-gradient(135deg,#279ed3,#164b68)', color: '#fff', padding: '2px 6px', borderRadius: '10px', marginLeft: '5px', letterSpacing: '0.5px' }}>LUXE</span>
           </Link>
 
-          <nav className="desktop-nav" style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
-            <Link href="/" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/' ? '#f0f9ff' : 'transparent' }}>Explore</Link>
-            <Link href="/destination" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname.startsWith('/destination') ? 'var(--blue)' : 'var(--navy)', background: pathname.startsWith('/destination') ? '#f0f9ff' : 'transparent' }}>Destinations</Link>
-            <Link href="/hotels" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/hotels' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/hotels' ? '#f0f9ff' : 'transparent' }}>Hotels</Link>
-            <Link href="/apartments" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/apartments' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/apartments' ? '#f0f9ff' : 'transparent', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              Apartments <span style={{ fontSize: '9px', background: '#e0f2fe', color: '#0284c7', padding: '1px 5px', borderRadius: '8px' }}>SUITES</span>
-            </Link>
-            <Link href="/packages" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/packages' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/packages' ? '#f0f9ff' : 'transparent' }}>Packages</Link>
-            <Link href="/cars" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/cars' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/cars' ? '#f0f9ff' : 'transparent' }}>Rentals</Link>
-            <Link href="/taxi" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/taxi' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/taxi' ? '#f0f9ff' : 'transparent' }}>Taxi</Link>
-            <Link href="/trekking" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/trekking' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/trekking' ? '#f0f9ff' : 'transparent' }}>Treks</Link>
-            <Link href="/jungle-safari" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 10px', borderRadius: '8px', color: pathname === '/jungle-safari' ? 'var(--blue)' : 'var(--navy)', background: pathname === '/jungle-safari' ? '#f0f9ff' : 'transparent' }}>Safari</Link>
-            <Link href="/itinerary-builder" style={{ textDecoration: 'none', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px', padding: '6px 12px', borderRadius: '20px', color: '#0369a1', background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)', border: '1px solid #7dd3fc', display: 'flex', alignItems: 'center', gap: '4px' }}>
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  textDecoration: 'none',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.4px',
+                  padding: '6px 10px',
+                  borderRadius: '8px',
+                  color: pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? 'var(--blue)' : 'var(--navy)',
+                  background: pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? '#f0f9ff' : 'transparent',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {item.label}
+                {item.badge && (
+                  <span style={{ fontSize: '9px', background: '#e0f2fe', color: '#0284c7', padding: '1px 5px', borderRadius: '8px' }}>{item.badge}</span>
+                )}
+              </Link>
+            ))}
+            <Link
+              href="/itinerary-builder"
+              style={{
+                textDecoration: 'none',
+                fontSize: '13px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.4px',
+                padding: '6px 12px',
+                borderRadius: '20px',
+                color: '#0369a1',
+                background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
+                border: '1px solid #7dd3fc',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                whiteSpace: 'nowrap'
+              }}
+            >
               <span>✨</span> Custom Trip
             </Link>
           </nav>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <Link href="/my-trips" style={{
-            textDecoration: 'none',
-            fontSize: '13px',
-            fontWeight: 700,
-            color: 'var(--navy)',
-            background: '#f0f9ff',
-            padding: '7px 14px',
-            borderRadius: '20px',
-            border: '1px solid #bae6fd'
-          }}>
+        {/* Right Side: My Trips, CRM & User Dropdown */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Link
+            href="/my-trips"
+            className="nav-btn-hide-mobile"
+            style={{
+              textDecoration: 'none',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: 'var(--navy)',
+              background: '#f0f9ff',
+              padding: '7px 14px',
+              borderRadius: '20px',
+              border: '1px solid #bae6fd',
+              whiteSpace: 'nowrap'
+            }}
+          >
             🎒 My Trips
           </Link>
 
           {(user.role === 'Super Admin' || user.role === 'Travel Agent') && (
-            <Link href="/admin" style={{
-              textDecoration: 'none',
-              fontSize: '13px',
-              fontWeight: 700,
-              color: '#fff',
-              background: 'var(--navy)',
-              padding: '7px 14px',
-              borderRadius: '20px'
-            }}>
+            <Link
+              href="/admin"
+              className="nav-btn-hide-mobile"
+              style={{
+                textDecoration: 'none',
+                fontSize: '13px',
+                fontWeight: 700,
+                color: '#fff',
+                background: 'var(--navy)',
+                padding: '7px 14px',
+                borderRadius: '20px',
+                whiteSpace: 'nowrap'
+              }}
+            >
               ⚙ CRM Admin
             </Link>
           )}
 
-          {/* User profile with role switcher */}
+          {/* User Profile Pill & Dropdown */}
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
+              aria-label="User Profile"
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
+                gap: '6px',
                 background: '#fff',
                 border: '1px solid #cbd5e0',
                 borderRadius: '24px',
-                padding: '4px 12px 4px 6px',
+                padding: '4px 10px 4px 5px',
                 cursor: 'pointer',
-                fontFamily: 'inherit'
+                fontFamily: 'inherit',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.04)',
+                userSelect: 'none'
               }}
             >
-              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--navy)', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '12px', fontWeight: 800 }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg,#164b68,#279ed3)', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '12px', fontWeight: 800 }}>
                 {user.name ? user.name[0] : 'S'}
               </div>
-              <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--navy)' }}>{user.name.split(' ')[0]}</span>
-              <span style={{ fontSize: '10px', color: 'var(--muted)' }}>▼</span>
+              <span className="user-name-label" style={{ fontSize: '12px', fontWeight: 700, color: 'var(--navy)', maxWidth: '90px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {user.name.split(' ')[0]}
+              </span>
+              <span style={{ fontSize: '9px', color: 'var(--muted)', transform: dropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▼</span>
             </button>
 
             {dropdownOpen && (
-              <div style={{
-                position: 'absolute',
-                top: '42px',
-                right: 0,
-                width: '240px',
-                background: '#fff',
-                borderRadius: '12px',
-                boxShadow: '0 10px 25px rgba(22,75,104,0.18)',
-                border: '1px solid #e2e8f0',
-                padding: '12px',
-                zIndex: 2000
-              }}>
-                <div style={{ borderBottom: '1px solid #edf2f7', paddingBottom: '8px', marginBottom: '8px' }}>
-                  <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)' }}>{user.name}</div>
-                  <div style={{ fontSize: '11px', color: 'var(--muted)' }}>{user.email}</div>
-                  <span style={{ display: 'inline-block', marginTop: '4px', background: '#ebf8ff', color: '#0369a1', padding: '2px 8px', borderRadius: '10px', fontSize: '10px', fontWeight: 700 }}>
-                    Role: {user.role}
-                  </span>
-                </div>
+              <>
+                {/* Backdrop Overlay to close on tap outside */}
+                <div
+                  onClick={() => setDropdownOpen(false)}
+                  style={{
+                    position: 'fixed',
+                    inset: 0,
+                    zIndex: 1998,
+                    background: 'rgba(14, 53, 75, 0.15)',
+                    backdropFilter: 'blur(2px)',
+                    WebkitBackdropFilter: 'blur(2px)'
+                  }}
+                />
 
-                <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '6px' }}>
-                  Switch Role / Persona:
-                </div>
-                <button onClick={() => switchRole('Customer')} style={{ width: '100%', textAlign: 'left', padding: '6px 8px', border: 0, background: user.role === 'Customer' ? '#f0fdf4' : 'transparent', borderRadius: '6px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', display: 'block' }}>
-                  👤 Customer (Sameer)
-                </button>
-                <button onClick={() => switchRole('Travel Agent')} style={{ width: '100%', textAlign: 'left', padding: '6px 8px', border: 0, background: user.role === 'Travel Agent' ? '#f0fdf4' : 'transparent', borderRadius: '6px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', display: 'block' }}>
-                  💼 Travel Agent (Priya)
-                </button>
-                <button onClick={() => switchRole('Super Admin')} style={{ width: '100%', textAlign: 'left', padding: '6px 8px', border: 0, background: user.role === 'Super Admin' ? '#f0fdf4' : 'transparent', borderRadius: '6px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', display: 'block' }}>
-                  👑 Super Admin (Aarav)
-                </button>
+                {/* Dropdown Menu Box */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 'calc(100% + 8px)',
+                    right: 0,
+                    width: 'min(280px, calc(100vw - 28px))',
+                    background: '#fff',
+                    borderRadius: '16px',
+                    boxShadow: '0 16px 36px rgba(22, 75, 104, 0.22)',
+                    border: '1px solid #d9f0fb',
+                    padding: '14px',
+                    zIndex: 1999,
+                    animation: 'scaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1)',
+                    boxSizing: 'border-box'
+                  }}
+                >
+                  <div style={{ borderBottom: '1px solid #edf2f7', paddingBottom: '10px', marginBottom: '10px' }}>
+                    <div style={{ fontWeight: 800, fontSize: '14px', color: 'var(--navy)' }}>{user.name}</div>
+                    <div style={{ fontSize: '11px', color: 'var(--muted)', marginTop: '2px', wordBreak: 'break-all' }}>{user.email}</div>
+                    <span style={{ display: 'inline-block', marginTop: '6px', background: '#e0f2fe', color: '#0369a1', padding: '3px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: 700 }}>
+                      Role: {user.role}
+                    </span>
+                  </div>
 
-                <div style={{ borderTop: '1px solid #edf2f7', marginTop: '8px', paddingTop: '8px' }}>
-                  <Link href="/my-trips" onClick={() => setDropdownOpen(false)} style={{ display: 'block', padding: '4px 8px', fontSize: '12px', color: 'var(--navy)', textDecoration: 'none' }}>Customer Portal</Link>
-                  <Link href="/admin" onClick={() => setDropdownOpen(false)} style={{ display: 'block', padding: '4px 8px', fontSize: '12px', color: 'var(--navy)', textDecoration: 'none' }}>Admin CMS / CRM</Link>
+                  <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
+                    Switch Role / Persona:
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                    <button
+                      onClick={() => switchRole('Customer')}
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        padding: '8px 10px',
+                        border: 0,
+                        background: user.role === 'Customer' ? '#ecfdf5' : 'transparent',
+                        color: user.role === 'Customer' ? '#065f46' : 'var(--navy)',
+                        borderRadius: '8px',
+                        fontSize: '12px',
+                        fontWeight: user.role === 'Customer' ? 700 : 600,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        minHeight: '36px'
+                      }}
+                    >
+                      <span>👤 Customer (Sameer)</span>
+                      {user.role === 'Customer' && <span style={{ fontSize: '12px' }}>✓</span>}
+                    </button>
+
+                    <button
+                      onClick={() => switchRole('Travel Agent')}
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        padding: '8px 10px',
+                        border: 0,
+                        background: user.role === 'Travel Agent' ? '#ecfdf5' : 'transparent',
+                        color: user.role === 'Travel Agent' ? '#065f46' : 'var(--navy)',
+                        borderRadius: '8px',
+                        fontSize: '12px',
+                        fontWeight: user.role === 'Travel Agent' ? 700 : 600,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        minHeight: '36px'
+                      }}
+                    >
+                      <span>💼 Travel Agent (Priya)</span>
+                      {user.role === 'Travel Agent' && <span style={{ fontSize: '12px' }}>✓</span>}
+                    </button>
+
+                    <button
+                      onClick={() => switchRole('Super Admin')}
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        padding: '8px 10px',
+                        border: 0,
+                        background: user.role === 'Super Admin' ? '#ecfdf5' : 'transparent',
+                        color: user.role === 'Super Admin' ? '#065f46' : 'var(--navy)',
+                        borderRadius: '8px',
+                        fontSize: '12px',
+                        fontWeight: user.role === 'Super Admin' ? 700 : 600,
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        minHeight: '36px'
+                      }}
+                    >
+                      <span>👑 Super Admin (Aarav)</span>
+                      {user.role === 'Super Admin' && <span style={{ fontSize: '12px' }}>✓</span>}
+                    </button>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid #edf2f7', marginTop: '10px', paddingTop: '10px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <Link
+                      href="/my-trips"
+                      onClick={() => setDropdownOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '8px 10px',
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: 'var(--navy)',
+                        textDecoration: 'none',
+                        borderRadius: '6px',
+                        background: '#f8fafc'
+                      }}
+                    >
+                      🎒 Customer Portal (My Trips)
+                    </Link>
+                    <Link
+                      href="/admin"
+                      onClick={() => setDropdownOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '8px 10px',
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: 'var(--navy)',
+                        textDecoration: 'none',
+                        borderRadius: '6px',
+                        background: '#f8fafc'
+                      }}
+                    >
+                      ⚙ Admin CMS / CRM
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
           </div>
+
+          {/* Mobile Hamburger Menu Toggle Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+            style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '10px',
+              border: '1px solid #bae6fd',
+              background: '#f0f9ff',
+              color: 'var(--navy)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              fontSize: '18px',
+              fontWeight: 700
+            }}
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
         </div>
       </header>
+
+      {/* Mobile Drawer (Slide over when Hamburger is clicked) */}
+      {mobileMenuOpen && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 9998 }}>
+          {/* Backdrop */}
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            style={{ position: 'absolute', inset: 0, background: 'rgba(14, 53, 75, 0.45)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
+          />
+
+          {/* Drawer Panel */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: 'min(300px, 82vw)',
+              background: '#ffffff',
+              boxShadow: '-10px 0 30px rgba(0,0,0,0.18)',
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '20px',
+              overflowY: 'auto',
+              boxSizing: 'border-box'
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #edf2f7', paddingBottom: '14px', marginBottom: '14px' }}>
+              <div style={{ fontWeight: 800, fontSize: '18px', color: 'var(--navy)' }}>Quick Navigation</div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                style={{ border: 0, background: '#f1f5f9', width: '32px', height: '32px', borderRadius: '50%', fontSize: '16px', cursor: 'pointer', display: 'grid', placeItems: 'center', color: 'var(--navy)' }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {navLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    textDecoration: 'none',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    padding: '10px 14px',
+                    borderRadius: '10px',
+                    color: pathname === item.href ? 'var(--blue)' : 'var(--navy)',
+                    background: pathname === item.href ? '#f0f9ff' : 'transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span style={{ fontSize: '9px', background: '#e0f2fe', color: '#0284c7', padding: '2px 6px', borderRadius: '8px' }}>{item.badge}</span>
+                  )}
+                </Link>
+              ))}
+
+              <Link
+                href="/itinerary-builder"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  marginTop: '10px',
+                  textDecoration: 'none',
+                  fontSize: '14px',
+                  fontWeight: 800,
+                  padding: '12px 16px',
+                  borderRadius: '12px',
+                  color: '#0369a1',
+                  background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
+                  border: '1px solid #7dd3fc',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+              >
+                ✨ Plan Custom Trip
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Bottom Navigation Bar (Mobile Viewports Only) */}
       <nav className="mobile-bottom-nav">
