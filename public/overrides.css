@@ -356,9 +356,9 @@ html, body {
   max-width: 100vw;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .topbar {
-    padding: 0 14px !important;
+    padding: 0 16px !important;
     height: 64px !important;
   }
 
@@ -371,7 +371,7 @@ html, body {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1181px) {
   .mobile-menu-btn {
     display: none !important;
   }
