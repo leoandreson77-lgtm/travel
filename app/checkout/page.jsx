@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const productType = searchParams.get('productType') || searchParams.get('type') || 'hotel';
   const productId = searchParams.get('productId') || searchParams.get('id') || 'htl-1';
@@ -278,5 +278,13 @@ export default function CheckoutPage() {
         </aside>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '60px 20px', textAlign: 'center', color: '#64748b', fontSize: '15px' }}>Loading checkout details...</div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }
