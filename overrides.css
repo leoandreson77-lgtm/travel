@@ -383,3 +383,25 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   RESPONSIVE ADMIN DASHBOARD
+   ========================================================================== */
+@media (max-width: 900px) {
+  .admin-container {
+    grid-template-columns: 1fr !important;
+  }
+  .admin-container aside nav {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .admin-container aside nav button {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .admin-container main {
+    padding: 20px 16px !important;
+  }
+}
+

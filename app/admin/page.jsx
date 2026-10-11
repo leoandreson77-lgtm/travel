@@ -1,9 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function AdminDashboardPage() {
+  const router = useRouter();
+  const [authLoading, setAuthLoading] = useState(true);
+  const [currentAdmin, setCurrentAdmin] = useState(null);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [stats, setStats] = useState(null);
   const [bookings, setBookings] = useState([]);
@@ -27,8 +31,48 @@ export default function AdminDashboardPage() {
   const [quoteNotice, setQuoteNotice] = useState('');
 
   useEffect(() => {
-    loadData();
+    checkAuth();
   }, []);
+
+  const checkAuth = async () => {
+    try {
+      // 1. Check server-side cookie authentication
+      const res = await fetch('/api/admin/auth');
+      const data = await res.json();
+
+      if (data.authenticated && data.user) {
+        setCurrentAdmin(data.user);
+        setAuthLoading(false);
+        loadData();
+        return;
+      }
+
+      // 2. Check localStorage session fallback
+      const stored = localStorage.getItem('trippie_admin_session');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && parsed.role && ['Super Admin', 'Travel Agent', 'Sales Manager', 'Content Manager', 'Finance Manager'].includes(parsed.role)) {
+          setCurrentAdmin(parsed);
+          setAuthLoading(false);
+          loadData();
+          return;
+        }
+      }
+
+      // Not authenticated -> redirect to login
+      router.push('/admin/login');
+    } catch (err) {
+      router.push('/admin/login');
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/auth', { method: 'DELETE' });
+    } catch (e) {}
+    localStorage.removeItem('trippie_admin_session');
+    router.push('/admin/login');
+  };
 
   const loadData = async () => {
     fetch('/api/admin/stats').then(r => r.json()).then(d => { if (d.success) setStats(d); });
@@ -85,14 +129,64 @@ export default function AdminDashboardPage() {
     setQuoteItems([...quoteItems, { category: 'Activities', name: 'Sightseeing & Guide', cost: 2000 }]);
   };
 
+  if (authLoading) {
+    return (
+      <div style={{
+        minHeight: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        background: '#f4fbff',
+        fontFamily: "'DM Sans', sans-serif"
+      }}>
+        <div style={{
+          width: '42px',
+          height: '42px',
+          border: '3px solid #bae6fd',
+          borderTopColor: '#279ed3',
+          borderRadius: '50%',
+          animation: 'spin 0.7s linear infinite'
+        }} />
+        <div style={{ fontSize: '15px', fontWeight: 700, color: '#164b68' }}>
+          Verifying Admin Clearance...
+        </div>
+        <style jsx>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 'calc(100vh - 68px)' }}>
+    <div className="admin-container" style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 'calc(100vh - 68px)' }}>
       {/* Admin Sidebar */}
-      <aside style={{ background: '#092a3e', color: '#fff', padding: '24px 16px' }}>
-        <div style={{ fontSize: '13px', fontWeight: 800, color: '#72c9ef', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+      <aside style={{ background: '#092a3e', color: '#fff', padding: '24px 16px', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ fontSize: '13px', fontWeight: 800, color: '#72c9ef', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '14px' }}>
           AGENCY CMS & CRM
         </div>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+
+        {/* Current Admin User Badge */}
+        {currentAdmin && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', background: 'rgba(255,255,255,0.06)', borderRadius: '12px', marginBottom: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: 'linear-gradient(135deg, #279ed3, #164b68)', display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: '13px', color: '#fff', flexShrink: 0 }}>
+              {currentAdmin.name ? currentAdmin.name[0] : 'A'}
+            </div>
+            <div style={{ overflow: 'hidden', flex: 1 }}>
+              <div style={{ fontWeight: 700, fontSize: '13px', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', color: '#fff' }}>
+                {currentAdmin.name}
+              </div>
+              <div style={{ fontSize: '10px', color: '#72c9ef', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+                {currentAdmin.role}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
           {[
             { id: 'dashboard', label: '📊 KPI Dashboard' },
             { id: 'bookings', label: `📦 Bookings (${bookings.length})` },
@@ -115,13 +209,39 @@ export default function AdminDashboardPage() {
                 color: '#fff',
                 fontWeight: 700,
                 fontSize: '13px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'background 0.15s'
               }}
             >
               {item.label}
             </button>
           ))}
         </nav>
+
+        {/* Logout Button */}
+        <div style={{ paddingTop: '16px', marginTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <button
+            onClick={handleLogout}
+            style={{
+              width: '100%',
+              padding: '10px 12px',
+              borderRadius: '8px',
+              border: '1px solid rgba(239, 68, 68, 0.4)',
+              background: 'rgba(239, 68, 68, 0.12)',
+              color: '#fca5a5',
+              fontWeight: 700,
+              fontSize: '12px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+              transition: 'background 0.2s'
+            }}
+          >
+            <span>🚪</span> Sign Out (Logout)
+          </button>
+        </div>
       </aside>
 
       {/* Main Admin Workspace */}
