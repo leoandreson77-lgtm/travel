@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Scooty Rentals | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="two-wheelers.css">
+  <link rel="stylesheet" href="platform.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html"><span>y</span>yatrimap</a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Self Drive Cars</a>
+      <a href="taxi.html">Taxi</a>
+      <a href="bike.html">Bike rentals</a>
+      <a class="active" href="scooty.html">Scooty rentals</a>
+      <a href="trekking.html">Activities</a>
+      <a href="my-trips.html">My Trips</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="tw-intro">
+      <i>🛵</i>
+      <div>
+        <h1>Scooty rentals</h1>
+        <p>Easy, affordable scooters for a fun and flexible local ride.</p>
+      </div>
+    </section>
+
+    <section class="black-search">
+      <label>City
+        <select id="scooty-city">
+          <option value="Rishikesh">Rishikesh</option>
+          <option value="Dehradun">Dehradun</option>
+          <option value="Haridwar">Haridwar</option>
+        </select>
+      </label>
+      <label>Book at
+        <select>
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Monthly</option>
+        </select>
+      </label>
+      <label>Pick up date
+        <input type="date">
+      </label>
+      <label>Pick time
+        <select>
+          <option>10:00 AM</option>
+          <option>12:00 PM</option>
+          <option>04:00 PM</option>
+        </select>
+      </label>
+      <label>Drop off date
+        <input type="date">
+      </label>
+      <label>Drop time
+        <select>
+          <option>10:00 AM</option>
+          <option>12:00 PM</option>
+          <option>04:00 PM</option>
+        </select>
+      </label>
+      <button id="find-vehicle">Find Scooty</button>
+    </section>
+
+    <section class="vehicle-tabs" id="vehicle-tabs">
+      <button class="active" data-type="All">All Scooties</button>
+      <button data-type="Scooter">Cheapest</button>
+      <button data-type="Electric">Electric</button>
+      <button data-type="Premium">Premium</button>
+      <button data-type="125cc">125cc</button>
+      <button data-type="Family">Family rides</button>
+    </section>
+
+    <div class="catalogue-head">
+      <b id="vehicle-count">Loading Scooties...</b>
+      <select id="vehicle-sort">
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <section class="vehicle-grid" id="vehicle-grid"></section>
+  </main>
+
+  <footer>
+    <b>₹ Best price guarantee</b>
+    <b>◈ Insurance included</b>
+    <b>◔ 24/7 support</b>
+    <b>✕ Free cancellation</b>
+    <b>▣ No hidden charges</b>
+  </footer>
+
+  <script src="platform.js"></script>
+  <script>window.vehicleKind='scooty'</script>
+  <script src="two-wheelers.js"></script>
+</body>
+</html>

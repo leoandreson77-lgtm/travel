@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Trips, Bookings, Vouchers & Travel Dashboard | Yatrimap">
+  <title>My Trips & Customer Portal | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <link rel="stylesheet" href="platform.css">
+  <style>
+    .portal-banner {
+      background: linear-gradient(135deg, #102e27 0%, #164b68 100%);
+      color: #fff;
+      padding: 40px 0;
+      margin-bottom: 32px;
+    }
+    .portal-banner-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .user-greeting-badge {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .portal-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid #72c9ef;
+      object-fit: cover;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+    .stat-card small {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+    .stat-card strong {
+      font-size: 24px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .portal-tabs {
+      display: flex;
+      gap: 10px;
+      border-bottom: 2px solid #edf8fc;
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+    .portal-tab-btn {
+      background: none;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      padding: 12px 18px;
+      font: 600 14px 'DM Sans', sans-serif;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .portal-tab-btn.active {
+      color: var(--forest);
+      border-bottom-color: var(--forest);
+    }
+    .trip-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .trip-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--forest);
+    }
+    .trip-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .trip-info h3 {
+      font: 600 20px 'Playfair Display', serif;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .trip-timeline-strip {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+    .timeline-pill {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .trip-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 170px;
+    }
+    @media (max-width: 850px) {
+      .trip-card { grid-template-columns: 1fr; }
+      .trip-card img { height: 180px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .portal-banner-content { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand" aria-label="Yatrimap home"><span class="brand-mark">y</span>yatrimap</a>
+    <button class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="nav-search">
+      <span>⌕</span>
+      <input id="site-search" placeholder="Search destinations, stays, thrills" aria-label="Search destinations" autocomplete="off" />
+    </div>
+    <nav class="nav-links">
+      <a href="destination.html">Destinations</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Rentals</a>
+      <a href="trekking.html">Activities</a>
+      <a href="itinerary-builder.html">Trip Builder</a>
+      <a href="my-trips.html" style="color:var(--forest);font-weight:700;">My Trips</a>
+      <button class="login" id="login">Login</button>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="portal-banner">
+    <div class="container">
+      <div class="portal-banner-content">
+        <div class="user-greeting-badge">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&q=80" class="portal-avatar" id="portal-avatar" alt="Avatar">
+          <div>
+            <span class="status-pill status-active" style="margin-bottom:6px;background:rgba(255,255,255,0.2);color:#fff;">Customer Portal</span>
+            <h1 id="portal-greeting" style="font:600 32px 'Playfair Display', serif;margin:0;">Welcome back, Sameer!</h1>
+            <p id="portal-contact-info" style="margin:4px 0 0;font-size:13px;opacity:0.85;">sameer@example.com • +91 98765 43210</p>
+          </div>
+        </div>
+        <div>
+          <a href="itinerary-builder.html" class="btn-primary" style="background:#bbd84d;color:#102b27;">+ Plan New Trip 🗺</a>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <small>Total Bookings</small>
+          <strong id="stat-total">4</strong>
+        </div>
+        <div class="stat-card">
+          <small>Upcoming Trips</small>
+          <strong id="stat-upcoming">2</strong>
+        </div>
+        <div class="stat-card">
+          <small>Completed Journeys</small>
+          <strong id="stat-completed">2</strong>
+        </div>
+        <div class="stat-card">
+          <small>Total Travel Spend</small>
+          <strong id="stat-spend">₹1,05,510</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Portal Body -->
+  <main class="container" style="padding-bottom:80px;">
+    <!-- Navigation Tabs -->
+    <div class="portal-tabs" role="tablist">
+      <button class="portal-tab-btn active" data-tab="upcoming">Upcoming Trips (2)</button>
+      <button class="portal-tab-btn" data-tab="completed">Completed Stays & Trips</button>
+      <button class="portal-tab-btn" data-tab="cancelled">Cancelled Bookings</button>
+      <button class="portal-tab-btn" data-tab="notifications">Notifications & Alerts</button>
+      <button class="portal-tab-btn" data-tab="support">Support Tickets & Concierge</button>
+      <button class="portal-tab-btn" data-tab="profile">Profile & Documents</button>
+    </div>
+
+    <!-- TAB 1: UPCOMING TRIPS -->
+    <section class="portal-tab-content" id="tab-upcoming">
+      <div id="upcoming-trips-list"></div>
+    </section>
+
+    <!-- TAB 2: COMPLETED TRIPS -->
+    <section class="portal-tab-content" id="tab-completed" style="display:none;">
+      <div id="completed-trips-list"></div>
+    </section>
+
+    <!-- TAB 3: CANCELLED TRIPS -->
+    <section class="portal-tab-content" id="tab-cancelled" style="display:none;">
+      <div id="cancelled-trips-list"></div>
+    </section>
+
+    <!-- TAB 4: NOTIFICATIONS -->
+    <section class="portal-tab-content" id="tab-notifications" style="display:none;">
+      <div class="info-card">
+        <h3>Notification Center</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:18px;">Stay updated on booking confirmations, trip reminders, and discount drops.</p>
+        <div id="notifications-list"></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: SUPPORT TICKETS -->
+    <section class="portal-tab-content" id="tab-support" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:24px;">
+        <div class="info-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h3 style="margin:0;">Previous Support Inquiries</h3>
+          </div>
+          <div id="support-tickets-list"></div>
+        </div>
+
+        <div class="info-card">
+          <h3 style="margin:0 0 12px;">Raise a Support Ticket</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Our 24x7 Himalayan support team typically replies within 30 minutes.</p>
+          <form id="ticket-form">
+            <div class="input-row">
+              <label>Booking ID (Optional)</label>
+              <input type="text" id="tck-booking" placeholder="e.g. YM-2026-8812">
+            </div>
+            <div class="input-row">
+              <label>Category</label>
+              <select id="tck-cat">
+                <option>Booking Modification / Reschedule</option>
+                <option>Pickup & Driver Details</option>
+                <option>Special Dietary / Room Request</option>
+                <option>Refund & Invoice Query</option>
+                <option>General Travel Support</option>
+              </select>
+            </div>
+            <div class="input-row">
+              <label>Subject</label>
+              <input type="text" id="tck-subject" required placeholder="Brief summary of request">
+            </div>
+            <div class="input-row">
+              <label>Detailed Message</label>
+              <textarea id="tck-msg" rows="3" required placeholder="Explain your request in detail..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;">Submit Ticket →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: PROFILE & SETTINGS -->
+    <section class="portal-tab-content" id="tab-profile" style="display:none;">
+      <div class="info-card" style="max-width:700px;">
+        <h3>Customer Profile & Emergency Details</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Keep your emergency contact information updated for Himalayan expeditions.</p>
+        <form id="profile-form">
+          <div class="input-grid-2">
+            <div class="input-row">
+              <label>Full Name</label>
+              <input type="text" id="prof-name" value="Sameer Sharma">
+            </div>
+            <div class="input-row">
+              <label>Mobile Number</label>
+              <input type="tel" id="prof-phone" value="+91 98765 43210">
+            </div>
+          </div>
+          <div class="input-grid-2">
+            <div class="input-row">
+              <label>Email Address</label>
+              <input type="email" id="prof-email" value="sameer@example.com">
+            </div>
+            <div class="input-row">
+              <label>Home City</label>
+              <input type="text" id="prof-city" value="Delhi NCR">
+            </div>
+          </div>
+
+          <h4 style="font:600 16px 'DM Sans';margin:20px 0 10px;color:var(--ink);">Emergency Contact (Nominee / Next of Kin)</h4>
+          <div class="input-grid-3">
+            <div class="input-row">
+              <label>Contact Name</label>
+              <input type="text" id="prof-em-name" value="Kavita Sharma">
+            </div>
+            <div class="input-row">
+              <label>Relationship</label>
+              <input type="text" id="prof-em-rel" value="Spouse">
+            </div>
+            <div class="input-row">
+              <label>Emergency Phone</label>
+              <input type="tel" id="prof-em-phone" value="+91 98765 11111">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:14px;">Save Profile Changes ✓</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cancel Booking Policy Dialog -->
+  <div class="custom-modal-backdrop" id="cancel-modal">
+    <div class="custom-modal-window">
+      <button class="modal-close-x" id="close-cancel-modal">×</button>
+      <div class="modal-header-strip">
+        <span class="status-pill status-cancelled">Cancellation & Reschedule Policy</span>
+        <h2>Cancel or Modify Booking</h2>
+        <p id="cancel-modal-title">Booking #YM-2026-8812</p>
+      </div>
+      <div class="modal-body-pad">
+        <div style="background:#fff6e5;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:6px;font-size:13px;color:#854d0e;margin-bottom:16px;">
+          <strong>Yatrimap Flexible Policy:</strong> Cancellations made 7+ days prior to travel date receive a 100% refund or free date rescheduling.
+        </div>
+        <div class="input-row">
+          <label>Reason for Cancellation</label>
+          <select id="cancel-reason-select">
+            <option>Change of travel dates (Need Reschedule)</option>
+            <option>Personal / Medical Emergency</option>
+            <option>Bad weather forecast</option>
+            <option>Found alternative travel plans</option>
+          </select>
+        </div>
+        <div class="input-row">
+          <label>Additional Notes</label>
+          <textarea id="cancel-notes" rows="3" placeholder="Tell us if you prefer a credit voucher or date change..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer-strip">
+        <button type="button" class="btn-outline" id="btn-cancel-abort">Keep My Booking</button>
+        <button type="button" class="btn-primary" id="btn-cancel-confirm" style="background:#ef4444;">Confirm Cancellation</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">y</span>yatrimap</a>
+      <p>Yatrimap Customer Operating System. Safe travels across Uttarakhand & the Himalayas.</p>
+      <span>© 2026 Yatrimap</span>
+    </div>
+  </footer>
+
+  <script src="platform.js"></script>
+  <script>
+    let myTripsData = { upcoming: [], completed: [], cancelled: [] };
+    let selectedBookingToCancel = null;
+
+    async function loadPortal() {
+      const user = Yatrimap.currentUser;
+      if (user) {
+        document.getElementById('portal-greeting').textContent = `Welcome back, ${user.name.split(' ')[0]}!`;
+        document.getElementById('portal-contact-info').textContent = `${user.email} • ${user.phone || ''}`;
+        if (user.avatar) document.getElementById('portal-avatar').src = user.avatar;
+        document.getElementById('prof-name').value = user.name;
+        document.getElementById('prof-email').value = user.email;
+        document.getElementById('prof-phone').value = user.phone || '';
+        document.getElementById('prof-city').value = user.city || '';
+      }
+
+      // Load trips
+      const res = await Yatrimap.api.get('/api/customer/trips');
+      if (res && res.success) {
+        myTripsData = res;
+        renderTrips();
+        updateStats();
+      }
+
+      // Load notifications
+      loadNotifications();
+
+      // Load tickets
+      loadTickets();
+
+      setupTabSwitching();
+    }
+
+    function updateStats() {
+      const all = myTripsData.all || [];
+      document.getElementById('stat-total').textContent = all.length;
+      document.getElementById('stat-upcoming').textContent = myTripsData.upcoming.length;
+      document.getElementById('stat-completed').textContent = myTripsData.completed.length;
+
+      const totalSpend = all.reduce((sum, b) => sum + (b.finalAmount || 0), 0);
+      document.getElementById('stat-spend').textContent = `₹${totalSpend.toLocaleString('en-IN')}`;
+    }
+
+    function renderTrips() {
+      // 1. Upcoming
+      const upList = document.getElementById('upcoming-trips-list');
+      if (myTripsData.upcoming.length) {
+        upList.innerHTML = myTripsData.upcoming.map(b => renderTripCard(b, true)).join('');
+      } else {
+        upList.innerHTML = `
+          <div class="empty-state-box">
+            <i>🎒</i>
+            <h3>No Upcoming Trips Scheduled</h3>
+            <p>You have no active upcoming bookings. Explore the Himalayas or design your custom trip now.</p>
+            <a href="itinerary-builder.html" class="btn-primary" style="margin-top:14px;">Plan a Trip Now →</a>
+          </div>
+        `;
+      }
+
+      // 2. Completed
+      const compList = document.getElementById('completed-trips-list');
+      if (myTripsData.completed.length) {
+        compList.innerHTML = myTripsData.completed.map(b => renderTripCard(b, false)).join('');
+      } else {
+        compList.innerHTML = `<div class="empty-state-box"><p>No completed journeys yet.</p></div>`;
+      }
+
+      // 3. Cancelled
+      const cancList = document.getElementById('cancelled-trips-list');
+      if (myTripsData.cancelled.length) {
+        cancList.innerHTML = myTripsData.cancelled.map(b => renderTripCard(b, false)).join('');
+      } else {
+        cancList.innerHTML = `<div class="empty-state-box"><p>No cancelled bookings.</p></div>`;
+      }
+
+      attachTripActions();
+    }
+
+    function renderTripCard(b, isUpcoming) {
+      const placeholderImg = b.productType === 'hotel'
+        ? 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80'
+        : (b.productType === 'vehicle'
+          ? 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80'
+          : 'https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?auto=format&fit=crop&w=400&q=80');
+
+      return `
+        <article class="trip-card">
+          <img src="${placeholderImg}" alt="${b.productTitle}">
+          <div class="trip-info">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <span class="status-pill status-${(b.bookingStatus || '').toLowerCase()}">${b.bookingStatus}</span>
+              <small style="color:var(--muted);font-weight:700;">Ref: ${b.id}</small>
+            </div>
+            <h3>${b.productTitle}</h3>
+            <p style="margin:4px 0;font-size:13px;color:#385566;">
+              📅 <strong>${b.travelStartDate}</strong> to <strong>${b.travelEndDate}</strong> • 👥 ${b.travellers} Travellers
+            </p>
+            <div class="trip-timeline-strip">
+              <span class="timeline-pill">✓ Hotel Confirmed</span>
+              <span class="timeline-pill">✓ Transport Verified</span>
+              <span class="timeline-pill">✓ 24/7 Concierge</span>
+              <span class="timeline-pill">Total: ₹${(b.finalAmount || 0).toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+          <div class="trip-actions">
+            <a href="/api/pdf/voucher/${b.id}" target="_blank" class="btn-primary" style="font-size:12px;padding:8px 12px;justify-content:center;">
+              🎫 Travel Voucher (PDF)
+            </a>
+            <a href="/api/pdf/invoice/${b.id}" target="_blank" class="btn-outline" style="font-size:12px;padding:8px 12px;justify-content:center;">
+              📄 Tax Invoice (PDF)
+            </a>
+            <button class="btn-whatsapp share-trip-wa" data-id="${b.id}" data-title="${b.productTitle}" style="font-size:12px;padding:8px 12px;justify-content:center;">
+              Share Trip 💬
+            </button>
+            ${isUpcoming ? `<button class="btn-outline cancel-trip-btn" data-id="${b.id}" style="font-size:11px;color:#c53030;border-color:#fca5a5;">Cancel / Reschedule</button>` : ''}
+          </div>
+        </article>
+      `;
+    }
+
+    function attachTripActions() {
+      // WhatsApp Share
+      document.querySelectorAll('.share-trip-wa').forEach(btn => {
+        btn.onclick = () => {
+          const msg = `*My Yatrimap Travel Plan: ${btn.dataset.title}*\nBooking ID: ${btn.dataset.id}\nCheck vouchers & itinerary here: ${window.location.origin}/my-trips.html`;
+          window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+      });
+
+      // Cancel button modal trigger
+      document.querySelectorAll('.cancel-trip-btn').forEach(btn => {
+        btn.onclick = () => {
+          selectedBookingToCancel = btn.dataset.id;
+          document.getElementById('cancel-modal-title').textContent = `Booking #${selectedBookingToCancel}`;
+          document.getElementById('cancel-modal').classList.add('active');
+        };
+      });
+    }
+
+    async function loadNotifications() {
+      const res = await Yatrimap.api.get('/api/customer/notifications');
+      const list = document.getElementById('notifications-list');
+      if (res && res.success && res.notifications.length) {
+        list.innerHTML = res.notifications.map(n => `
+          <div style="border-bottom:1px solid #edf8fc;padding:12px 0;display:flex;align-items:start;gap:12px;">
+            <span style="font-size:20px;">🔔</span>
+            <div style="flex:1;">
+              <strong style="color:var(--ink);font-size:14px;display:block;">${n.title}</strong>
+              <p style="margin:3px 0 0;font-size:13px;color:#416375;">${n.message}</p>
+              <small style="color:var(--muted);">${new Date(n.createdAt).toLocaleDateString()}</small>
+            </div>
+            ${!n.read ? `<span class="status-pill status-new">New</span>` : ''}
+          </div>
+        `).join('');
+      } else {
+        list.innerHTML = `<p style="color:#666;font-size:13px;">No new alerts.</p>`;
+      }
+    }
+
+    async function loadTickets() {
+      const res = await Yatrimap.api.get('/api/customer/tickets');
+      const list = document.getElementById('support-tickets-list');
+      if (res && res.success && res.tickets.length) {
+        list.innerHTML = res.tickets.map(t => `
+          <div style="border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <strong style="color:var(--ink);">${t.subject}</strong>
+              <span class="status-pill status-${t.status.toLowerCase()}">${t.status}</span>
+            </div>
+            <p style="font-size:13px;color:#335061;margin:4px 0 8px;">${t.message}</p>
+            ${t.response ? `
+              <div style="background:#eaf7fc;padding:8px 12px;border-radius:6px;font-size:12px;color:var(--ink);margin-top:8px;">
+                <strong>Agent Response:</strong> ${t.response}
+              </div>
+            ` : `<small style="color:var(--muted);">Waiting for specialist response...</small>`}
+          </div>
+        `).join('');
+      } else {
+        list.innerHTML = `<p style="color:#666;font-size:13px;">You have no active support tickets.</p>`;
+      }
+    }
+
+    function setupTabSwitching() {
+      document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          document.querySelectorAll('.portal-tab-content').forEach(c => c.style.display = 'none');
+          const target = document.getElementById(`tab-${btn.dataset.tab}`);
+          if (target) target.style.display = 'block';
+        };
+      });
+
+      // Ticket form submission
+      document.getElementById('ticket-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+          bookingId: document.getElementById('tck-booking').value.trim(),
+          category: document.getElementById('tck-cat').value,
+          subject: document.getElementById('tck-subject').value.trim(),
+          message: document.getElementById('tck-msg').value.trim()
+        };
+        const res = await Yatrimap.api.post('/api/customer/tickets', payload);
+        if (res.success) {
+          Yatrimap.toast.show('Support ticket raised. Our specialist has been notified!', 'success');
+          document.getElementById('ticket-form').reset();
+          loadTickets();
+        }
+      };
+
+      // Profile form submission
+      document.getElementById('profile-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById('prof-name').value.trim(),
+          email: document.getElementById('prof-email').value.trim(),
+          phone: document.getElementById('prof-phone').value.trim(),
+          city: document.getElementById('prof-city').value.trim(),
+          emergencyContact: {
+            name: document.getElementById('prof-em-name').value.trim(),
+            relation: document.getElementById('prof-em-rel').value.trim(),
+            phone: document.getElementById('prof-em-phone').value.trim()
+          }
+        };
+        const res = await Yatrimap.api.put('/api/auth/profile', payload);
+        if (res.success) {
+          Yatrimap.toast.show('Profile and emergency contact details updated!', 'success');
+        }
+      };
+
+      // Modal close handlers
+      document.getElementById('close-cancel-modal').onclick = () => document.getElementById('cancel-modal').classList.remove('active');
+      document.getElementById('btn-cancel-abort').onclick = () => document.getElementById('cancel-modal').classList.remove('active');
+
+      // Cancellation confirm
+      document.getElementById('btn-cancel-confirm').onclick = async () => {
+        if (!selectedBookingToCancel) return;
+        const reason = document.getElementById('cancel-reason-select').value;
+        const notes = document.getElementById('cancel-notes').value;
+
+        const res = await Yatrimap.api.patch(`/api/bookings/${selectedBookingToCancel}/status`, {
+          bookingStatus: 'Cancelled',
+          paymentStatus: 'Refund Pending',
+          cancellationReason: `${reason} - ${notes}`
+        });
+
+        if (res.success) {
+          document.getElementById('cancel-modal').classList.remove('active');
+          Yatrimap.toast.show(`Booking #${selectedBookingToCancel} cancelled. Refund request initiated.`, 'info');
+          loadPortal();
+        }
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPortal);
+  </script>
+</body>
+</html>

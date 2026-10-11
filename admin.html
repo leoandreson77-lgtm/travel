@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CMS & CRM Dashboard | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <link rel="stylesheet" href="platform.css">
+  <style>
+    body {
+      background: #f4fbff;
+      color: var(--ink);
+    }
+    .admin-container {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    .admin-sidebar {
+      background: #102e27;
+      color: #fff;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .admin-brand {
+      font: 700 22px 'Playfair Display', serif;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 24px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .admin-brand span { color: #bbd84d; }
+    .sidebar-section-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #72c9ef;
+      font-weight: 700;
+      padding: 12px 12px 4px;
+      margin-top: 8px;
+    }
+    .admin-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      color: #d6e3dc;
+      text-decoration: none;
+      font: 500 13px 'DM Sans', sans-serif;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      width: 100%;
+      text-align: left;
+      transition: var(--transition);
+    }
+    .admin-nav-item:hover, .admin-nav-item.active {
+      background: rgba(39, 158, 211, 0.25);
+      color: #fff;
+      font-weight: 700;
+    }
+    .admin-nav-item i {
+      font-size: 16px;
+      font-style: normal;
+      width: 20px;
+      text-align: center;
+    }
+    .admin-content-area {
+      padding: 32px;
+      overflow-y: auto;
+    }
+    .admin-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      background: #fff;
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .kpi-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .kpi-card small {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .kpi-card strong {
+      font-size: 28px;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .kpi-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 20px;
+    }
+    .data-table-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    .data-table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .data-table-header h3 {
+      font: 600 20px 'Playfair Display', serif;
+      margin: 0;
+      color: var(--ink);
+    }
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table.yatrimap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    table.yatrimap-table th {
+      background: var(--cream);
+      padding: 12px 14px;
+      font-weight: 700;
+      color: var(--ink);
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    table.yatrimap-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #edf8fc;
+      color: #335061;
+      vertical-align: middle;
+    }
+    table.yatrimap-table tr:hover td {
+      background: #fafdfe;
+    }
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .pipeline-col {
+      background: #edf8fc;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      min-height: 400px;
+    }
+    .pipeline-col h4 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+    }
+    .lead-card {
+      background: #fff;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lead-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--forest);
+    }
+    @media (max-width: 900px) {
+      .admin-container { grid-template-columns: 1fr; }
+      .admin-sidebar { display: none; }
+      .pipeline-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Left Navigation Sidebar -->
+    <aside class="admin-sidebar">
+      <a href="index.html" class="admin-brand"><span>y</span>yatrimap <b>OS</b></a>
+
+      <div class="sidebar-section-title">Core CRM & Sales</div>
+      <button class="admin-nav-item active" data-tab="dashboard"><i>📊</i> Dashboard</button>
+      <button class="admin-nav-item" data-tab="bookings"><i>🧳</i> Bookings (<span id="count-bookings">0</span>)</button>
+      <button class="admin-nav-item" data-tab="leads"><i>🎯</i> CRM Leads (<span id="count-leads">0</span>)</button>
+      <button class="admin-nav-item" data-tab="quotations"><i>📝</i> Quotation Builder</button>
+      <button class="admin-nav-item" data-tab="customers"><i>👥</i> Customers</button>
+
+      <div class="sidebar-section-title">CMS Inventory</div>
+      <button class="admin-nav-item" data-tab="hotels"><i>🏨</i> Hotels & Stays</button>
+      <button class="admin-nav-item" data-tab="packages"><i>🏔</i> Tours & Char Dham</button>
+      <button class="admin-nav-item" data-tab="vehicles"><i>🚗</i> Vehicles & Taxis</button>
+      <button class="admin-nav-item" data-tab="activities"><i>⚡</i> Adventures & Safaris</button>
+      <button class="admin-nav-item" data-tab="destinations"><i>📍</i> Destinations</button>
+
+      <div class="sidebar-section-title">Operations & Admin</div>
+      <button class="admin-nav-item" data-tab="coupons"><i>🏷</i> Coupons & Offers</button>
+      <button class="admin-nav-item" data-tab="reviews"><i>⭐</i> Review Moderation</button>
+      <button class="admin-nav-item" data-tab="media"><i>🖼</i> Media Library</button>
+      <button class="admin-nav-item" data-tab="reports"><i>📈</i> Analytics & Reports</button>
+      <button class="admin-nav-item" data-tab="staff"><i>🛡</i> Staff & RBAC</button>
+      
+      <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+        <a href="index.html" class="admin-nav-item" style="color:#bbd84d;"><i>←</i> Public Website</a>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="admin-content-area">
+      <!-- Header Bar -->
+      <header class="admin-header-bar">
+        <div>
+          <h1 id="page-title" style="font:600 24px 'Playfair Display', serif;margin:0;color:var(--ink);">Agency Overview & Metrics</h1>
+          <p id="page-subtitle" style="font-size:13px;color:var(--muted);margin:3px 0 0;">Unified operating system for Yatrimap travel agency</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="btn-whatsapp" id="btn-quick-wa" style="font-size:12px;">WhatsApp Support 💬</button>
+          <a href="/api/admin/export-bookings-csv" class="btn-outline" style="font-size:12px;">Export CSV 📊</a>
+        </div>
+      </header>
+
+      <!-- TAB 1: DASHBOARD OVERVIEW -->
+      <section class="admin-section" id="view-dashboard">
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-badge">💰</span>
+            <small>Total Revenue (Paid)</small>
+            <strong id="kpi-rev">₹0</strong>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-badge">🧳</span>
+            <small>Total Bookings</small>
+            <strong id="kpi-bookings">0</strong>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-badge">🎯</span>
+            <small>Active CRM Leads</small>
+            <strong id="kpi-leads">0</strong>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-badge">⏳</span>
+            <small>Pending Payments</small>
+            <strong id="kpi-pending">₹0</strong>
+          </div>
+        </div>
+
+        <!-- Recent Bookings Quick Table -->
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Recent Bookings Stream</h3>
+            <button class="btn-outline" onclick="switchAdminTab('bookings')" style="font-size:12px;">View All Bookings →</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="dashboard-recent-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Customer</th>
+                  <th>Experience</th>
+                  <th>Travel Date</th>
+                  <th>Amount</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: BOOKINGS MANAGEMENT -->
+      <section class="admin-section" id="view-bookings" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <div>
+              <h3>All Customer Bookings</h3>
+              <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Manage confirmations, cancellations, invoices and vouchers</p>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <input type="text" id="booking-search" placeholder="Search customer or ID..." style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:13px;">
+              <select id="booking-status-filter" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:13px;">
+                <option value="All">All Statuses</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="all-bookings-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Phone</th>
+                  <th>Product</th>
+                  <th>Travel Dates</th>
+                  <th>Pax</th>
+                  <th>Amount</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Documents / Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CRM LEADS -->
+      <section class="admin-section" id="view-leads" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <div>
+              <h3>Lead Pipeline & Travel Inquiries</h3>
+              <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Track incoming inquiries, budgets and follow-up dates</p>
+            </div>
+            <button class="btn-primary" id="btn-add-lead-modal">+ Add New Lead</button>
+          </div>
+          <div class="pipeline-grid">
+            <div class="pipeline-col">
+              <h4>New Inquiries <span id="p-new-count">0</span></h4>
+              <div id="p-col-new"></div>
+            </div>
+            <div class="pipeline-col">
+              <h4>Contacted / Qualified <span id="p-qual-count">0</span></h4>
+              <div id="p-col-qualified"></div>
+            </div>
+            <div class="pipeline-col">
+              <h4>Quotation Sent <span id="p-quote-count">0</span></h4>
+              <div id="p-col-quotesent"></div>
+            </div>
+            <div class="pipeline-col">
+              <h4>Confirmed Bookings <span id="p-conf-count">0</span></h4>
+              <div id="p-col-confirmed"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: QUOTATION BUILDER -->
+      <section class="admin-section" id="view-quotations" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <div>
+              <h3>Custom Quotation Generator</h3>
+              <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Build custom quotes with line items, calculate margin, send on WhatsApp & convert to booking.</p>
+            </div>
+            <button class="btn-primary" id="btn-new-quote-toggle">+ Create New Quotation</button>
+          </div>
+
+          <!-- Quotation Creation Form -->
+          <div id="quote-creation-form-box" style="display:none;background:#fafdfe;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:24px;">
+            <h4 style="margin:0 0 16px;font:600 18px 'DM Sans';">New Custom Trip Quotation</h4>
+            <div class="input-grid-3">
+              <div class="input-row">
+                <label>Customer Name *</label>
+                <input type="text" id="q-cust-name" required placeholder="e.g. Manish Kulkarni">
+              </div>
+              <div class="input-row">
+                <label>Mobile / WhatsApp *</label>
+                <input type="tel" id="q-cust-phone" required placeholder="+91 98765 43210">
+              </div>
+              <div class="input-row">
+                <label>Email</label>
+                <input type="email" id="q-cust-email" placeholder="client@example.com">
+              </div>
+            </div>
+            <div class="input-grid-3">
+              <div class="input-row">
+                <label>Trip Title *</label>
+                <input type="text" id="q-title" placeholder="e.g. Rishikesh Adventure & Luxury Weekend">
+              </div>
+              <div class="input-row">
+                <label>Destination *</label>
+                <input type="text" id="q-dest" placeholder="e.g. Rishikesh">
+              </div>
+              <div class="input-row">
+                <label>Travel Dates</label>
+                <input type="text" id="q-dates" placeholder="e.g. 15 Jul – 18 Jul 2026">
+              </div>
+            </div>
+
+            <!-- Line Items -->
+            <div style="margin:16px 0;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <label style="font-weight:700;font-size:12px;text-transform:uppercase;">Quotation Line Items</label>
+                <button type="button" class="btn-outline" id="btn-add-quote-item" style="padding:4px 8px;font-size:11px;">+ Add Line Item</button>
+              </div>
+              <div id="quote-items-container">
+                <div class="input-grid-3 quote-item-row" style="margin-bottom:8px;">
+                  <input type="text" class="qi-cat" placeholder="Category (e.g. Hotel / Stay)" value="Accommodation">
+                  <input type="text" class="qi-name" placeholder="Service description" value="Riverside Retreat (4 Nights)">
+                  <input type="number" class="qi-cost" placeholder="Amount (₹)" value="16000">
+                </div>
+              </div>
+            </div>
+
+            <div class="input-grid-3">
+              <div class="input-row">
+                <label>Discount (₹)</label>
+                <input type="number" id="q-discount" value="1000">
+              </div>
+              <div class="input-row">
+                <label>GST / Tax (₹)</label>
+                <input type="number" id="q-tax" value="1500">
+              </div>
+              <div class="input-row">
+                <label>Status</label>
+                <select id="q-status">
+                  <option selected>Sent</option>
+                  <option>Draft</option>
+                  <option>Accepted</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px;">
+              <button type="button" class="btn-outline" onclick="document.getElementById('quote-creation-form-box').style.display='none'">Cancel</button>
+              <button type="button" class="btn-primary" id="btn-save-quote">Save & Generate Quotation ✓</button>
+            </div>
+          </div>
+
+          <!-- Existing Quotes Table -->
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="quotations-table">
+              <thead>
+                <tr>
+                  <th>Quote ID</th>
+                  <th>Client</th>
+                  <th>Trip Title</th>
+                  <th>Dates</th>
+                  <th>Subtotal</th>
+                  <th>Net Total</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: CMS INVENTORY (Hotels, Packages, Vehicles, Activities, Destinations) -->
+      <section class="admin-section" id="view-hotels" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Hotels & Serviced Stays</h3>
+            <button class="btn-primary" id="btn-add-hotel">+ Add New Hotel</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-hotels-table">
+              <thead>
+                <tr>
+                  <th>Property Name</th>
+                  <th>Location</th>
+                  <th>Type</th>
+                  <th>Price/Night</th>
+                  <th>Rating</th>
+                  <th>Breakfast</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: PACKAGES CMS -->
+      <section class="admin-section" id="view-packages" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Tours & Char Dham Packages</h3>
+            <button class="btn-primary" id="btn-add-package">+ Add New Package</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-packages-table">
+              <thead>
+                <tr>
+                  <th>Package Title</th>
+                  <th>Destination</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Rating</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 7: VEHICLES CMS -->
+      <section class="admin-section" id="view-vehicles" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Vehicles & Taxi Fleet Inventory</h3>
+            <button class="btn-primary" id="btn-add-vehicle">+ Add Vehicle</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-vehicles-table">
+              <thead>
+                <tr>
+                  <th>Vehicle Name</th>
+                  <th>Category</th>
+                  <th>Type</th>
+                  <th>Daily Rate</th>
+                  <th>Fuel</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 8: ACTIVITIES CMS -->
+      <section class="admin-section" id="view-activities" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Adventure Activities & Safaris</h3>
+            <button class="btn-primary" id="btn-add-activity">+ Add Activity</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-activities-table">
+              <thead>
+                <tr>
+                  <th>Activity Name</th>
+                  <th>Location</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Duration</th>
+                  <th>Difficulty</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 9: DESTINATIONS CMS -->
+      <section class="admin-section" id="view-destinations" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Managed Travel Destinations</h3>
+            <button class="btn-primary" id="btn-add-destination">+ Add Destination</button>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-destinations-table">
+              <thead>
+                <tr>
+                  <th>Destination</th>
+                  <th>State</th>
+                  <th>Starting Price</th>
+                  <th>Best Season</th>
+                  <th>Weather</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 10: COUPONS -->
+      <section class="admin-section" id="view-coupons" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Promotions & Coupons</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-coupons-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Type</th>
+                  <th>Discount</th>
+                  <th>Min Booking</th>
+                  <th>Applicable To</th>
+                  <th>Valid Until</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 11: REVIEWS MODERATION -->
+      <section class="admin-section" id="view-reviews" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Customer Reviews Moderation</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="cms-reviews-table">
+              <thead>
+                <tr>
+                  <th>Author</th>
+                  <th>Title</th>
+                  <th>Rating</th>
+                  <th>Comment</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 12: MEDIA LIBRARY -->
+      <section class="admin-section" id="view-media" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Media Asset Library</h3>
+            <form id="media-upload-form" style="display:flex;gap:10px;">
+              <input type="file" id="media-file-input" required style="font-size:12px;">
+              <button type="submit" class="btn-primary" style="font-size:12px;">Upload Image 📤</button>
+            </form>
+          </div>
+          <div id="media-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));gap:14px;"></div>
+        </div>
+      </section>
+
+      <!-- TAB 13: STAFF & RBAC -->
+      <section class="admin-section" id="view-staff" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Staff Members & Role-Based Access Control (RBAC)</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="yatrimap-table" id="staff-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Assigned Permissions</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Vikram Mehta</strong></td>
+                  <td>vikram@yatrimap.com</td>
+                  <td><span class="status-pill status-active">Super Admin</span></td>
+                  <td>Full platform access, financial exports, inventory control</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td><strong>Priya Patel</strong></td>
+                  <td>priya@yatrimap.com</td>
+                  <td><span class="status-pill status-new">Travel Agent</span></td>
+                  <td>Manage assigned leads, quotations, booking vouchers</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td><strong>Rahul Verma</strong></td>
+                  <td>rahul@yatrimap.com</td>
+                  <td><span class="status-pill status-new">Sales Manager</span></td>
+                  <td>Pipeline tracking, lead assignments, quote approvals</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td><strong>Ananya Sen</strong></td>
+                  <td>ananya@yatrimap.com</td>
+                  <td><span class="status-pill status-confirmed">Content Manager</span></td>
+                  <td>Destinations, blog posts, media library, reviews</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td><strong>Amitabh Joshi</strong></td>
+                  <td>amit@yatrimap.com</td>
+                  <td><span class="status-pill status-pending">Finance Manager</span></td>
+                  <td>Payments, invoices, refunds, tax summaries</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="platform.js"></script>
+  <script>
+    let adminStats = null;
+    let allBookings = [];
+    let allLeads = [];
+    let allQuotations = [];
+
+    async function initAdmin() {
+      // Load stats
+      const statsRes = await Yatrimap.api.get('/api/admin/stats');
+      if (statsRes && statsRes.success) {
+        adminStats = statsRes;
+        document.getElementById('kpi-rev').textContent = `₹${statsRes.totalRevenue.toLocaleString('en-IN')}`;
+        document.getElementById('kpi-bookings').textContent = statsRes.totalBookings;
+        document.getElementById('kpi-leads').textContent = statsRes.newLeadsCount;
+        document.getElementById('kpi-pending').textContent = `₹${statsRes.pendingPayments.toLocaleString('en-IN')}`;
+        document.getElementById('count-bookings').textContent = statsRes.totalBookings;
+        document.getElementById('count-leads').textContent = statsRes.newLeadsCount;
+      }
+
+      // Load bookings
+      const bRes = await Yatrimap.api.get('/api/bookings');
+      if (bRes && bRes.success) {
+        allBookings = bRes.bookings;
+        renderRecentBookings(allBookings.slice(0, 6));
+        renderAllBookings(allBookings);
+      }
+
+      // Load leads
+      const lRes = await Yatrimap.api.get('/api/leads');
+      if (lRes && lRes.success) {
+        allLeads = lRes.leads;
+        renderPipeline(allLeads);
+      }
+
+      // Load quotations
+      const qRes = await Yatrimap.api.get('/api/quotations');
+      if (qRes && qRes.success) {
+        allQuotations = qRes.quotations;
+        renderQuotations(allQuotations);
+      }
+
+      // Load inventory tables
+      loadHotels();
+      loadPackages();
+      loadVehicles();
+      loadActivities();
+      loadDestinations();
+      loadCoupons();
+      loadReviews();
+      loadMedia();
+
+      setupSidebarNav();
+      setupQuoteBuilderEvents();
+    }
+
+    function switchAdminTab(tabName) {
+      document.querySelectorAll('.admin-nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+      });
+      document.querySelectorAll('.admin-section').forEach(sec => sec.style.display = 'none');
+      const target = document.getElementById(`view-${tabName}`);
+      if (target) target.style.display = 'block';
+
+      const titles = {
+        dashboard: 'Agency Overview & Metrics',
+        bookings: 'Bookings Management & Document Dispatch',
+        leads: 'CRM Lead Pipeline & Customer Inquiries',
+        quotations: 'Custom Trip Quotation Builder',
+        hotels: 'Hotels & Accommodation Inventory',
+        packages: 'Tours & Pilgrimage Packages',
+        vehicles: 'Vehicle Fleet & Taxi Rates',
+        activities: 'Activities & Adventure Slots',
+        destinations: 'Destination Content Management',
+        coupons: 'Discount Codes & Promotions',
+        reviews: 'Review Moderation Desk',
+        media: 'Media Asset Library',
+        staff: 'Staff Roles & Permission Matrix'
+      };
+      document.getElementById('page-title').textContent = titles[tabName] || 'Admin CMS';
+    }
+
+    function renderRecentBookings(list) {
+      const tbody = document.querySelector('#dashboard-recent-table tbody');
+      tbody.innerHTML = list.map(b => `
+        <tr>
+          <td><strong>${b.id}</strong></td>
+          <td>${b.customerName}</td>
+          <td>${b.productTitle}</td>
+          <td>${b.travelStartDate}</td>
+          <td>₹${(b.finalAmount || 0).toLocaleString('en-IN')}</td>
+          <td><span class="status-pill status-${(b.paymentStatus || '').toLowerCase()}">${b.paymentStatus}</span></td>
+          <td><span class="status-pill status-${(b.bookingStatus || '').toLowerCase()}">${b.bookingStatus}</span></td>
+          <td>
+            <a href="/api/pdf/voucher/${b.id}" target="_blank" class="btn-outline" style="padding:2px 8px;font-size:11px;">Voucher</a>
+            <a href="/api/pdf/invoice/${b.id}" target="_blank" class="btn-outline" style="padding:2px 8px;font-size:11px;">Invoice</a>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderAllBookings(list) {
+      const tbody = document.querySelector('#all-bookings-table tbody');
+      tbody.innerHTML = list.map(b => `
+        <tr>
+          <td><strong>${b.id}</strong></td>
+          <td>${b.customerName}</td>
+          <td><small>${b.customerPhone || 'N/A'}</small></td>
+          <td>${b.productTitle}</td>
+          <td>${b.travelStartDate} to ${b.travelEndDate}</td>
+          <td>${b.travellers}</td>
+          <td><strong>₹${(b.finalAmount || 0).toLocaleString('en-IN')}</strong></td>
+          <td><span class="status-pill status-${(b.paymentStatus || '').toLowerCase()}">${b.paymentStatus}</span></td>
+          <td><span class="status-pill status-${(b.bookingStatus || '').toLowerCase()}">${b.bookingStatus}</span></td>
+          <td style="white-space:nowrap;">
+            <a href="/api/pdf/voucher/${b.id}" target="_blank" class="btn-primary" style="padding:3px 8px;font-size:11px;">Voucher PDF</a>
+            <a href="/api/pdf/invoice/${b.id}" target="_blank" class="btn-outline" style="padding:3px 8px;font-size:11px;">Invoice PDF</a>
+            <button class="btn-whatsapp btn-wa-crm-booking" data-id="${b.id}" style="padding:3px 8px;font-size:11px;">WA</button>
+          </td>
+        </tr>
+      `).join('');
+
+      tbody.querySelectorAll('.btn-wa-crm-booking').forEach(btn => {
+        btn.onclick = () => {
+          const booking = allBookings.find(b => b.id === btn.dataset.id);
+          if (booking) Yatrimap.whatsapp.sendBookingConfirmation(booking);
+        };
+      });
+    }
+
+    function renderPipeline(leads) {
+      const colNew = document.getElementById('p-col-new');
+      const colQual = document.getElementById('p-col-qualified');
+      const colQuote = document.getElementById('p-col-quotesent');
+      const colConf = document.getElementById('p-col-confirmed');
+
+      const byStatus = {
+        'New': leads.filter(l => l.status === 'New'),
+        'Qualified': leads.filter(l => l.status === 'Qualified' || l.status === 'Contacted' || l.status === 'Follow-up'),
+        'Quotation Sent': leads.filter(l => l.status === 'Quotation Sent'),
+        'Confirmed': leads.filter(l => l.status === 'Confirmed')
+      };
+
+      document.getElementById('p-new-count').textContent = byStatus['New'].length;
+      document.getElementById('p-qual-count').textContent = byStatus['Qualified'].length;
+      document.getElementById('p-quote-count').textContent = byStatus['Quotation Sent'].length;
+      document.getElementById('p-conf-count').textContent = byStatus['Confirmed'].length;
+
+      colNew.innerHTML = byStatus['New'].map(renderLeadCard).join('');
+      colQual.innerHTML = byStatus['Qualified'].map(renderLeadCard).join('');
+      colQuote.innerHTML = byStatus['Quotation Sent'].map(renderLeadCard).join('');
+      colConf.innerHTML = byStatus['Confirmed'].map(renderLeadCard).join('');
+    }
+
+    function renderLeadCard(lead) {
+      return `
+        <div class="lead-card" onclick="alert('Client: ${lead.name}\\nDestination: ${lead.destination}\\nBudget: ${lead.budget}\\nPhone: ${lead.phone}\\nNotes: ${lead.notes}')">
+          <strong style="color:var(--ink);font-size:13px;display:block;">${lead.name}</strong>
+          <span style="font-size:12px;color:var(--forest);font-weight:600;">${lead.destination}</span>
+          <div style="font-size:11px;color:#666;margin:4px 0;">Budget: ${lead.budget} • ${lead.travellers} Pax</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
+            <small style="color:var(--muted);">${lead.assignedAgent || 'Priya'}</small>
+            <span class="status-pill status-${(lead.status || '').toLowerCase().replace(/[^a-z]/g, '')}">${lead.status}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderQuotations(quotes) {
+      const tbody = document.querySelector('#quotations-table tbody');
+      tbody.innerHTML = quotes.map(q => `
+        <tr>
+          <td><strong>${q.id}</strong></td>
+          <td>${q.customerName}<br><small style="color:#666;">${q.customerPhone}</small></td>
+          <td>${q.tripTitle}</td>
+          <td>${q.dates}</td>
+          <td>₹${(q.subtotal || 0).toLocaleString('en-IN')}</td>
+          <td><strong>₹${(q.totalAmount || 0).toLocaleString('en-IN')}</strong></td>
+          <td><span class="status-pill status-${(q.status || '').toLowerCase()}">${q.status}</span></td>
+          <td style="white-space:nowrap;">
+            <button class="btn-whatsapp btn-wa-quote" data-id="${q.id}" style="padding:4px 8px;font-size:11px;">Send WA 💬</button>
+            <button class="btn-primary btn-convert-quote" data-id="${q.id}" style="padding:4px 8px;font-size:11px;background:#0d824d;">Convert to Booking 💳</button>
+          </td>
+        </tr>
+      `).join('');
+
+      tbody.querySelectorAll('.btn-wa-quote').forEach(btn => {
+        btn.onclick = () => {
+          const q = allQuotations.find(quote => quote.id === btn.dataset.id);
+          if (q) Yatrimap.whatsapp.sendQuote(q);
+        };
+      });
+
+      tbody.querySelectorAll('.btn-convert-quote').forEach(btn => {
+        btn.onclick = async () => {
+          const res = await Yatrimap.api.post(`/api/quotations/${btn.dataset.id}/convert-to-booking`, {});
+          if (res && res.success) {
+            Yatrimap.toast.show(res.message, 'success', 'Converted!');
+            initAdmin();
+          }
+        };
+      });
+    }
+
+    async function loadHotels() {
+      const res = await Yatrimap.api.get('/api/hotels');
+      if (res && res.success) {
+        document.querySelector('#cms-hotels-table tbody').innerHTML = res.hotels.map(h => `
+          <tr>
+            <td><strong>${h.name}</strong></td>
+            <td>${h.location}</td>
+            <td>${h.type}</td>
+            <td>₹${h.pricePerNight.toLocaleString('en-IN')}</td>
+            <td>★ ${h.rating}</td>
+            <td>${h.breakfastIncluded ? 'Yes' : 'No'}</td>
+            <td><span class="status-pill status-active">${h.status}</span></td>
+            <td>
+              <button class="btn-outline" onclick="alert('Edit hotel ${h.name}')" style="padding:2px 8px;font-size:11px;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadPackages() {
+      const res = await Yatrimap.api.get('/api/packages');
+      if (res && res.success) {
+        document.querySelector('#cms-packages-table tbody').innerHTML = res.packages.map(p => `
+          <tr>
+            <td><strong>${p.title}</strong></td>
+            <td>${p.destination}</td>
+            <td>${p.duration}</td>
+            <td>₹${p.price.toLocaleString('en-IN')}</td>
+            <td>${p.type}</td>
+            <td>★ ${p.rating}</td>
+            <td><span class="status-pill status-active">${p.status}</span></td>
+            <td>
+              <button class="btn-outline" onclick="alert('Edit package ${p.title}')" style="padding:2px 8px;font-size:11px;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadVehicles() {
+      const res = await Yatrimap.api.get('/api/vehicles');
+      if (res && res.success) {
+        document.querySelector('#cms-vehicles-table tbody').innerHTML = res.vehicles.map(v => `
+          <tr>
+            <td><strong>${v.name}</strong></td>
+            <td>${v.category.toUpperCase()}</td>
+            <td>${v.type}</td>
+            <td>₹${v.pricePerDay.toLocaleString('en-IN')}</td>
+            <td>${v.fuel || 'Petrol'}</td>
+            <td><span class="status-pill status-active">${v.status}</span></td>
+            <td>
+              <button class="btn-outline" onclick="alert('Edit vehicle ${v.name}')" style="padding:2px 8px;font-size:11px;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadActivities() {
+      const res = await Yatrimap.api.get('/api/activities');
+      if (res && res.success) {
+        document.querySelector('#cms-activities-table tbody').innerHTML = res.activities.map(a => `
+          <tr>
+            <td><strong>${a.name}</strong></td>
+            <td>${a.location}</td>
+            <td>${a.category}</td>
+            <td>₹${a.price.toLocaleString('en-IN')}</td>
+            <td>${a.duration}</td>
+            <td>${a.difficulty}</td>
+            <td>
+              <button class="btn-outline" onclick="alert('Edit activity ${a.name}')" style="padding:2px 8px;font-size:11px;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadDestinations() {
+      const res = await Yatrimap.api.get('/api/destinations');
+      if (res && res.success) {
+        document.querySelector('#cms-destinations-table tbody').innerHTML = res.destinations.map(d => `
+          <tr>
+            <td><strong>${d.name}</strong></td>
+            <td>${d.state}</td>
+            <td>₹${d.startingPrice}</td>
+            <td>${d.bestTime}</td>
+            <td>${d.weather ? d.weather.temp : '22°C'}</td>
+            <td><span class="status-pill status-active">${d.status}</span></td>
+            <td>
+              <button class="btn-outline" onclick="alert('Edit destination ${d.name}')" style="padding:2px 8px;font-size:11px;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadCoupons() {
+      const res = await Yatrimap.api.get('/api/coupons');
+      if (res && res.success) {
+        document.querySelector('#cms-coupons-table tbody').innerHTML = res.coupons.map(c => `
+          <tr>
+            <td><strong style="color:var(--forest);">${c.code}</strong></td>
+            <td>${c.type}</td>
+            <td>${c.type === 'percentage' ? c.discountValue + '%' : '₹' + c.discountValue}</td>
+            <td>₹${c.minBookingAmount.toLocaleString('en-IN')}</td>
+            <td>${c.applicableTo.toUpperCase()}</td>
+            <td>${c.validUntil}</td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadReviews() {
+      const res = await Yatrimap.api.get('/api/reviews');
+      if (res && res.success) {
+        document.querySelector('#cms-reviews-table tbody').innerHTML = res.reviews.map(r => `
+          <tr>
+            <td>${r.author}</td>
+            <td><strong>${r.title}</strong></td>
+            <td>★ ${r.rating}</td>
+            <td>${r.comment}</td>
+            <td>${r.date}</td>
+            <td><span class="status-pill status-active">${r.status}</span></td>
+            <td>
+              <button class="btn-outline" onclick="alert('Review action taken')" style="padding:2px 8px;font-size:11px;">Approved</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    async function loadMedia() {
+      const res = await Yatrimap.api.get('/api/admin/media');
+      const grid = document.getElementById('media-grid');
+      if (res && res.success && res.files.length) {
+        grid.innerHTML = res.files.map(f => `
+          <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff;text-align:center;padding:8px;">
+            <img src="${f.url}" style="width:100%;height:90px;object-fit:cover;border-radius:4px;">
+            <small style="display:block;margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</small>
+            <button class="btn-outline" onclick="navigator.clipboard.writeText('${window.location.origin}${f.url}'); Yatrimap.toast.show('URL copied to clipboard!','success');" style="padding:2px 6px;font-size:10px;margin-top:4px;">Copy URL</button>
+          </div>
+        `).join('');
+      } else {
+        grid.innerHTML = `<p style="grid-column:1/-1;color:#666;font-size:13px;">No uploaded media files yet. Upload image above.</p>`;
+      }
+    }
+
+    function setupSidebarNav() {
+      document.querySelectorAll('.admin-nav-item[data-tab]').forEach(btn => {
+        btn.onclick = () => switchAdminTab(btn.dataset.tab);
+      });
+
+      // Media upload
+      document.getElementById('media-upload-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const fileInput = document.getElementById('media-file-input');
+        if (!fileInput.files.length) return;
+
+        const formData = new FormData();
+        formData.append('media', fileInput.files[0]);
+
+        const res = await fetch('/api/admin/media/upload', {
+          method: 'POST',
+          body: formData
+        }).then(r => r.json());
+
+        if (res.success) {
+          Yatrimap.toast.show('Image uploaded to media library!', 'success');
+          fileInput.value = '';
+          loadMedia();
+        }
+      };
+    }
+
+    function setupQuoteBuilderEvents() {
+      document.getElementById('btn-new-quote-toggle').onclick = () => {
+        const box = document.getElementById('quote-creation-form-box');
+        box.style.display = box.style.display === 'none' ? 'block' : 'none';
+      };
+
+      document.getElementById('btn-add-quote-item').onclick = () => {
+        const row = document.createElement('div');
+        row.className = 'input-grid-3 quote-item-row';
+        row.style.marginBottom = '8px';
+        row.innerHTML = `
+          <input type="text" class="qi-cat" placeholder="Category" value="Activities">
+          <input type="text" class="qi-name" placeholder="Service description" value="White Water Rafting 16km">
+          <input type="number" class="qi-cost" placeholder="Amount (₹)" value="2400">
+        `;
+        document.getElementById('quote-items-container').appendChild(row);
+      };
+
+      document.getElementById('btn-save-quote').onclick = async () => {
+        const name = document.getElementById('q-cust-name').value.trim();
+        const phone = document.getElementById('q-cust-phone').value.trim();
+        const title = document.getElementById('q-title').value.trim();
+
+        if (!name || !phone || !title) {
+          Yatrimap.toast.show('Please fill in customer name, phone and trip title.', 'error');
+          return;
+        }
+
+        const items = [];
+        document.querySelectorAll('.quote-item-row').forEach(row => {
+          items.push({
+            category: row.querySelector('.qi-cat').value,
+            name: row.querySelector('.qi-name').value,
+            cost: Number(row.querySelector('.qi-cost').value) || 0
+          });
+        });
+
+        const payload = {
+          customerName: name,
+          customerPhone: phone,
+          customerEmail: document.getElementById('q-cust-email').value.trim(),
+          tripTitle: title,
+          destination: document.getElementById('q-dest').value.trim(),
+          dates: document.getElementById('q-dates').value.trim(),
+          items,
+          discount: Number(document.getElementById('q-discount').value) || 0,
+          tax: Number(document.getElementById('q-tax').value) || 0,
+          status: document.getElementById('q-status').value
+        };
+
+        const res = await Yatrimap.api.post('/api/quotations', payload);
+        if (res && res.success) {
+          Yatrimap.toast.show('Quotation created and added to pipeline!', 'success');
+          document.getElementById('quote-creation-form-box').style.display = 'none';
+          initAdmin();
+        }
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', initAdmin);
+  </script>
+</body>
+</html>

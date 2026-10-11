@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Transparent Booking Checkout | Yatrimap">
+  <title>Secure Checkout | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <link rel="stylesheet" href="platform.css">
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 36px;
+      padding-top: 36px;
+      padding-bottom: 80px;
+    }
+    .checkout-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .checkout-card h2 {
+      font: 600 22px 'Playfair Display', serif;
+      color: var(--ink);
+      margin: 0 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: var(--forest);
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font: 700 13px 'DM Sans', sans-serif;
+    }
+    .payment-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .payment-option-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+      background: #fff;
+    }
+    .payment-option-card:hover {
+      border-color: var(--forest);
+    }
+    .payment-option-card.selected {
+      border-color: var(--forest);
+      background: #edf8fc;
+    }
+    .payment-option-card i {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 6px;
+      font-style: normal;
+    }
+    .payment-option-card b {
+      display: block;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .payment-option-card small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .coupon-box {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .coupon-box input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: 1px;
+    }
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #385566;
+    }
+    .bill-row.discount {
+      color: #10b981;
+      font-weight: 600;
+    }
+    .bill-row.total {
+      border-top: 2px dashed var(--border);
+      padding-top: 14px;
+      margin-top: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .bill-row.total strong {
+      color: var(--forest);
+      font-size: 24px;
+    }
+    .confirmation-screen {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .confirmation-screen.active {
+      display: block;
+    }
+    .success-badge {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #e1f7ec;
+      color: #0d824d;
+      font-size: 36px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+    }
+    @media (max-width: 900px) {
+      .checkout-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand" aria-label="Yatrimap home"><span class="brand-mark">y</span>yatrimap</a>
+    <span style="font-size:12px;color:var(--muted);font-weight:600;margin-left:-15px;">🔒 256-Bit SSL Encrypted Checkout</span>
+    <nav class="nav-links">
+      <a href="index.html">← Return to Explore</a>
+      <a href="my-trips.html">My Trips</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- CHECKOUT FORM -->
+    <div class="checkout-layout" id="checkout-form-container">
+      <!-- Left Column: Steps -->
+      <section>
+        <!-- Step 1: Customer Details -->
+        <article class="checkout-card">
+          <h2><span class="step-number">1</span> Primary Guest & Contact Details</h2>
+          <div class="input-grid-2">
+            <div class="input-row">
+              <label>Full Name *</label>
+              <input type="text" id="cust-name" required placeholder="e.g. Sameer Sharma" value="Sameer Sharma">
+            </div>
+            <div class="input-row">
+              <label>WhatsApp / Mobile Number *</label>
+              <input type="tel" id="cust-phone" required placeholder="+91 98765 43210" value="+91 98765 43210">
+            </div>
+          </div>
+          <div class="input-grid-2">
+            <div class="input-row">
+              <label>Email Address (For Vouchers & Invoices) *</label>
+              <input type="email" id="cust-email" required placeholder="sameer@example.com" value="sameer@example.com">
+            </div>
+            <div class="input-row">
+              <label>City & State</label>
+              <input type="text" id="cust-city" placeholder="e.g. Delhi NCR" value="Delhi NCR">
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 2: Traveller Details -->
+        <article class="checkout-card">
+          <h2><span class="step-number">2</span> Traveller Information</h2>
+          <p style="font-size:13px;color:var(--muted);margin-top:-10px;margin-bottom:16px;">Required by government tourism regulations & hotel check-in compliance.</p>
+          <div id="travellers-list">
+            <div class="input-grid-3 traveller-row">
+              <div class="input-row">
+                <label>Traveller 1 Name</label>
+                <input type="text" value="Sameer Sharma" class="t-name">
+              </div>
+              <div class="input-row">
+                <label>Age</label>
+                <input type="number" value="34" class="t-age">
+              </div>
+              <div class="input-row">
+                <label>Gender</label>
+                <select class="t-gender">
+                  <option selected>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 3: Special Requests -->
+        <article class="checkout-card">
+          <h2><span class="step-number">3</span> Special Requests & Arrival Details</h2>
+          <div class="input-row">
+            <label>Pickup Point / Dietary Preferences / Room Requests</label>
+            <textarea id="special-requests" rows="3" placeholder="e.g. Early check-in requested if available, non-smoking high floor room, airport pickup timing..."></textarea>
+          </div>
+        </article>
+
+        <!-- Step 4: Payment Selection -->
+        <article class="checkout-card">
+          <h2><span class="step-number">4</span> Payment Method</h2>
+          <div class="payment-options-grid">
+            <div class="payment-option-card selected" data-method="Online UPI">
+              <i>📱</i>
+              <b>Instant UPI</b>
+              <small>GPay, PhonePe, Paytm</small>
+            </div>
+            <div class="payment-option-card" data-method="Credit/Debit Card">
+              <i>💳</i>
+              <b>Card Payment</b>
+              <small>Visa, Mastercard, RuPay</small>
+            </div>
+            <div class="payment-option-card" data-method="25% Deposit">
+              <i>🪙</i>
+              <b>25% Deposit Now</b>
+              <small>Pay balance on arrival</small>
+            </div>
+            <div class="payment-option-card" data-method="Pay at Property">
+              <i>🏨</i>
+              <b>Pay at Property</b>
+              <small>Zero cancellation fee</small>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-top:8px;">✓ 100% Safe & Secure. Encrypted tokenized transaction. Raw card numbers or CVV are never stored.</p>
+        </article>
+      </section>
+
+      <!-- Right Column: Order Summary & Transparent Calculation -->
+      <aside>
+        <div class="checkout-card" style="position:sticky;top:90px;">
+          <span class="status-pill status-new" style="margin-bottom:10px;">Booking Summary</span>
+          <h3 id="item-title" style="font:600 20px 'Playfair Display', serif;margin:0 0 6px;color:var(--ink);">Ganga Kinare Retreat</h3>
+          <p id="item-dates" style="font-size:13px;color:var(--muted);margin:0 0 16px;">18 May 2026 – 21 May 2026 (3 Nights)</p>
+
+          <!-- Coupon Module -->
+          <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:14px;">
+            <label style="font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;">Have a Promo Code?</label>
+            <div class="coupon-box">
+              <input type="text" id="coupon-input" placeholder="e.g. WELCOME500" value="WELCOME500">
+              <button type="button" class="btn-primary" id="btn-apply-coupon" style="padding:8px 14px;">Apply</button>
+            </div>
+            <small style="color:var(--muted);font-size:11px;margin-top:4px;display:block;">Available: RENT25, TRILL25, 4DHAM25, WELCOME500, YATRI10</small>
+          </div>
+
+          <!-- Itemized Breakdown -->
+          <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:16px;">
+            <div class="bill-row">
+              <span>Base Rate:</span>
+              <span id="bill-base">₹10,497</span>
+            </div>
+            <div class="bill-row">
+              <span>Government GST & Taxes (12%):</span>
+              <span id="bill-taxes">₹1,259</span>
+            </div>
+            <div class="bill-row discount" id="bill-discount-row">
+              <span id="bill-discount-label">Coupon Discount (WELCOME500):</span>
+              <span id="bill-discount">-₹500</span>
+            </div>
+            <div class="bill-row total">
+              <span>Total Amount:</span>
+              <strong id="bill-total">₹11,256</strong>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="btn-confirm-pay" style="width:100%;margin-top:20px;padding:14px;font-size:15px;">
+            Confirm & Pay ₹11,256 →
+          </button>
+          <div style="text-align:center;margin-top:12px;">
+            <small style="color:var(--muted);font-size:11px;">Free cancellation available according to policy.</small>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- CONFIRMATION SCREEN (Shown on payment success) -->
+    <div class="confirmation-screen" id="confirmation-screen">
+      <div class="success-badge">✓</div>
+      <span class="status-pill status-confirmed">Booking Confirmed & Guaranteed</span>
+      <h1 style="font:600 36px 'Playfair Display', serif;color:var(--ink);margin:14px 0 6px;">Your Journey is Booked!</h1>
+      <p style="font-size:16px;color:var(--muted);max-width:550px;margin:auto;">
+        A confirmation email and WhatsApp voucher have been dispatched. You can download your official travel documents below.
+      </p>
+
+      <div class="checkout-card" style="max-width:600px;margin:32px auto;text-align:left;">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;">
+          <div>
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;">Booking Reference</span>
+            <strong id="confirmed-booking-id" style="display:block;font-size:20px;color:var(--forest);">YM-2026-9041</strong>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700;">Amount Paid</span>
+            <strong id="confirmed-amount" style="display:block;font-size:20px;color:var(--ink);">₹11,256</strong>
+          </div>
+        </div>
+
+        <div style="font-size:14px;color:#335061;line-height:1.6;">
+          <p><strong>Experience:</strong> <span id="confirmed-title">Ganga Kinare Retreat</span></p>
+          <p><strong>Primary Guest:</strong> <span id="confirmed-guest">Sameer Sharma</span></p>
+          <p><strong>Assigned Travel Agent:</strong> <span>Priya Patel (+91 98330 44556)</span></p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;">
+          <a id="btn-dl-invoice" href="#" target="_blank" class="btn-outline" style="justify-content:center;">
+            📄 Download Tax Invoice (PDF)
+          </a>
+          <a id="btn-dl-voucher" href="#" target="_blank" class="btn-primary" style="justify-content:center;">
+            🎫 Download Travel Voucher (PDF)
+          </a>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;">
+          <button id="btn-wa-booking" class="btn-whatsapp" style="flex:1;justify-content:center;">
+            Send Details to WhatsApp 💬
+          </button>
+          <a href="my-trips.html" class="btn-outline" style="flex:1;justify-content:center;">
+            View in My Trips →
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="margin-top:60px;">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">y</span>yatrimap</a>
+      <p>Secure online travel booking engine. Licensed operator under Uttarakhand Tourism.</p>
+      <span>© 2026 Yatrimap</span>
+    </div>
+  </footer>
+
+  <script src="platform.js"></script>
+  <script>
+    // Booking checkout parameters
+    let currentCalc = null;
+    let selectedPaymentMethod = 'Online UPI';
+    let bookingItem = {
+      productId: 'htl-1',
+      productType: 'hotel',
+      productTitle: 'Ganga Kinare Retreat',
+      rate: 3499,
+      days: 3,
+      travellers: 2,
+      start: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
+      end: new Date(Date.now() + 8 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+    };
+
+    async function initCheckout() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('id')) bookingItem.productId = params.get('id');
+      if (params.get('type')) bookingItem.productType = params.get('type');
+      if (params.get('title')) bookingItem.productTitle = params.get('title');
+      if (params.get('rate')) bookingItem.rate = Number(params.get('rate'));
+      if (params.get('days')) bookingItem.days = Number(params.get('days'));
+      if (params.get('travellers')) bookingItem.travellers = Number(params.get('travellers'));
+      if (params.get('start')) bookingItem.start = params.get('start');
+      if (params.get('end')) bookingItem.end = params.get('end');
+
+      document.getElementById('item-title').textContent = bookingItem.productTitle;
+      document.getElementById('item-dates').textContent = `${bookingItem.start} to ${bookingItem.end} (${bookingItem.days} days, ${bookingItem.travellers} guests)`;
+
+      // Pre-fill user details if logged in
+      const user = Yatrimap.currentUser;
+      if (user) {
+        document.getElementById('cust-name').value = user.name;
+        document.getElementById('cust-phone').value = user.phone;
+        document.getElementById('cust-email').value = user.email;
+        if (user.city) document.getElementById('cust-city').value = user.city;
+      }
+
+      await runCalculation();
+      setupEvents();
+    }
+
+    async function runCalculation() {
+      const couponCode = document.getElementById('coupon-input').value.trim();
+      const res = await Yatrimap.api.post('/api/checkout/calculate', {
+        productId: bookingItem.productId,
+        productType: bookingItem.productType,
+        customRate: bookingItem.rate,
+        customTitle: bookingItem.productTitle,
+        days: bookingItem.days,
+        travellers: bookingItem.travellers,
+        couponCode
+      });
+
+      if (res && res.success) {
+        currentCalc = res;
+        document.getElementById('bill-base').textContent = `₹${res.basePrice.toLocaleString('en-IN')}`;
+        document.getElementById('bill-taxes').textContent = `₹${res.taxes.toLocaleString('en-IN')}`;
+
+        const discRow = document.getElementById('bill-discount-row');
+        if (res.discount > 0) {
+          discRow.style.display = 'flex';
+          document.getElementById('bill-discount-label').textContent = `Coupon Discount (${res.couponApplied}):`;
+          document.getElementById('bill-discount').textContent = `-₹${res.discount.toLocaleString('en-IN')}`;
+        } else {
+          discRow.style.display = 'none';
+        }
+
+        document.getElementById('bill-total').textContent = `₹${res.finalAmount.toLocaleString('en-IN')}`;
+        document.getElementById('btn-confirm-pay').textContent = `Confirm & Pay ₹${res.finalAmount.toLocaleString('en-IN')} →`;
+      }
+    }
+
+    function setupEvents() {
+      // Payment option selector
+      document.querySelectorAll('.payment-option-card').forEach(card => {
+        card.onclick = () => {
+          document.querySelectorAll('.payment-option-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectedPaymentMethod = card.dataset.method;
+        };
+      });
+
+      // Apply coupon button
+      document.getElementById('btn-apply-coupon').onclick = async () => {
+        await runCalculation();
+        if (currentCalc && currentCalc.discount > 0) {
+          Yatrimap.toast.show(`Coupon ${currentCalc.couponApplied} applied! Saved ₹${currentCalc.discount}`, 'success');
+        } else {
+          Yatrimap.toast.show('Coupon code invalid or minimum spend not met', 'warning');
+        }
+      };
+
+      // Confirm & Pay button
+      document.getElementById('btn-confirm-pay').onclick = async () => {
+        const custName = document.getElementById('cust-name').value.trim();
+        const custPhone = document.getElementById('cust-phone').value.trim();
+        const custEmail = document.getElementById('cust-email').value.trim();
+
+        if (!custName || !custPhone || !custEmail) {
+          Yatrimap.toast.show('Please fill in your name, phone, and email to proceed.', 'error');
+          return;
+        }
+
+        const payload = {
+          productId: bookingItem.productId,
+          productType: bookingItem.productType,
+          productTitle: bookingItem.productTitle,
+          travelStartDate: bookingItem.start,
+          travelEndDate: bookingItem.end,
+          travellers: bookingItem.travellers,
+          customerName: custName,
+          customerPhone: custPhone,
+          customerEmail: custEmail,
+          paymentMethod: selectedPaymentMethod,
+          couponCode: currentCalc ? currentCalc.couponApplied : '',
+          specialRequests: document.getElementById('special-requests').value
+        };
+
+        const res = await Yatrimap.api.post('/api/bookings', payload);
+        if (res && res.success) {
+          const booking = res.booking;
+
+          // Switch to confirmation view
+          document.getElementById('checkout-form-container').style.display = 'none';
+          document.getElementById('confirmation-screen').classList.add('active');
+
+          document.getElementById('confirmed-booking-id').textContent = booking.id;
+          document.getElementById('confirmed-amount').textContent = `₹${booking.finalAmount.toLocaleString('en-IN')}`;
+          document.getElementById('confirmed-title').textContent = booking.productTitle;
+          document.getElementById('confirmed-guest').textContent = booking.customerName;
+
+          // Wire up PDF links
+          document.getElementById('btn-dl-invoice').href = `/api/pdf/invoice/${booking.id}`;
+          document.getElementById('btn-dl-voucher').href = `/api/pdf/voucher/${booking.id}`;
+
+          // Wire WhatsApp confirmation button
+          document.getElementById('btn-wa-booking').onclick = () => {
+            Yatrimap.whatsapp.sendBookingConfirmation(booking);
+          };
+
+          Yatrimap.toast.show('Booking confirmed! Voucher & Invoice generated.', 'success', 'Confirmed');
+          window.scrollTo({ top: 100, behavior: 'smooth' });
+        } else {
+          Yatrimap.toast.show(res.message || 'Payment processing failed. Please try again.', 'error');
+        }
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', initCheckout);
+  </script>
+</body>
+</html>

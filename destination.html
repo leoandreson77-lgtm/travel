@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover extraordinary destinations in Uttarakhand and the Himalayas with Yatrimap.">
+  <title>Destinations Guide | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <link rel="stylesheet" href="platform.css">
+  <style>
+    .dest-hero {
+      position: relative;
+      height: 480px;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 50px;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.5s ease;
+    }
+    .dest-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(14, 53, 75, 0.9) 0%, rgba(14, 53, 75, 0.3) 100%);
+    }
+    .dest-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .dest-pills {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 16px 0;
+      scrollbar-width: none;
+    }
+    .dest-pills::-webkit-scrollbar { display: none; }
+    .dest-pill {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 18px;
+      font: 600 13px 'DM Sans', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .dest-pill.active, .dest-pill:hover {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+      margin-top: 36px;
+    }
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .info-card h3 {
+      font: 600 20px 'Playfair Display', serif;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .weather-widget {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+    .weather-temp {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .attraction-tag {
+      display: inline-block;
+      background: #edf8fc;
+      color: var(--forest);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      margin: 4px 6px 4px 0;
+    }
+    .dest-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .action-cta-card {
+      background: linear-gradient(135deg, #164b68, #279ed3);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .action-cta-card h3 {
+      font: 600 24px 'Playfair Display', serif;
+      margin: 0 0 10px;
+    }
+    .action-cta-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.9;
+      margin: 0 0 20px;
+    }
+    .related-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .rel-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--ink);
+      transition: var(--transition);
+      background: #fff;
+    }
+    .rel-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .rel-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+    .rel-card-body {
+      padding: 12px;
+    }
+    .rel-card-body strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rel-card-body span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .rel-card-body .price {
+      font-weight: 700;
+      color: var(--forest);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    @media (max-width: 900px) {
+      .dest-grid { grid-template-columns: 1fr; }
+      .related-cards-row { grid-template-columns: 1fr; }
+      .dest-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Navigation Header -->
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand" aria-label="Yatrimap home"><span class="brand-mark">y</span>yatrimap</a>
+    <button class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="nav-search">
+      <span>⌕</span>
+      <input id="site-search" placeholder="Search destinations, stays, thrills" aria-label="Search destinations" autocomplete="off" />
+    </div>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="destination.html" style="color:var(--forest);font-weight:700;">Destinations</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Rentals</a>
+      <a href="trekking.html">Activities</a>
+      <a href="itinerary-builder.html">Trip Builder</a>
+      <a href="my-trips.html">My Trips</a>
+      <button class="login" id="login">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Destination Selector Pills -->
+    <div class="container" style="padding-top:16px;">
+      <div class="dest-pills" id="dest-pills"></div>
+    </div>
+
+    <!-- Cinematic Hero -->
+    <section class="dest-hero" id="dest-hero">
+      <div class="container dest-hero-content">
+        <span class="status-pill status-active" id="dest-state" style="margin-bottom:12px;">Uttarakhand, India</span>
+        <h1 id="dest-name" style="font-size:clamp(36px,5vw,56px);margin:0;color:#fff;">Rishikesh</h1>
+        <p id="dest-tagline" style="font-size:18px;margin:8px 0 0;max-width:650px;color:#e1f4fc;">Yoga Capital of the World & Himalayan Adventure Hub</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="dest-grid">
+        <!-- Main Destination Content -->
+        <div class="dest-main">
+          <!-- Overview -->
+          <article class="info-card">
+            <h3>About This Destination</h3>
+            <p id="dest-overview" style="font-size:15px;line-height:1.6;color:#335061;margin-bottom:20px;"></p>
+            
+            <div class="weather-widget">
+              <div class="weather-temp" id="weather-temp">22°C</div>
+              <div>
+                <strong id="weather-cond" style="display:block;color:var(--ink);">Pleasant & Sunny</strong>
+                <small id="weather-best" style="color:var(--muted);">Best time to visit: September to May</small>
+              </div>
+            </div>
+
+            <h4 style="font:600 16px 'DM Sans';margin:18px 0 10px;color:var(--ink);">Top Attractions & Landmarks</h4>
+            <div id="dest-attractions"></div>
+          </article>
+
+          <!-- Top Things to Do -->
+          <article class="info-card">
+            <h3>Things to Do & Experiences</h3>
+            <ul id="dest-things" style="padding-left:20px;color:#335061;font-size:15px;line-height:1.7;"></ul>
+          </article>
+
+          <!-- Where to Stay -->
+          <article class="info-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+              <h3 style="margin:0;">Recommended Stays in <span class="dest-name-inline">Destination</span></h3>
+              <a href="hotels.html" class="btn-outline" style="padding:6px 12px;font-size:12px;">View All Hotels →</a>
+            </div>
+            <div class="related-cards-row" id="dest-hotels-row"></div>
+          </article>
+
+          <!-- Activities & Tours -->
+          <article class="info-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+              <h3 style="margin:0;">Popular Tours & Adventures</h3>
+              <a href="trekking.html" class="btn-outline" style="padding:6px 12px;font-size:12px;">View All Adventures →</a>
+            </div>
+            <div class="related-cards-row" id="dest-packages-row"></div>
+          </article>
+
+          <!-- FAQs -->
+          <article class="info-card">
+            <h3>Frequently Asked Questions</h3>
+            <div id="dest-faqs"></div>
+          </article>
+        </div>
+
+        <!-- Sidebar CTA & Fast Booking -->
+        <aside class="dest-sidebar">
+          <div class="action-cta-card">
+            <span class="status-pill status-new" style="background:rgba(255,255,255,0.2);color:#fff;margin-bottom:12px;">Custom Trip Planning</span>
+            <h3>Explore <span class="dest-name-inline">Destination</span> Your Way</h3>
+            <p>Get a custom-crafted itinerary with verified boutique stays, private cabs, adventure passes, and 24x7 local support.</p>
+            <button class="btn-primary" id="btn-custom-lead" style="width:100%;background:#bbd84d;color:#102b27;margin-bottom:10px;">
+              Plan Trip with Expert →
+            </button>
+            <a href="itinerary-builder.html" class="btn-outline" style="width:100%;text-align:center;background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">
+              Build Day-by-Day Itinerary 🛠
+            </a>
+          </div>
+
+          <div class="info-card" style="margin-top:20px;">
+            <h4 style="margin:0 0 10px;font:600 16px 'DM Sans';color:var(--ink);">Quick Transport to Destination</h4>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Book verified rental vehicles or dedicated cabs with mountain chauffeurs.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="cars.html" class="btn-outline" style="justify-content:space-between;font-size:12px;"><span>Self Drive Cars</span> <span>From ₹1,499/day →</span></a>
+              <a href="taxi.html" class="btn-outline" style="justify-content:space-between;font-size:12px;"><span>Dedicated Taxis</span> <span>From ₹999/day →</span></a>
+              <a href="bike.html" class="btn-outline" style="justify-content:space-between;font-size:12px;"><span>Royal Enfield Bikes</span> <span>From ₹699/day →</span></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer style="margin-top:60px;">
+    <div class="container footer-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">y</span>yatrimap</a>
+      <p>Your complete Himalayan travel operating system. Verified stays, adventures, and custom trips.</p>
+      <span>© 2026 Yatrimap</span>
+    </div>
+  </footer>
+
+  <script src="platform.js"></script>
+  <script>
+    let destinations = [];
+    let currentDest = null;
+
+    async function loadDestinations() {
+      const res = await Yatrimap.api.get('/api/destinations');
+      if (res && res.success) {
+        destinations = res.destinations;
+        renderPills();
+
+        // Check URL parameter or default to Rishikesh
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('slug') || 'rishikesh';
+        selectDestination(slug);
+      }
+    }
+
+    function renderPills() {
+      const pillsContainer = document.getElementById('dest-pills');
+      pillsContainer.innerHTML = destinations.map(d => `
+        <button class="dest-pill" data-slug="${d.slug}">${d.name}</button>
+      `).join('');
+
+      pillsContainer.querySelectorAll('.dest-pill').forEach(btn => {
+        btn.onclick = () => selectDestination(btn.dataset.slug);
+      });
+    }
+
+    async function selectDestination(slug) {
+      document.querySelectorAll('.dest-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.slug === slug);
+      });
+
+      const res = await Yatrimap.api.get(`/api/destinations/${slug}`);
+      if (res && res.success) {
+        currentDest = res.destination;
+        renderDestination(res.destination, res.related);
+        history.replaceState(null, '', `destination.html?slug=${slug}`);
+      }
+    }
+
+    function renderDestination(d, related) {
+      document.getElementById('dest-hero').style.backgroundImage = `url('${d.heroImage}')`;
+      document.getElementById('dest-name').textContent = d.name;
+      document.querySelectorAll('.dest-name-inline').forEach(el => el.textContent = d.name);
+      document.getElementById('dest-tagline').textContent = d.tagline || d.description;
+      document.getElementById('dest-state').textContent = `${d.state}, ${d.country}`;
+      document.getElementById('dest-overview').textContent = d.overview || d.description;
+
+      if (d.weather) {
+        document.getElementById('weather-temp').textContent = d.weather.temp;
+        document.getElementById('weather-cond').textContent = d.weather.condition;
+        document.getElementById('weather-best').textContent = `Best time: ${d.bestTime} (${d.weather.season})`;
+      }
+
+      // Attractions
+      const attrWrap = document.getElementById('dest-attractions');
+      attrWrap.innerHTML = (d.topAttractions || []).map(a => `<span class="attraction-tag">📍 ${a}</span>`).join('');
+
+      // Things to do
+      const thingsWrap = document.getElementById('dest-things');
+      thingsWrap.innerHTML = (d.thingsToDo || []).map(t => `<li>${t}</li>`).join('');
+
+      // Hotels Row
+      const hotelRow = document.getElementById('dest-hotels-row');
+      if (related && related.hotels && related.hotels.length) {
+        hotelRow.innerHTML = related.hotels.slice(0, 3).map(h => `
+          <a href="hotels.html?search=${encodeURIComponent(h.name)}" class="rel-card">
+            <img src="${h.heroImage}" alt="${h.name}">
+            <div class="rel-card-body">
+              <strong>${h.name}</strong>
+              <span>${h.type} • ★ ${h.rating}</span>
+              <div class="price">₹${h.pricePerNight.toLocaleString('en-IN')} <small>/ night</small></div>
+            </div>
+          </a>
+        `).join('');
+      } else {
+        hotelRow.innerHTML = `<p style="color:#666;font-size:13px;grid-column:1/-1;">Explore verified partner stays in ${d.name}.</p>`;
+      }
+
+      // Packages Row
+      const pkgRow = document.getElementById('dest-packages-row');
+      if (related && related.packages && related.packages.length) {
+        pkgRow.innerHTML = related.packages.slice(0, 3).map(p => `
+          <a href="itinerary-builder.html?package=${p.id}" class="rel-card">
+            <img src="${p.heroImage}" alt="${p.title}">
+            <div class="rel-card-body">
+              <strong>${p.title}</strong>
+              <span>${p.duration} • ★ ${p.rating}</span>
+              <div class="price">₹${p.price.toLocaleString('en-IN')} <small>total</small></div>
+            </div>
+          </a>
+        `).join('');
+      } else if (related && related.activities && related.activities.length) {
+        pkgRow.innerHTML = related.activities.slice(0, 3).map(a => `
+          <a href="trekking.html" class="rel-card">
+            <img src="${a.image}" alt="${a.name}">
+            <div class="rel-card-body">
+              <strong>${a.name}</strong>
+              <span>${a.duration} • ★ ${a.rating}</span>
+              <div class="price">₹${a.price.toLocaleString('en-IN')}</div>
+            </div>
+          </a>
+        `).join('');
+      }
+
+      // FAQs
+      const faqsWrap = document.getElementById('dest-faqs');
+      if (d.faqs && d.faqs.length) {
+        faqsWrap.innerHTML = d.faqs.map(f => `
+          <details style="border-bottom:1px solid #edf8fc;padding:12px 0;cursor:pointer;">
+            <summary style="font-weight:600;color:var(--ink);">${f.q}</summary>
+            <p style="margin:8px 0 0;font-size:14px;color:#496b7e;line-height:1.5;">${f.a}</p>
+          </details>
+        `).join('');
+      } else {
+        faqsWrap.innerHTML = `<p style="font-size:13px;color:#666;">No specific advisories for this region.</p>`;
+      }
+
+      // Custom Plan Button Hook
+      document.getElementById('btn-custom-lead').onclick = () => {
+        Yatrimap.openLeadModal(d.name);
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', loadDestinations);
+  </script>
+</body>
+</html>

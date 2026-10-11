@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Serviced Apartments & Holiday Homes | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hotels.css">
+  <link rel="stylesheet" href="platform.css">
+</head>
+<body>
+  <header class="listing-header">
+    <a href="index.html" class="brand"><span>y</span>yatrimap</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="hotels.html" style="font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;">Hotels</a>
+      <a href="destination.html" style="font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;">Destinations</a>
+      <a href="my-trips.html" style="font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;">My Trips</a>
+      <a href="index.html" class="back-link">← Back to explore</a>
+    </div>
+  </header>
+
+  <section class="search-header">
+    <button class="stay-search-part"><b>Where</b><span>Search destinations</span></button>
+    <button class="stay-search-part"><b>When</b><span>Add dates</span></button>
+    <button class="stay-search-part"><b>Who</b><span>Add guests</span></button>
+    <button class="stay-search-button" aria-label="Search apartments">⌕</button>
+  </section>
+
+  <main class="listing-shell">
+    <p class="eyebrow">HOMES & SERVICED SUITES</p>
+    <h1>Find your perfect <em>apartment</em></h1>
+    <p class="listing-intro">Browse serviced 1BHK & 2BHK apartments, holiday suites, and scenic mountain studios across Rishikesh, Dehradun, and Mussoorie.</p>
+
+    <div class="listing-toolbar">
+      <strong id="result-summary">Loading apartments...</strong>
+      <div style="display:flex;gap:10px;">
+        <select id="hotel-sort" style="border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:13px;outline:none;">
+          <option value="featured">Featured Suites</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="rating">Top Guest Rating</option>
+        </select>
+        <button id="open-filters">Filter apartments</button>
+      </div>
+    </div>
+
+    <section class="hotel-grid" id="hotel-grid" aria-live="polite"></section>
+    <nav class="pagination" id="pagination" aria-label="Apartment listing pages"></nav>
+  </main>
+
+  <dialog id="listing-filter">
+    <button class="close-filter" aria-label="Close">×</button>
+    <h2>Filter apartments</h2>
+    <div style="margin:14px 0;">
+      <label style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;">
+        <input type="checkbox" id="f-couple"> Couple friendly
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;">
+        <input type="checkbox" id="f-breakfast"> Breakfast included
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;">
+        <input type="checkbox" id="f-cancel"> Free cancellation
+      </label>
+    </div>
+    <button id="apply-listing-filter" class="btn-primary" style="width:100%;">Apply filters</button>
+  </dialog>
+
+  <!-- Apartment Quick Detail Modal -->
+  <div class="custom-modal-backdrop" id="hotel-detail-modal">
+    <div class="custom-modal-window" style="max-width:700px;">
+      <button class="modal-close-x" id="close-hotel-modal">×</button>
+      <div style="position:relative;">
+        <img id="m-hotel-img" src="" alt="Apartment Image" style="width:100%;height:240px;object-fit:cover;border-radius:14px 14px 0 0;">
+        <span class="status-pill status-active" id="m-hotel-type" style="position:absolute;top:16px;left:16px;">Apartment</span>
+      </div>
+      <div class="modal-body-pad">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <h2 id="m-hotel-name" style="font:600 24px 'Playfair Display', serif;margin:0;color:var(--ink);">Ganga Valley Serviced Apartments</h2>
+          <div style="font-weight:700;color:var(--forest);font-size:20px;" id="m-hotel-price">₹2,999 <small style="font-size:12px;color:var(--muted);font-weight:500;">/ night</small></div>
+        </div>
+        <p id="m-hotel-loc" style="font-size:13px;color:var(--muted);margin:4px 0 14px;">📍 Rishikesh, Uttarakhand</p>
+        <p id="m-hotel-desc" style="font-size:14px;color:#335061;line-height:1.6;margin-bottom:16px;"></p>
+
+        <h4 style="font:600 14px 'DM Sans';text-transform:uppercase;color:var(--ink);letter-spacing:0.5px;margin:0 0 8px;">Apartment Amenities</h4>
+        <div id="m-hotel-amenities" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;"></div>
+
+        <div style="border-top:1px solid #edf8fc;padding-top:16px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <small style="color:var(--muted);display:block;">Taxes calculated at checkout</small>
+            <span style="font-size:13px;color:#10b981;font-weight:600;">✓ Kitchenette • Fast WiFi Included</span>
+          </div>
+          <button class="btn-primary" id="btn-modal-book-now" style="padding:12px 24px;font-size:14px;">
+            Book This Apartment Now →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="platform.js"></script>
+  <script>
+    // Set type filter to apartment
+    activeLocation = 'Apartment';
+  </script>
+  <script src="hotels.js"></script>
+</body>
+</html>

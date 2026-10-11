@@ -1,0 +1,4857 @@
+function generate() {
+  return {
+  "users": [
+    {
+      "id": "usr-1",
+      "name": "Vikram Mehta",
+      "email": "vikram@yatrimap.com",
+      "role": "Super Admin",
+      "phone": "+91 98200 11223",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "usr-2",
+      "name": "Priya Patel",
+      "email": "priya@yatrimap.com",
+      "role": "Travel Agent",
+      "phone": "+91 98330 44556",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-01-15T11:30:00Z"
+    },
+    {
+      "id": "usr-3",
+      "name": "Rahul Verma",
+      "email": "rahul@yatrimap.com",
+      "role": "Sales Manager",
+      "phone": "+91 98110 77889",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-01-20T09:15:00Z"
+    },
+    {
+      "id": "usr-4",
+      "name": "Ananya Sen",
+      "email": "ananya@yatrimap.com",
+      "role": "Content Manager",
+      "phone": "+91 98440 22334",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-01T14:20:00Z"
+    },
+    {
+      "id": "usr-5",
+      "name": "Amitabh Joshi",
+      "email": "amit@yatrimap.com",
+      "role": "Finance Manager",
+      "phone": "+91 98550 66778",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-05T16:00:00Z"
+    },
+    {
+      "id": "usr-6",
+      "name": "Sameer Sharma",
+      "email": "sameer@example.com",
+      "role": "Customer",
+      "phone": "+91 98765 43210",
+      "city": "Delhi NCR",
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-10T12:00:00Z",
+      "emergencyContact": {
+        "name": "Kavita Sharma",
+        "phone": "+91 98765 11111",
+        "relation": "Spouse"
+      }
+    },
+    {
+      "id": "usr-7",
+      "name": "Aarav Patel",
+      "email": "aarav.patel@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810000000",
+      "city": "Mumbai",
+      "avatar": "https://images.unsplash.com/photo-1500000000000?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-8",
+      "name": "Diya Kapoor",
+      "email": "diya.kapoor@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810043215",
+      "city": "Delhi",
+      "avatar": "https://images.unsplash.com/photo-1500001234567?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-9",
+      "name": "Rohan Iyer",
+      "email": "rohan.iyer@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810086430",
+      "city": "Bangalore",
+      "avatar": "https://images.unsplash.com/photo-1500002469134?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-10",
+      "name": "Neha Gupta",
+      "email": "neha.gupta@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810129645",
+      "city": "Pune",
+      "avatar": "https://images.unsplash.com/photo-1500003703701?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-11",
+      "name": "Kabir Malhotra",
+      "email": "kabir.malhotra@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810172860",
+      "city": "Chandigarh",
+      "avatar": "https://images.unsplash.com/photo-1500004938268?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-12",
+      "name": "Ishaan Chawla",
+      "email": "ishaan.chawla@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810216075",
+      "city": "Ahmedabad",
+      "avatar": "https://images.unsplash.com/photo-1500006172835?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-13",
+      "name": "Tanvi Singhal",
+      "email": "tanvi.singhal@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810259290",
+      "city": "Jaipur",
+      "avatar": "https://images.unsplash.com/photo-1500007407402?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-14",
+      "name": "Arjun Saxena",
+      "email": "arjun.saxena@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810302505",
+      "city": "Hyderabad",
+      "avatar": "https://images.unsplash.com/photo-1500008641969?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-15",
+      "name": "Pooja Nair",
+      "email": "pooja.nair@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810345720",
+      "city": "Mumbai",
+      "avatar": "https://images.unsplash.com/photo-1500009876536?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-16",
+      "name": "Aditya Joshi",
+      "email": "aditya.joshi@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810388935",
+      "city": "Delhi",
+      "avatar": "https://images.unsplash.com/photo-1500011111103?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-17",
+      "name": "Simran Kaur",
+      "email": "simran.kaur@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810432150",
+      "city": "Bangalore",
+      "avatar": "https://images.unsplash.com/photo-1500012345670?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-18",
+      "name": "Varun Deshmukh",
+      "email": "varun.deshmukh@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810475365",
+      "city": "Pune",
+      "avatar": "https://images.unsplash.com/photo-1500013580237?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-19",
+      "name": "Riya Sen",
+      "email": "riya.sen@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810518580",
+      "city": "Chandigarh",
+      "avatar": "https://images.unsplash.com/photo-1500014814804?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-20",
+      "name": "Kunal Trivedi",
+      "email": "kunal.trivedi@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810561795",
+      "city": "Ahmedabad",
+      "avatar": "https://images.unsplash.com/photo-1500016049371?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-21",
+      "name": "Sneha Reddy",
+      "email": "sneha.reddy@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810605010",
+      "city": "Jaipur",
+      "avatar": "https://images.unsplash.com/photo-1500017283938?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-22",
+      "name": "Gaurav Bhatia",
+      "email": "gaurav.bhatia@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810648225",
+      "city": "Hyderabad",
+      "avatar": "https://images.unsplash.com/photo-1500018518505?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-23",
+      "name": "Meera Rao",
+      "email": "meera.rao@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810691440",
+      "city": "Mumbai",
+      "avatar": "https://images.unsplash.com/photo-1500019753072?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-24",
+      "name": "Nikhil Aggarwal",
+      "email": "nikhil.aggarwal@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810734655",
+      "city": "Delhi",
+      "avatar": "https://images.unsplash.com/photo-1500020987639?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    },
+    {
+      "id": "usr-25",
+      "name": "Deepak Verma",
+      "email": "deepak.verma@gmail.com",
+      "role": "Customer",
+      "phone": "+91 9810777870",
+      "city": "Bangalore",
+      "avatar": "https://images.unsplash.com/photo-1500022222206?auto=format&fit=crop&w=200&q=80",
+      "status": "Active",
+      "createdAt": "2025-02-12T10:00:00Z"
+    }
+  ],
+  "destinations": [
+    {
+      "id": "dest-rishikesh",
+      "slug": "rishikesh",
+      "name": "Rishikesh",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "Yoga Capital of the World & Himalayan Adventure Hub",
+      "startingPrice": 1199,
+      "heroImage": "https://images.unsplash.com/photo-1532978379173-523e16f371f2?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Nestled in the foothills of the Garhwal Himalayas along the sacred Ganges River, Rishikesh blends world-class white water rafting, bungee jumping, and serene yoga ashrams.",
+      "overview": "Rishikesh is revered as the Yoga Capital of the World. From the vibrant evening Ganga Aarti at Triveni Ghat to adrenaline-pumping Class IV rafting on the emerald Ganges, it offers the ultimate balance of spirituality and thrill.",
+      "bestTime": "September to May",
+      "weather": {
+        "temp": "22°C",
+        "condition": "Sunny & Pleasant",
+        "season": "Autumn / Spring"
+      },
+      "topAttractions": [
+        "Ram Jhula & Laxman Jhula",
+        "Triveni Ghat Evening Aarti",
+        "Beatles Ashram (Chaurasi Kutia)",
+        "Neer Garh Waterfall",
+        "Shivpuri Rafting Point"
+      ],
+      "thingsToDo": [
+        "White Water Rafting (16–36 KM)",
+        "83m Bungee Jumping at Jumpin Heights",
+        "Yoga & Meditation Retreats",
+        "Riverside Camping & Bonfires",
+        "Cafe Hopping in Tapovan"
+      ],
+      "faqs": [
+        {
+          "q": "Is Rishikesh safe for solo female travellers?",
+          "a": "Yes, Rishikesh is one of the safest travel destinations in India with a hospitable spiritual community."
+        },
+        {
+          "q": "When is river rafting closed?",
+          "a": "Rafting is typically closed during the monsoon season (July to mid-September) for safety."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-haridwar",
+      "slug": "haridwar",
+      "name": "Haridwar",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "Gateway to the Gods & Epicentre of Ganga Devotion",
+      "startingPrice": 1499,
+      "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1596395819057-e37f55a8518c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "One of India’s seven holiest cities where the River Ganges enters the Indo-Gangetic plains. Witness thousands of floating oil lamps during the legendary evening Aarti.",
+      "overview": "Haridwar is the sacred entry point for the Char Dham Yatra. Pilgrims flock to Har Ki Pauri to bathe in the holy river, visit Mansa Devi hilltop temple via cable car, and taste iconic street delicacies.",
+      "bestTime": "October to April",
+      "weather": {
+        "temp": "24°C",
+        "condition": "Pleasant & Clear",
+        "season": "Winter"
+      },
+      "topAttractions": [
+        "Har Ki Pauri",
+        "Mansa Devi Temple (Ropeway)",
+        "Chandi Devi Temple",
+        "Shanti Kunj Ashram",
+        "Bara Bazaar"
+      ],
+      "thingsToDo": [
+        "Har Ki Pauri Maha Aarti",
+        "Ropeway ride to hilltop temples",
+        "Ayurvedic wellness treatments",
+        "Spiritual immersion & Yatra departure"
+      ],
+      "faqs": [
+        {
+          "q": "What is the best time to see the Ganga Aarti?",
+          "a": "Arrive at Har Ki Pauri around 5:30 PM in winter or 6:30 PM in summer to secure a good viewing spot."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-mussoorie",
+      "slug": "mussoorie",
+      "name": "Mussoorie",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "The Queen of the Hills with British Colonial Charm",
+      "startingPrice": 2599,
+      "heroImage": "https://images.unsplash.com/photo-1518022525094-218670c9b745?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Perched on a 2,000m ridge facing the snow-clad Garhwal Himalayan peaks, Mussoorie offers misty walking trails, colonial bakeries, and waterfall cascades.",
+      "overview": "Mussoorie is famed for its romantic mountain promenade (The Mall Road), vintage English architecture, Kempty Falls, and the majestic Gun Hill sunset viewpoint.",
+      "bestTime": "March to June & September to November",
+      "weather": {
+        "temp": "16°C",
+        "condition": "Cool Mountain Breeze",
+        "season": "Spring / Summer"
+      },
+      "topAttractions": [
+        "Mall Road & Library Point",
+        "Kempty Falls",
+        "Camel’s Back Road",
+        "George Everest Peak",
+        "Lal Tibba Scenic Point"
+      ],
+      "thingsToDo": [
+        "Stroll along Camel’s Back Road at sunset",
+        "Trek to George Everest Peak",
+        "Cable car ride to Gun Hill",
+        "Vintage bakery tasting"
+      ],
+      "faqs": [
+        {
+          "q": "Is there snow in Mussoorie?",
+          "a": "Snowfall typically occurs between late December and early February."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-dehradun",
+      "slug": "dehradun",
+      "name": "Dehradun",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "Scenic Doon Valley Capital, Forest Academies & Cafes",
+      "startingPrice": 2199,
+      "heroImage": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "The green capital city nestled between the Ganga and Yamuna rivers. Renowned for colonial educational institutions, Robber’s Cave, and vibrant cafes on Rajpur Road.",
+      "overview": "Dehradun blends cosmopolitan Himalayan lifestyle with deep history. It serves as the primary transport gateway to Mussoorie, Chakrata, and Rishikesh.",
+      "bestTime": "All year round (March to June & October to February best)",
+      "weather": {
+        "temp": "20°C",
+        "condition": "Clear",
+        "season": "Autumn"
+      },
+      "topAttractions": [
+        "Robber’s Cave (Guchhupani)",
+        "Forest Research Institute (FRI)",
+        "Sahastradhara Sulphur Springs",
+        "Mindrolling Monastery",
+        "Rajpur Road"
+      ],
+      "thingsToDo": [
+        "Walk inside the river caves of Guchhupani",
+        "Explore grand Greco-Roman architecture at FRI",
+        "Cafe hopping along Old Rajpur Road"
+      ],
+      "faqs": [
+        {
+          "q": "Which is the nearest airport to Rishikesh and Mussoorie?",
+          "a": "Jolly Grant Airport (DED) in Dehradun is the closest airport."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-nainital",
+      "slug": "nainital",
+      "name": "Nainital",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "The Shimmering Lake District of Kumaon",
+      "startingPrice": 2799,
+      "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Set around an emerald eye-shaped lake, Nainital charms visitors with wooden sailboats, British heritage cottages, and breathtaking viewpoints of Nanda Devi.",
+      "overview": "Located at 1,938 meters, Nainital is the crown jewel of Kumaon. Take a wooden yacht ride on Naini Lake, browse Tibetan market stalls, and ride the ropeway to Snow View Point.",
+      "bestTime": "March to June & September to November",
+      "weather": {
+        "temp": "15°C",
+        "condition": "Breezy & Misty",
+        "season": "Spring"
+      },
+      "topAttractions": [
+        "Naini Lake Boating",
+        "Naina Devi Temple",
+        "Snow View Point Ropeway",
+        "Tiffin Top (Dorothy’s Seat)",
+        "Eco Cave Gardens"
+      ],
+      "thingsToDo": [
+        "Yacht and paddle boating on the lake",
+        "Horse riding to Tiffin Top",
+        "Explore candle factories and Tibetan markets"
+      ],
+      "faqs": [
+        {
+          "q": "How far is Nainital from Delhi?",
+          "a": "Approximately 300 km, taking 6–7 hours by road or express train to Kathgodam."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-kedarnath",
+      "slug": "kedarnath",
+      "name": "Kedarnath",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "Lord Shiva’s Highest Jyotirlinga Amidst Glacial Peaks",
+      "startingPrice": 4999,
+      "heroImage": "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Perched at 3,584m above sea level near the Mandakini River, the 8th-century stone shrine of Kedarnath is one of Hinduism’s most revered pilgrimage destinations.",
+      "overview": "Kedarnath stands against the dramatic backdrop of the 6,940m Kedarnath Peak. Pilgrims undertake a 16 km trek from Gaurikund or book VIP helicopter shuttles from Phata and Guptkashi.",
+      "bestTime": "May to June & September to October (temple open 6 months)",
+      "weather": {
+        "temp": "6°C",
+        "condition": "Cold & Crisp",
+        "season": "Yatra Season"
+      },
+      "topAttractions": [
+        "Kedarnath Temple",
+        "Bhairavnath Temple",
+        "Gandhi Sarovar",
+        "Vasuki Tal",
+        "Gaurikund Hot Springs"
+      ],
+      "thingsToDo": [
+        "Sacred morning Aarti darshan",
+        "Trek from Gaurikund with alpine valley views",
+        "Helicopter shuttle experience",
+        "Meditation near Bhairavnath"
+      ],
+      "faqs": [
+        {
+          "q": "Is biometric registration mandatory for Kedarnath?",
+          "a": "Yes, all pilgrims must register on the official Uttarakhand Char Dham portal."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-badrinath",
+      "slug": "badrinath",
+      "name": "Badrinath",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "The Abode of Lord Badri Narayan & India’s Last Village Mana",
+      "startingPrice": 3999,
+      "heroImage": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1596395819057-e37f55a8518c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Cradled between the Nar and Narayana mountain ranges, Badrinath is the principal Dham dedicated to Lord Vishnu along the holy banks of the Alaknanda River.",
+      "overview": "Badrinath features the brightly colored facade of the ancient temple, the natural thermal waters of Tapt Kund, and Mana—the last Indian village bordering Tibet.",
+      "bestTime": "May to June & September to October",
+      "weather": {
+        "temp": "9°C",
+        "condition": "Sunny Alpine Air",
+        "season": "Yatra Season"
+      },
+      "topAttractions": [
+        "Badrinath Temple",
+        "Tapt Kund Sulphur Springs",
+        "Mana Village",
+        "Bhim Pul & Saraswati River Origin",
+        "Vasudhara Falls"
+      ],
+      "thingsToDo": [
+        "Holy dip in Tapt Kund",
+        "Visit Vyas Gufa where Mahabharata was written",
+        "Hike to Vasudhara Falls",
+        "Experience tea at India’s First Tea Shop in Mana"
+      ],
+      "faqs": [
+        {
+          "q": "Can Badrinath be reached directly by vehicle?",
+          "a": "Yes, motorable roads go all the way to Badrinath town."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-auli",
+      "slug": "auli",
+      "name": "Auli",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "India’s Skiing Capital & Himalayan Meadow Paradise",
+      "startingPrice": 4299,
+      "heroImage": "https://images.unsplash.com/photo-1518022525094-218670c9b745?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Surrounded by coniferous oak forests and panoramic 360-degree views of Nanda Devi and Kamet, Auli is Asia’s highest ski resort with groomed slopes.",
+      "overview": "Auli Bugyal lies at 2,800m. In winter it is draped in powder snow ideal for skiing and snowboarding, while in summer it transforms into lush green alpine meadows.",
+      "bestTime": "December to March (for skiing) & April to June (for meadows)",
+      "weather": {
+        "temp": "4°C",
+        "condition": "Snow & Clear",
+        "season": "Winter"
+      },
+      "topAttractions": [
+        "Joshimath–Auli Ropeway (Longest in Asia)",
+        "Auli Artificial Lake",
+        "Gorson Bugyal Trek",
+        "Nanda Devi Viewpoint",
+        "Chair Lift"
+      ],
+      "thingsToDo": [
+        "Skiing & Snowboarding with certified instructors",
+        "Ride the scenic 4km cable car from Joshimath",
+        "Trek through pine woods to Gorson Bugyal"
+      ],
+      "faqs": [
+        {
+          "q": "Do beginners get ski equipment in Auli?",
+          "a": "Yes, certified rental shops and instructors provide full gear and lessons."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-jim-corbett",
+      "slug": "jim-corbett",
+      "name": "Jim Corbett National Park",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "India’s Legendary Tiger Territory & Dense Sal Wilderness",
+      "startingPrice": 3499,
+      "heroImage": "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "India’s oldest national park, established in 1936, protecting the majestic Royal Bengal Tiger, wild Asian elephants, leopards, and over 600 bird species.",
+      "overview": "Corbett spans 520 sq km across the Shivalik foothills. Explore the Dhikala, Bijrani, and Jhirna safari zones in open 4x4 gypsies.",
+      "bestTime": "November to June (Dhikala zone opens November 15)",
+      "weather": {
+        "temp": "23°C",
+        "condition": "Pleasant Forest Climate",
+        "season": "Winter"
+      },
+      "topAttractions": [
+        "Dhikala Grasslands",
+        "Bijrani Safari Zone",
+        "Corbett Waterfalls",
+        "Garjia Devi Temple",
+        "Kosi River Banks"
+      ],
+      "thingsToDo": [
+        "Morning and evening 4x4 Jeep Safaris",
+        "Elephant spotting by the Ramganga river",
+        "Luxury riverside resort stay with live Kumaoni folk music"
+      ],
+      "faqs": [
+        {
+          "q": "How early should Corbett safari permits be booked?",
+          "a": "At least 30 to 45 days in advance as forest department permits are strictly limited."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    },
+    {
+      "id": "dest-dhanaulti",
+      "slug": "dhanaulti",
+      "name": "Dhanaulti",
+      "state": "Uttarakhand",
+      "country": "India",
+      "tagline": "Quiet Pine Glades, Eco Parks & Himalayan Solitude",
+      "startingPrice": 2299,
+      "heroImage": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=85",
+      "gallery": [
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+      ],
+      "description": "Located at 2,286m just 25km beyond Mussoorie, Dhanaulti offers tranquil deodar woods, crisp mountain air, and quiet cottages far from city crowds.",
+      "overview": "A peaceful haven known for Eco Parks Amber and Dhara, Surkanda Devi hilltop temple with 360-degree Himalayan views, and apple orchards.",
+      "bestTime": "September to June (Winter for snow)",
+      "weather": {
+        "temp": "14°C",
+        "condition": "Crisp & Sunny",
+        "season": "Spring"
+      },
+      "topAttractions": [
+        "Dhanaulti Eco Parks",
+        "Surkanda Devi Temple (Ropeway/Trek)",
+        "Kanatal Potato Farms",
+        "Deodar Pine Forest Trails"
+      ],
+      "thingsToDo": [
+        "Campfire under starlit Himalayan skies",
+        "Zipline and valley crossing",
+        "Apple orchard walks"
+      ],
+      "faqs": [
+        {
+          "q": "Is Dhanaulti less crowded than Mussoorie?",
+          "a": "Yes, Dhanaulti offers a much calmer, nature-first sanctuary."
+        }
+      ],
+      "isPopular": true,
+      "status": "published"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "htl-1",
+      "name": "Ganga Kinare Retreat",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Hotel",
+      "pricePerNight": 3499,
+      "originalPrice": 4500,
+      "rating": 4.8,
+      "reviewsCount": 342,
+      "heroImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "description": "Idyllic riverside hotel with private Ganga ghat, daily yoga sessions, complimentary organic breakfast, and terrace views of the sacred river.",
+      "roomTypes": [
+        {
+          "name": "Deluxe Riverside Room",
+          "bed": "King",
+          "price": 3499,
+          "capacity": 2
+        },
+        {
+          "name": "Executive Balcony Suite",
+          "bed": "King",
+          "price": 4799,
+          "capacity": 3
+        },
+        {
+          "name": "Presidential River Panorama",
+          "bed": "Master King",
+          "price": 7499,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Free WiFi",
+        "Breakfast Included",
+        "Private Ghat",
+        "Spa & Ayurveda",
+        "Yoga Sessions",
+        "River View",
+        "AC",
+        "Room Service"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-2",
+      "name": "Aloha on the Ganges",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Resort / Camp",
+      "pricePerNight": 4299,
+      "originalPrice": 5800,
+      "rating": 4.9,
+      "reviewsCount": 520,
+      "heroImage": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "description": "Luxury resort nestled on the banks of the Ganga in Tapovan. Features an infinity pool, world-class spa, and fine dining restaurants.",
+      "roomTypes": [
+        {
+          "name": "Standard Garden View",
+          "bed": "Queen",
+          "price": 4299,
+          "capacity": 2
+        },
+        {
+          "name": "Superior Ganges Facing",
+          "bed": "King",
+          "price": 5899,
+          "capacity": 2
+        },
+        {
+          "name": "Two-Bedroom Luxury Apartment",
+          "bed": "2 Kings",
+          "price": 9999,
+          "capacity": 5
+        }
+      ],
+      "amenities": [
+        "Infinity Pool",
+        "Spa & Wellness",
+        "Free Breakfast",
+        "Riverfront Dining",
+        "Free Parking",
+        "Fitness Center"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": false,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-3",
+      "name": "Yog Niketan by the River",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Hotel",
+      "pricePerNight": 2899,
+      "originalPrice": 3800,
+      "rating": 4.7,
+      "reviewsCount": 198,
+      "heroImage": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80",
+      "description": "Peaceful yoga retreat directly overlooking Ram Jhula and the sacred waters, offering meditation workshops and sattvic dining.",
+      "roomTypes": [
+        {
+          "name": "Cosy River View Room",
+          "bed": "Queen",
+          "price": 2899,
+          "capacity": 2
+        },
+        {
+          "name": "Spiritual Heritage Suite",
+          "bed": "King",
+          "price": 3899,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Ganga Facing",
+        "Sattvic Food",
+        "Yoga Hall",
+        "Free WiFi",
+        "Lush Gardens"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-4",
+      "name": "The Neeraj Ganga Cottages",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Resort / Camp",
+      "pricePerNight": 2499,
+      "originalPrice": 3200,
+      "rating": 4.6,
+      "reviewsCount": 165,
+      "heroImage": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80",
+      "description": "Charming wood and stone cottages with private sit-outs nestled in greenery near the foothills.",
+      "roomTypes": [
+        {
+          "name": "Wooden Cottage",
+          "bed": "King",
+          "price": 2499,
+          "capacity": 2
+        },
+        {
+          "name": "Family Duplex Cottage",
+          "bed": "2 Queens",
+          "price": 4499,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Lawn & Bonfire",
+        "Mountain View",
+        "Restaurant",
+        "Free WiFi",
+        "Pet Friendly"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-5",
+      "name": "Divine Resort & Spa",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Hotel",
+      "pricePerNight": 5499,
+      "originalPrice": 7200,
+      "rating": 4.9,
+      "reviewsCount": 480,
+      "heroImage": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+      "description": "Iconic cliffside resort offering unmatched panoramic vistas of Laxman Jhula, the river bend, and the Himalayan sunset.",
+      "roomTypes": [
+        {
+          "name": "Executive River View",
+          "bed": "King",
+          "price": 5499,
+          "capacity": 2
+        },
+        {
+          "name": "Royal Suite with Jacuzzi",
+          "bed": "King",
+          "price": 8999,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "Cliffside View",
+        "Ayurvedic Spa",
+        "Infinity Pool",
+        "Sunset Rooftop Cafe",
+        "Buffet Breakfast"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": false,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-6",
+      "name": "The Roseate Ganges",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Villa",
+      "pricePerNight": 9999,
+      "originalPrice": 14000,
+      "rating": 5,
+      "reviewsCount": 110,
+      "heroImage": "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=800&q=80",
+      "description": "Ultra-luxurious private sanctuary in Shivpuri with handcrafted stone villas, temperature controlled pool, and organic gourmet cuisine.",
+      "roomTypes": [
+        {
+          "name": "Luxury Stone Villa",
+          "bed": "King",
+          "price": 9999,
+          "capacity": 2
+        },
+        {
+          "name": "Private Pool Ganga Villa",
+          "bed": "King",
+          "price": 16999,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Private Butler",
+        "Fine Dining",
+        "Heated Pool",
+        "Helipad Access",
+        "Organic Farm-to-Table"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": false,
+      "freeCancellation": false,
+      "status": "published"
+    },
+    {
+      "id": "htl-7",
+      "name": "Antalya Rishikesh",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Hotel",
+      "pricePerNight": 3199,
+      "originalPrice": 4200,
+      "rating": 4.6,
+      "reviewsCount": 140,
+      "heroImage": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&fit=crop&w=800&q=80",
+      "description": "Boutique hotel in Tapovan featuring bohemian chic aesthetics, co-working lounge, and rooftop coffee shop.",
+      "roomTypes": [
+        {
+          "name": "Deluxe King",
+          "bed": "King",
+          "price": 3199,
+          "capacity": 2
+        },
+        {
+          "name": "Studio with Kitchenette",
+          "bed": "Queen",
+          "price": 4199,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "High Speed WiFi",
+        "Cafe",
+        "Work Desk",
+        "AC",
+        "Luggage Storage"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-8",
+      "name": "Hotel Ganga View",
+      "location": "Haridwar",
+      "destinationSlug": "haridwar",
+      "type": "Hotel",
+      "pricePerNight": 1799,
+      "originalPrice": 2400,
+      "rating": 4.5,
+      "reviewsCount": 220,
+      "heroImage": "https://images.unsplash.com/photo-1596395819057-e37f55a8518c?auto=format&fit=crop&w=800&q=80",
+      "description": "Convenient and comfortable hotel located just 5 minutes walk from Har Ki Pauri with traditional North Indian dining.",
+      "roomTypes": [
+        {
+          "name": "Standard Double",
+          "bed": "Double",
+          "price": 1799,
+          "capacity": 2
+        },
+        {
+          "name": "Family 4-Bed Room",
+          "bed": "2 Doubles",
+          "price": 2999,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Har Ki Pauri Walk",
+        "Pure Veg Restaurant",
+        "AC",
+        "24/7 Front Desk",
+        "Elevator"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-9",
+      "name": "Himalayan Hideaway",
+      "location": "Mussoorie",
+      "destinationSlug": "mussoorie",
+      "type": "Hotel",
+      "pricePerNight": 3799,
+      "originalPrice": 4900,
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "heroImage": "https://images.unsplash.com/photo-1518022525094-218670c9b745?auto=format&fit=crop&w=800&q=80",
+      "description": "Victorian-inspired hillside boutique hotel offering private balconies with unhindered views of the Doon valley lights.",
+      "roomTypes": [
+        {
+          "name": "Valley View Deluxe",
+          "bed": "King",
+          "price": 3799,
+          "capacity": 2
+        },
+        {
+          "name": "Himalayan Suite with Fireplace",
+          "bed": "King",
+          "price": 5499,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Valley Balcony",
+        "Fireplace",
+        "Heater",
+        "Game Room",
+        "Multi-cuisine Dining"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-10",
+      "name": "Riverside Camp Haven",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Resort / Camp",
+      "pricePerNight": 1899,
+      "originalPrice": 2500,
+      "rating": 4.6,
+      "reviewsCount": 275,
+      "heroImage": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=800&q=80",
+      "description": "Swiss alpine luxury tents with attached washrooms, swimming pool, volleyball court, and evening DJ & bonfire by the stream.",
+      "roomTypes": [
+        {
+          "name": "Luxury Swiss Tent",
+          "bed": "Double",
+          "price": 1899,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "All Meals Included",
+        "Bonfire & Music",
+        "Pool",
+        "Rafting Assistance",
+        "Riverside Trail"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-11",
+      "name": "Tapovan Heights",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Hotel",
+      "pricePerNight": 2699,
+      "originalPrice": 3500,
+      "rating": 4.7,
+      "reviewsCount": 180,
+      "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
+      "description": "Modern hotel located in the heart of Tapovan close to the best vegan organic cafes, yoga schools, and scooter rental hubs.",
+      "roomTypes": [
+        {
+          "name": "Superior Room",
+          "bed": "Queen",
+          "price": 2699,
+          "capacity": 2
+        },
+        {
+          "name": "Deluxe Balcony",
+          "bed": "King",
+          "price": 3499,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "High Speed WiFi",
+        "Rooftop Yoga",
+        "AC",
+        "Elevator",
+        "Cafe"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-12",
+      "name": "Sattva Retreat",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Resort / Camp",
+      "pricePerNight": 4899,
+      "originalPrice": 6500,
+      "rating": 4.9,
+      "reviewsCount": 160,
+      "heroImage": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=80",
+      "description": "Holistic wellness destination with meditation domes, sound healing sanctuary, organic orchards, and Ayurvedic therapies.",
+      "roomTypes": [
+        {
+          "name": "Sanctuary Room",
+          "bed": "King",
+          "price": 4899,
+          "capacity": 2
+        },
+        {
+          "name": "Kailash Villa",
+          "bed": "King",
+          "price": 7899,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Ayurveda Doctor",
+        "Yoga Shala",
+        "Steam & Sauna",
+        "Organic Meals",
+        "Quiet Zone"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": false,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-13",
+      "name": "Hilltop Residency",
+      "location": "Mussoorie",
+      "destinationSlug": "mussoorie",
+      "type": "Hotel",
+      "pricePerNight": 2599,
+      "originalPrice": 3500,
+      "rating": 4.5,
+      "reviewsCount": 130,
+      "heroImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
+      "description": "Comfortable family hotel situated near Kulri Bazaar with panoramic snow peak vistas and warm hospitality.",
+      "roomTypes": [
+        {
+          "name": "Deluxe Room",
+          "bed": "Queen",
+          "price": 2599,
+          "capacity": 2
+        },
+        {
+          "name": "Family Room",
+          "bed": "2 Kings",
+          "price": 4299,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Mountain View",
+        "Room Heater",
+        "Restaurant",
+        "Free WiFi",
+        "Travel Desk"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-14",
+      "name": "Haridwar Heritage Inn",
+      "location": "Haridwar",
+      "destinationSlug": "haridwar",
+      "type": "Hotel",
+      "pricePerNight": 2299,
+      "originalPrice": 3000,
+      "rating": 4.6,
+      "reviewsCount": 154,
+      "heroImage": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80",
+      "description": "Elegantly restored heritage haveli near Bhimgoda Barrage providing an authentic spiritual experience.",
+      "roomTypes": [
+        {
+          "name": "Heritage Deluxe",
+          "bed": "King",
+          "price": 2299,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "Pure Vegetarian",
+        "Prayer Room",
+        "Ghat Transfers",
+        "AC",
+        "WiFi"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-15",
+      "name": "Blue Pine Resort",
+      "location": "Dhanaulti",
+      "destinationSlug": "dhanaulti",
+      "type": "Resort / Camp",
+      "pricePerNight": 3299,
+      "originalPrice": 4500,
+      "rating": 4.8,
+      "reviewsCount": 190,
+      "heroImage": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+      "description": "Cosy pine-wood resort enveloped by dense deodar trees with bonfires, outdoor barbecue, and star-gazing deck.",
+      "roomTypes": [
+        {
+          "name": "Pine View Cottage",
+          "bed": "King",
+          "price": 3299,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "Bonfire",
+        "Barbecue",
+        "Himalayan View",
+        "Heater",
+        "Play Area"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-16",
+      "name": "Snowline Boutique",
+      "location": "Auli",
+      "destinationSlug": "auli",
+      "type": "Hotel",
+      "pricePerNight": 4999,
+      "originalPrice": 6500,
+      "rating": 4.9,
+      "reviewsCount": 225,
+      "heroImage": "https://images.unsplash.com/photo-1518022525094-218670c9b745?auto=format&fit=crop&w=800&q=80",
+      "description": "Ski-in ski-out boutique lodge near the Auli chairlift with glass heated rooms facing Nanda Devi.",
+      "roomTypes": [
+        {
+          "name": "Glacier View Room",
+          "bed": "King",
+          "price": 4999,
+          "capacity": 2
+        },
+        {
+          "name": "Himalayan Luxury Attic",
+          "bed": "King",
+          "price": 7499,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Ski Equipment Rental",
+        "Central Heating",
+        "Restaurant",
+        "Hot Water 24/7",
+        "Snow Guides"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": false,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-17",
+      "name": "Riverstone Resort",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Resort / Camp",
+      "pricePerNight": 5699,
+      "originalPrice": 7500,
+      "rating": 4.8,
+      "reviewsCount": 290,
+      "heroImage": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "description": "Riverside nature resort nestled along the tributary stream with private suspension bridge, lawns, and bird watching.",
+      "roomTypes": [
+        {
+          "name": "Stone Luxury Cottage",
+          "bed": "King",
+          "price": 5699,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "Swimming Pool",
+        "Kayaking",
+        "Free Breakfast",
+        "Nature Walks",
+        "Banquet"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-18",
+      "name": "Corbett Wild Iris Spa Resort",
+      "location": "Jim Corbett",
+      "destinationSlug": "jim-corbett",
+      "type": "Resort / Camp",
+      "pricePerNight": 4499,
+      "originalPrice": 6000,
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "heroImage": "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800&q=80",
+      "description": "Wilderness jungle resort in Ramnagar offering thatch-roof luxury cottages, tiger safari booking desk, and swimming pool.",
+      "roomTypes": [
+        {
+          "name": "Jungle Thatch Cottage",
+          "bed": "King",
+          "price": 4499,
+          "capacity": 2
+        },
+        {
+          "name": "Tiger Den Suite",
+          "bed": "King",
+          "price": 6799,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Safari Booking Desk",
+        "Swimming Pool",
+        "Spa",
+        "Live Folk Dance",
+        "Kids Zone"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-19",
+      "name": "Ganga Valley Serviced Apartments",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Apartment",
+      "pricePerNight": 2999,
+      "originalPrice": 4000,
+      "rating": 4.7,
+      "reviewsCount": 145,
+      "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
+      "description": "Fully furnished 1BHK and 2BHK serviced apartments with modular kitchen, high-speed optic fiber WiFi, and river-view balcony.",
+      "roomTypes": [
+        {
+          "name": "1BHK Riverfront Suite",
+          "bed": "King + Sofa",
+          "price": 2999,
+          "capacity": 3
+        },
+        {
+          "name": "2BHK Family Penthouse",
+          "bed": "2 Kings",
+          "price": 4999,
+          "capacity": 6
+        }
+      ],
+      "amenities": [
+        "Full Kitchen",
+        "Washing Machine",
+        "High Speed WiFi",
+        "Balcony",
+        "Self Check-in"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-20",
+      "name": "Tapovan Luxury Studio Suites",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "type": "Apartment",
+      "pricePerNight": 3299,
+      "originalPrice": 4200,
+      "rating": 4.9,
+      "reviewsCount": 168,
+      "heroImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+      "description": "Designer Nordic-inspired studio apartments with kitchenette, smart TV, rainfall shower, and mountain-facing terrace.",
+      "roomTypes": [
+        {
+          "name": "Studio Deluxe",
+          "bed": "King",
+          "price": 3299,
+          "capacity": 2
+        }
+      ],
+      "amenities": [
+        "Kitchenette",
+        "Coffee Machine",
+        "Smart TV",
+        "Terrace Access",
+        "Work Desk"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-21",
+      "name": "Doon Valley Executive Apartments",
+      "location": "Dehradun",
+      "destinationSlug": "dehradun",
+      "type": "Apartment",
+      "pricePerNight": 2799,
+      "originalPrice": 3600,
+      "rating": 4.6,
+      "reviewsCount": 92,
+      "heroImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "description": "Spacious serviced apartments on Rajpur Road, perfect for digital nomads and families visiting Mussoorie.",
+      "roomTypes": [
+        {
+          "name": "1BHK Executive",
+          "bed": "Queen",
+          "price": 2799,
+          "capacity": 2
+        },
+        {
+          "name": "2BHK Luxury",
+          "bed": "2 Queens",
+          "price": 4299,
+          "capacity": 4
+        }
+      ],
+      "amenities": [
+        "Kitchen",
+        "Secure Parking",
+        "Elevator",
+        "Gym",
+        "High Speed WiFi"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": false,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    },
+    {
+      "id": "htl-22",
+      "name": "Mussoorie Mall Road Holiday Suites",
+      "location": "Mussoorie",
+      "destinationSlug": "mussoorie",
+      "type": "Apartment",
+      "pricePerNight": 3899,
+      "originalPrice": 5200,
+      "rating": 4.8,
+      "reviewsCount": 135,
+      "heroImage": "https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=800&q=80",
+      "description": "Prime location holiday suites right off Mall Road with glass bay windows looking across the valley.",
+      "roomTypes": [
+        {
+          "name": "Valley Bay Suite",
+          "bed": "King",
+          "price": 3899,
+          "capacity": 3
+        }
+      ],
+      "amenities": [
+        "Mall Road Proximity",
+        "Heater",
+        "Kitchenette",
+        "Living Area",
+        "WiFi"
+      ],
+      "coupleFriendly": true,
+      "breakfastIncluded": true,
+      "payAtProperty": true,
+      "freeCancellation": true,
+      "status": "published"
+    }
+  ],
+  "packages": [
+    {
+      "id": "pkg-1",
+      "slug": "complete-char-dham-yatra",
+      "title": "Complete Char Dham Sacred Yatra",
+      "destination": "Char Dham (Yamunotri, Gangotri, Kedarnath, Badrinath)",
+      "destinationSlug": "kedarnath",
+      "category": "Pilgrimage",
+      "duration": "10 Days / 9 Nights",
+      "daysCount": 10,
+      "price": 34999,
+      "originalPrice": 42000,
+      "rating": 4.9,
+      "reviewsCount": 420,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "All 4 holy dhams covered: Yamunotri, Gangotri, Kedarnath & Badrinath",
+        "Deluxe hotel stays and warm sattvic meals throughout",
+        "Experienced mountain driver in dedicated AC coach/Tempo",
+        "Assisted VIP darshan tickets & biometric registration"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Haridwar/Rishikesh to Barkot (215 km / 7 hrs)",
+          "morning": "Departure via Mussoorie & Kempty Falls",
+          "afternoon": "Scenic mountain drive along Yamuna River",
+          "evening": "Check in at Barkot camp/hotel, dinner & rest"
+        },
+        {
+          "day": 2,
+          "title": "Barkot to Yamunotri Dham & back",
+          "morning": "Early morning drive to Janki Chatti, 6 km trek to Yamunotri",
+          "afternoon": "Holy dip in Surya Kund, darshan of Yamuna Mata",
+          "evening": "Return trek to Janki Chatti and drive back to Barkot"
+        },
+        {
+          "day": 3,
+          "title": "Barkot to Uttarkashi (100 km / 4 hrs)",
+          "morning": "Drive through Dharasu band to Uttarkashi",
+          "afternoon": "Visit ancient Kashi Vishwanath temple & Shakti Temple",
+          "evening": "Ganga Aarti on Bhagirathi river bank"
+        },
+        {
+          "day": 4,
+          "title": "Uttarkashi to Gangotri Dham & back (100 km each way)",
+          "morning": "Picturesque drive through Harsil Valley & apple orchards",
+          "afternoon": "Holy bath in Bhagirathi, Gangotri Temple Pooja",
+          "evening": "Return to Uttarkashi"
+        },
+        {
+          "day": 5,
+          "title": "Uttarkashi to Guptkashi (220 km / 8 hrs)",
+          "morning": "Long drive via Tehri Dam lake",
+          "afternoon": "Reach Guptkashi, visit ancient Vishwanath Temple",
+          "evening": "Briefing for Kedarnath Yatra"
+        },
+        {
+          "day": 6,
+          "title": "Guptkashi to Kedarnath Dham (Trek / Heli)",
+          "morning": "Transfer to Sonprayag/Gaurikund, begin 16km trek to Kedarnath",
+          "afternoon": "Ascend via Lincholi with breathtaking mountain vistas",
+          "evening": "Arrival at Kedarnath, witness evening Maha Aarti"
+        },
+        {
+          "day": 7,
+          "title": "Kedarnath Darshan & return to Guptkashi",
+          "morning": "Early morning Abhishek Pooja & temple darshan",
+          "afternoon": "Trek down to Gaurikund",
+          "evening": "Drive back to Guptkashi hotel"
+        },
+        {
+          "day": 8,
+          "title": "Guptkashi to Badrinath Dham (190 km / 7 hrs)",
+          "morning": "Drive via Chopta and Joshimath",
+          "afternoon": "Reach Badrinath via Alaknanda valley",
+          "evening": "Evening Aarti at Badrinath Temple"
+        },
+        {
+          "day": 9,
+          "title": "Badrinath Sightseeing to Rudraprayag",
+          "morning": "Dip in Tapt Kund, visit Mana Village, Vyas Gufa & Bhim Pul",
+          "afternoon": "Drive toward Rudraprayag via Vishnuprayag and Karnaprayag",
+          "evening": "Confluence view of Alaknanda & Mandakini"
+        },
+        {
+          "day": 10,
+          "title": "Rudraprayag to Haridwar/Rishikesh Drop",
+          "morning": "Drive via Devprayag (origin of Ganga)",
+          "afternoon": "Rishikesh drop & onward journey"
+        }
+      ],
+      "inclusions": [
+        "9 Nights hotel/camp accommodation on twin/triple sharing",
+        "Daily breakfast and dinner (pure vegetarian sattvic meals)",
+        "AC transport from Haridwar/Rishikesh to Haridwar/Rishikesh",
+        "Toll tax, parking, driver allowance and state permits",
+        "Char Dham biometric registration assistance"
+      ],
+      "exclusions": [
+        "Helicopter ticket / pony / doli / porter charges",
+        "Lunch, personal expenses and camera fees",
+        "Travel insurance"
+      ],
+      "cancellationPolicy": "Full refund up to 15 days before departure. 50% refund 7–14 days prior.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-2",
+      "slug": "do-dham-kedarnath-badrinath",
+      "title": "Do Dham Yatra: Kedarnath & Badrinath",
+      "destination": "Kedarnath & Badrinath",
+      "destinationSlug": "kedarnath",
+      "category": "Pilgrimage",
+      "duration": "6 Days / 5 Nights",
+      "daysCount": 6,
+      "price": 22499,
+      "originalPrice": 28000,
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Visit both highest Jyotirlinga and principal Vishnu Dham",
+        "Overnight stay at Kedarnath Top near temple",
+        "Mana Village & Bhim Pul exploration",
+        "Comfortable tempo traveller / private SUV"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Haridwar to Guptkashi (210 km / 7 hrs)",
+          "morning": "Start from Haridwar, breakfast at Devprayag confluence",
+          "afternoon": "Scenic drive along Mandakini river",
+          "evening": "Guptkashi hotel check-in"
+        },
+        {
+          "day": 2,
+          "title": "Guptkashi to Kedarnath",
+          "morning": "Early morning transfer to Gaurikund, start 16km trek",
+          "afternoon": "Reach Kedarnath summit",
+          "evening": "Evening Aarti darshan at Kedarnath temple"
+        },
+        {
+          "day": 3,
+          "title": "Kedarnath to Pipalkoti / Joshimath",
+          "morning": "Morning darshan, trek down to Sonprayag",
+          "afternoon": "Drive to Pipalkoti",
+          "evening": "Rest and dinner"
+        },
+        {
+          "day": 4,
+          "title": "Pipalkoti to Badrinath Dham",
+          "morning": "Drive to Badrinath via Joshimath",
+          "afternoon": "Tapt Kund bath and Badrinath darshan",
+          "evening": "Visit Mana village"
+        },
+        {
+          "day": 5,
+          "title": "Badrinath to Srinagar/Rudraprayag",
+          "morning": "Morning temple pooja",
+          "afternoon": "Scenic descent through Panch Prayags",
+          "evening": "Hotel stay"
+        },
+        {
+          "day": 6,
+          "title": "Rudraprayag to Rishikesh/Haridwar Drop",
+          "morning": "Drive via Devprayag",
+          "afternoon": "Drop at railway station or airport"
+        }
+      ],
+      "inclusions": [
+        "5 Nights accommodation",
+        "Breakfast & Dinner",
+        "Transport by dedicated vehicle",
+        "Driver allowance & tolls"
+      ],
+      "exclusions": [
+        "Helicopter tickets, pony/palki charges",
+        "Lunch and personal expenses"
+      ],
+      "cancellationPolicy": "Free cancellation up to 14 days prior.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-3",
+      "slug": "kedarnath-helicopter-vip-yatra",
+      "title": "Kedarnath Helicopter & VIP Darshan",
+      "destination": "Kedarnath",
+      "destinationSlug": "kedarnath",
+      "category": "Pilgrimage",
+      "duration": "3 Days / 2 Nights",
+      "daysCount": 3,
+      "price": 28999,
+      "originalPrice": 35000,
+      "rating": 5,
+      "reviewsCount": 180,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Guaranteed return helicopter shuttle from Phata/Sersi/Guptkashi",
+        "VIP priority entry line for Kedarnath temple darshan",
+        "Luxury mountain resort in Guptkashi with private transfers",
+        "Ideal for seniors, families and time-crunched pilgrims"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Dehradun/Haridwar to Guptkashi Resort",
+          "morning": "Private luxury SUV pickup",
+          "afternoon": "Scenic drive to luxury resort",
+          "evening": "Helicopter briefing and rest"
+        },
+        {
+          "day": 2,
+          "title": "Helicopter Flight to Kedarnath & VIP Darshan",
+          "morning": "Transfer to helipad, 8-minute scenic flight to Kedarnath",
+          "afternoon": "VIP Darshan at shrine and Bhairavnath walk",
+          "evening": "Return flight to helipad, transfer to resort"
+        },
+        {
+          "day": 3,
+          "title": "Guptkashi to Dehradun/Haridwar Drop",
+          "morning": "Leisurely breakfast",
+          "afternoon": "Drop at Dehradun Airport or railway station"
+        }
+      ],
+      "inclusions": [
+        "Roundtrip Helicopter ticket",
+        "2 Nights 4-Star Resort stay",
+        "All meals included",
+        "VIP Darshan pass",
+        "Private AC vehicle throughout"
+      ],
+      "exclusions": [
+        "Special ritual pujas, personal tips"
+      ],
+      "cancellationPolicy": "Weather-dependent helicopter policy with full ticket refund in case of bad weather cancellation.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-4",
+      "slug": "rishikesh-spiritual-adventure-odyssey",
+      "title": "Rishikesh Spiritual & Adventure Odyssey",
+      "destination": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "category": "Adventure",
+      "duration": "4 Days / 3 Nights",
+      "daysCount": 4,
+      "price": 11999,
+      "originalPrice": 15500,
+      "rating": 4.9,
+      "reviewsCount": 360,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "16 KM Marine Drive to Rishikesh White Water Rafting with Cliff Jump",
+        "Private sunrise yoga session on the river ghat",
+        "Beatles Ashram audio-guided tour & cafe hopping in Tapovan",
+        "Exclusive VIP seating at Triveni Ghat Maha Aarti"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Rishikesh & Ganga Aarti",
+          "morning": "Hotel check-in and welcome drink",
+          "afternoon": "Explore Ram Jhula & Beatles Ashram",
+          "evening": "Witness majestic Triveni Ghat Ganga Aarti"
+        },
+        {
+          "day": 2,
+          "title": "White Water Rafting & Cliff Jump",
+          "morning": "16 KM River Rafting through rapids like Three Blind Mice & Roller Coaster",
+          "afternoon": "Maggi by the river and Neer Garh waterfall trek",
+          "evening": "Riverside cafe hopping"
+        },
+        {
+          "day": 3,
+          "title": "Bungee Jump / Flying Fox & Yoga",
+          "morning": "Morning yoga session with Himalayan master",
+          "afternoon": "Visit Jumpin Heights for 83m Bungee or Giant Swing",
+          "evening": "Campfire and live acoustic music"
+        },
+        {
+          "day": 4,
+          "title": "Kunjapuri Sunrise & Departure",
+          "morning": "Early morning drive to Kunjapuri Temple for sunrise over snow peaks",
+          "afternoon": "Souvenir shopping and departure"
+        }
+      ],
+      "inclusions": [
+        "3 Nights riverside 4-star stay",
+        "Daily breakfast & dinner",
+        "16 KM rafting with gear & instructor",
+        "All internal transfers"
+      ],
+      "exclusions": [
+        "Bungee jumping fee (optional add-on)"
+      ],
+      "cancellationPolicy": "Free cancellation up to 7 days before trip.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-5",
+      "slug": "valley-of-flowers-trek",
+      "title": "Valley of Flowers & Hemkund Sahib Trek",
+      "destination": "Valley of Flowers",
+      "destinationSlug": "auli",
+      "category": "Trekking",
+      "duration": "6 Days / 5 Nights",
+      "daysCount": 6,
+      "price": 15999,
+      "originalPrice": 19999,
+      "rating": 4.9,
+      "reviewsCount": 245,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "UNESCO World Heritage floral wonderland with 500+ flower species",
+        "Trek to holy Hemkund Sahib at 14,200 ft with glacial lake",
+        "Certified mountain guides and medical oxygen safety equipment",
+        "Lush Pushpawati river valley and alpine meadows"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Rishikesh to Joshimath (255 km / 8 hrs)",
+          "morning": "Drive via Devprayag, Rudraprayag",
+          "afternoon": "Lunch at Karnaprayag",
+          "evening": "Joshimath lodge check-in"
+        },
+        {
+          "day": 2,
+          "title": "Joshimath to Ghangaria via Govindghat",
+          "morning": "Drive to Govindghat, 10 km trek to Ghangaria base camp",
+          "afternoon": "Pass picturesque waterfalls and mountain streams",
+          "evening": "Ghangaria camp briefing"
+        },
+        {
+          "day": 3,
+          "title": "Ghangaria to Valley of Flowers & back (8 km)",
+          "morning": "Enter UNESCO national park, trek through blooming flower carpets",
+          "afternoon": "Picnic lunch inside the valley, visit Joan Margaret Legge grave",
+          "evening": "Return to Ghangaria"
+        },
+        {
+          "day": 4,
+          "title": "Ghangaria to Hemkund Sahib (12 km return)",
+          "morning": "Challenging steep climb to sacred Hemkund Sahib lake (4,329m)",
+          "afternoon": "Warm Langar tea and prasad, views of Brahma Kamal",
+          "evening": "Descent to Ghangaria"
+        },
+        {
+          "day": 5,
+          "title": "Ghangaria to Joshimath",
+          "morning": "Trek down to Govindghat, drive to Joshimath",
+          "afternoon": "Visit Auli via ropeway",
+          "evening": "Celebratory group dinner"
+        },
+        {
+          "day": 6,
+          "title": "Joshimath to Rishikesh Drop",
+          "morning": "Scenic return drive",
+          "afternoon": "Evening drop in Rishikesh"
+        }
+      ],
+      "inclusions": [
+        "All meals during trek",
+        "Forest permits & entry fees",
+        "Guide & safety gear",
+        "Guesthouse stays"
+      ],
+      "exclusions": [
+        "Porter/Mule for personal luggage",
+        "Personal trekking equipment"
+      ],
+      "cancellationPolicy": "Full refund up to 10 days before departure.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-6",
+      "slug": "corbett-tiger-safari-expedition",
+      "title": "Jim Corbett Wildlife & Tiger Safari Expedition",
+      "destination": "Jim Corbett",
+      "destinationSlug": "jim-corbett",
+      "category": "Wildlife",
+      "duration": "3 Days / 2 Nights",
+      "daysCount": 3,
+      "price": 13499,
+      "originalPrice": 17000,
+      "rating": 4.8,
+      "reviewsCount": 195,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "2 Exclusive 4x4 Jeep Safaris into Bijrani/Jhirna core zones",
+        "Luxury riverside jungle resort with swimming pool and buffet",
+        "Naturalist guided nature walk along the Kosi River",
+        "Evening wildlife documentary and bonfire"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & Nature Trail",
+          "morning": "Check-in at luxury resort",
+          "afternoon": "Lunch and guided walk along Kosi river",
+          "evening": "Wildlife presentation and dinner"
+        },
+        {
+          "day": 2,
+          "title": "Morning Safari & Corbett Falls",
+          "morning": "5:30 AM core zone jeep safari, tiger tracking",
+          "afternoon": "Visit Corbett Falls and Garjia temple",
+          "evening": "High tea and barbecue"
+        },
+        {
+          "day": 3,
+          "title": "Second Safari & Departure",
+          "morning": "Dawn jeep safari in second forest zone",
+          "afternoon": "Check out and onward journey"
+        }
+      ],
+      "inclusions": [
+        "2 Nights resort stay",
+        "All meals included",
+        "2 Jeep safaris with permits & naturalist",
+        "Forest entry permits"
+      ],
+      "exclusions": [
+        "Personal camera charges",
+        "Room service"
+      ],
+      "cancellationPolicy": "Safari permits are non-refundable once issued by forest department.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-7",
+      "slug": "mussoorie-dhanaulti-romantic-getaway",
+      "title": "Mussoorie & Dhanaulti Romantic Getaway",
+      "destination": "Mussoorie & Dhanaulti",
+      "destinationSlug": "mussoorie",
+      "category": "Leisure",
+      "duration": "4 Days / 3 Nights",
+      "daysCount": 4,
+      "price": 14999,
+      "originalPrice": 19000,
+      "rating": 4.8,
+      "reviewsCount": 145,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1518022525094-218670c9b745?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Heritage hill station hotel with valley facing balcony",
+        "Excursion to quiet deodar forests of Dhanaulti",
+        "Candlelight dinner with mountain views",
+        "Private AC sedan with chauffeur for all 4 days"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Dehradun to Mussoorie",
+          "morning": "Pickup, drive up to Mussoorie",
+          "afternoon": "Check in, stroll on Mall Road",
+          "evening": "Sunset at Gun Hill"
+        },
+        {
+          "day": 2,
+          "title": "Kempty Falls & George Everest",
+          "morning": "Visit Kempty Falls",
+          "afternoon": "Hike to George Everest Peak",
+          "evening": "Candlelight dinner"
+        },
+        {
+          "day": 3,
+          "title": "Day Trip to Dhanaulti & Surkanda Devi",
+          "morning": "Drive through pine glades to Dhanaulti Eco Park",
+          "afternoon": "Visit Surkanda Devi temple",
+          "evening": "Return to Mussoorie"
+        },
+        {
+          "day": 4,
+          "title": "Mussoorie to Dehradun Drop",
+          "morning": "Breakfast and cafe visit",
+          "afternoon": "Drop at Dehradun"
+        }
+      ],
+      "inclusions": [
+        "3 Nights 4-Star stay",
+        "Daily breakfast & 1 candlelight dinner",
+        "Dedicated private cab",
+        "Sightseeing permits"
+      ],
+      "exclusions": [
+        "Entry tickets to ropeways and parks"
+      ],
+      "cancellationPolicy": "Free cancellation up to 7 days before arrival.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-8",
+      "slug": "auli-winter-skiing-camp",
+      "title": "Auli Winter Skiing & Snowboard Camp",
+      "destination": "Auli",
+      "destinationSlug": "auli",
+      "category": "Adventure",
+      "duration": "5 Days / 4 Nights",
+      "daysCount": 5,
+      "price": 19999,
+      "originalPrice": 26000,
+      "rating": 4.9,
+      "reviewsCount": 170,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Certified ski instructor sessions on groomed alpine snow slopes",
+        "Complete ski equipment: skis, boots, poles, goggles",
+        "Asia’s longest cable car ride from Joshimath to Auli",
+        "Heated mountain lodge stay facing Nanda Devi"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Rishikesh to Joshimath",
+          "morning": "Scenic drive up the Garhwal Himalayas",
+          "afternoon": "Lunch and arrival at Joshimath",
+          "evening": "Camp briefing"
+        },
+        {
+          "day": 2,
+          "title": "Ropeway to Auli & Ski Basics",
+          "morning": "Ride the 4km cable car up to Auli",
+          "afternoon": "Equipment fitting and balance training on snow",
+          "evening": "Hot cocoa by the bonfire"
+        },
+        {
+          "day": 3,
+          "title": "Slope Gliding & Snowplough Technique",
+          "morning": "Learn steering and snowplough stopping",
+          "afternoon": "Practice runs on beginner slope",
+          "evening": "Video technique analysis"
+        },
+        {
+          "day": 4,
+          "title": "Parallel Turns & Gorson Bugyal Trek",
+          "morning": "Intermediate slope skiing and turns",
+          "afternoon": "Snow trek to Gorson Bugyal meadow",
+          "evening": "Certificate presentation & celebration"
+        },
+        {
+          "day": 5,
+          "title": "Auli to Rishikesh Drop",
+          "morning": "Cable car down to Joshimath",
+          "afternoon": "Return drive to Rishikesh"
+        }
+      ],
+      "inclusions": [
+        "4 Nights heated lodge stay",
+        "All meals included",
+        "Ski gear and certified coach",
+        "Ropeway passes"
+      ],
+      "exclusions": [
+        "Warm snow jacket & gloves (rental available)"
+      ],
+      "cancellationPolicy": "Full refund up to 14 days before camp.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-9",
+      "slug": "haridwar-spiritual-heritage-yatra",
+      "title": "Haridwar Ganga Aarti & Heritage Pilgrimage",
+      "destination": "Haridwar",
+      "destinationSlug": "haridwar",
+      "category": "Pilgrimage",
+      "duration": "3 Days / 2 Nights",
+      "daysCount": 3,
+      "price": 6999,
+      "originalPrice": 8999,
+      "rating": 4.7,
+      "reviewsCount": 110,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Har Ki Pauri VIP viewing",
+        "Mansa Devi & Chandi Devi ropeway pass",
+        "Heritage walking food trail"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Haridwar Arrival & Evening Aarti",
+          "morning": "Hotel check-in",
+          "afternoon": "Rest & tea",
+          "evening": "VIP Har Ki Pauri Aarti"
+        }
+      ],
+      "inclusions": [
+        "2 Nights stay",
+        "Breakfast & Dinner",
+        "Ropeway tickets",
+        "Sightseeing cab"
+      ],
+      "exclusions": [
+        "Personal expenses"
+      ],
+      "cancellationPolicy": "Free cancellation up to 48 hours.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-10",
+      "slug": "nainital-lake-odyssey",
+      "title": "Nainital Lake Tour & Kumaon Highlights",
+      "destination": "Nainital",
+      "destinationSlug": "nainital",
+      "category": "Leisure",
+      "duration": "4 Days / 3 Nights",
+      "daysCount": 4,
+      "price": 12999,
+      "originalPrice": 16500,
+      "rating": 4.8,
+      "reviewsCount": 155,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Lake yachting on Naini Lake",
+        "Bhimtal & Naukuchiatal excursion",
+        "Snow View ropeway"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Kathgodam to Nainital",
+          "morning": "Scenic uphill drive",
+          "afternoon": "Lake promenade",
+          "evening": "Boat ride"
+        }
+      ],
+      "inclusions": [
+        "3 Nights stay",
+        "Breakfast",
+        "Private Cab"
+      ],
+      "exclusions": [
+        "Boating fee"
+      ],
+      "cancellationPolicy": "Free cancellation up to 5 days.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-11",
+      "slug": "chopta-tungnath-weekend-trek",
+      "title": "Chopta Tungnath & Chandrashila Peak Tour",
+      "destination": "Chopta",
+      "destinationSlug": "kedarnath",
+      "category": "Trekking",
+      "duration": "4 Days / 3 Nights",
+      "daysCount": 4,
+      "price": 9999,
+      "originalPrice": 13000,
+      "rating": 4.9,
+      "reviewsCount": 220,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Summit world’s highest Shiva temple Tungnath",
+        "Deoria Tal reflection lake",
+        "Campfire under Milky Way"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Rishikesh to Chopta Swiss Camp",
+          "morning": "Drive via Devprayag",
+          "afternoon": "Reach Chopta",
+          "evening": "Campfire"
+        }
+      ],
+      "inclusions": [
+        "3 Nights Camp stay",
+        "All meals",
+        "Guide"
+      ],
+      "exclusions": [
+        "Personal gear"
+      ],
+      "cancellationPolicy": "Full refund up to 7 days prior.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-12",
+      "slug": "badrinath-mana-border-experience",
+      "title": "Badrinath & Mana Border Village Journey",
+      "destination": "Badrinath",
+      "destinationSlug": "badrinath",
+      "category": "Pilgrimage",
+      "duration": "4 Days / 3 Nights",
+      "daysCount": 4,
+      "price": 13999,
+      "originalPrice": 17500,
+      "rating": 4.8,
+      "reviewsCount": 95,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Badrinath Maha Pooja",
+        "Tea at India’s First Tea Shop in Mana",
+        "Vasudhara Falls hike"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Rishikesh to Joshimath",
+          "morning": "Drive through Garhwal",
+          "afternoon": "Lunch",
+          "evening": "Joshimath check in"
+        }
+      ],
+      "inclusions": [
+        "3 Nights stay",
+        "Meals",
+        "Transport"
+      ],
+      "exclusions": [
+        "Ritual puja charges"
+      ],
+      "cancellationPolicy": "Free cancellation up to 7 days.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-13",
+      "slug": "dehradun-mussoorie-chakrata-circuit",
+      "title": "Doon Valley, Mussoorie & Tiger Falls Circuit",
+      "destination": "Dehradun & Mussoorie",
+      "destinationSlug": "dehradun",
+      "category": "Leisure",
+      "duration": "5 Days / 4 Nights",
+      "daysCount": 5,
+      "price": 16999,
+      "originalPrice": 21000,
+      "rating": 4.7,
+      "reviewsCount": 88,
+      "type": "Private",
+      "heroImage": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "FRI architecture",
+        "Robber’s Cave",
+        "Tiger Falls Chakrata",
+        "Mussoorie Mall Road"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Dehradun Sightseeing",
+          "morning": "FRI & Robbers Cave",
+          "afternoon": "Lunch on Rajpur Road",
+          "evening": "Monastery visit"
+        }
+      ],
+      "inclusions": [
+        "4 Nights stay",
+        "Breakfast",
+        "Sedan cab"
+      ],
+      "exclusions": [
+        "Entry tickets"
+      ],
+      "cancellationPolicy": "Free cancellation up to 5 days.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-14",
+      "slug": "dhanaulti-pine-camping-zipline",
+      "title": "Dhanaulti Pine Forest Camping & Zipline",
+      "destination": "Dhanaulti",
+      "destinationSlug": "dhanaulti",
+      "category": "Adventure",
+      "duration": "3 Days / 2 Nights",
+      "daysCount": 3,
+      "price": 7499,
+      "originalPrice": 9500,
+      "rating": 4.6,
+      "reviewsCount": 76,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "Pine glade camping",
+        "Valley crossing & Ziplining",
+        "Surkanda Devi cable car"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Arrival at Pine Camp",
+          "morning": "Check in & welcome drink",
+          "afternoon": "Eco Park walk",
+          "evening": "Bonfire"
+        }
+      ],
+      "inclusions": [
+        "2 Nights Camp",
+        "All meals",
+        "Zipline activity"
+      ],
+      "exclusions": [
+        "Personal items"
+      ],
+      "cancellationPolicy": "Free cancellation up to 3 days.",
+      "status": "published"
+    },
+    {
+      "id": "pkg-15",
+      "slug": "extreme-rapids-bungee-adrenaline",
+      "title": "Bungee & White Water Rapids Extreme Tour",
+      "destination": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "category": "Adventure",
+      "duration": "3 Days / 2 Nights",
+      "daysCount": 3,
+      "price": 8999,
+      "originalPrice": 11500,
+      "rating": 4.9,
+      "reviewsCount": 230,
+      "type": "Group",
+      "heroImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1000&q=85",
+      "highlights": [
+        "36 KM Kaudiyala Extreme Rafting",
+        "83m Bungee Jump",
+        "Riverside camp party"
+      ],
+      "dayWiseItinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & Warmup Rafting",
+          "morning": "Check-in",
+          "afternoon": "12 KM Rafting",
+          "evening": "Bonfire"
+        }
+      ],
+      "inclusions": [
+        "2 Nights Camp",
+        "All meals",
+        "Rafting & Bungee with instructors"
+      ],
+      "exclusions": [
+        "Photos & Video fees"
+      ],
+      "cancellationPolicy": "Free cancellation up to 5 days.",
+      "status": "published"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "veh-car-1",
+      "name": "Maruti Suzuki Swift",
+      "category": "car",
+      "type": "Hatchback",
+      "seats": 5,
+      "transmission": "Manual",
+      "fuel": "Petrol",
+      "pricePerDay": 1499,
+      "originalPrice": 1800,
+      "specs": "5 Seats • Manual • Petrol • 20 km/l",
+      "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Unlimited kilometres",
+        "Free cancellation",
+        "Zero deposit option"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun",
+        "Haridwar"
+      ],
+      "rating": 4.7,
+      "status": "available"
+    },
+    {
+      "id": "veh-car-2",
+      "name": "Honda City",
+      "category": "car",
+      "type": "Sedan",
+      "seats": 5,
+      "transmission": "Automatic",
+      "fuel": "Petrol",
+      "pricePerDay": 2199,
+      "originalPrice": 2600,
+      "specs": "5 Seats • Automatic • Petrol • Premium Audio",
+      "image": "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Unlimited kilometres",
+        "Sunroof",
+        "Touchscreen Infotainment"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun",
+        "Haridwar"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-car-3",
+      "name": "Hyundai Creta",
+      "category": "car",
+      "type": "SUV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "fuel": "Diesel",
+      "pricePerDay": 2799,
+      "originalPrice": 3300,
+      "specs": "5 Seats • Automatic • Diesel • High Ground Clearance",
+      "image": "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Himalayan highway ready",
+        "Panoramic sunroof",
+        "Hill assist"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun",
+        "Haridwar"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-car-4",
+      "name": "Mahindra Thar 4x4",
+      "category": "car",
+      "type": "Off-Roading",
+      "seats": 4,
+      "transmission": "Manual",
+      "fuel": "Diesel",
+      "pricePerDay": 3499,
+      "originalPrice": 4200,
+      "specs": "4 Seats • 4WD Manual • Hard Top • Heavy Duty",
+      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "4x4 Low Range",
+        "Extreme mountain capability",
+        "Convertible vibe"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-car-5",
+      "name": "Tata Nexon EV",
+      "category": "car",
+      "type": "SUV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "fuel": "Electric",
+      "pricePerDay": 2599,
+      "originalPrice": 3100,
+      "specs": "5 Seats • Automatic • Electric • 300+ KM Range",
+      "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Zero emission",
+        "Fast charging support",
+        "Silent cruise"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 4.7,
+      "status": "available"
+    },
+    {
+      "id": "veh-car-6",
+      "name": "BMW 3 Series Luxury",
+      "category": "car",
+      "type": "Luxury",
+      "seats": 5,
+      "transmission": "Automatic",
+      "fuel": "Petrol",
+      "pricePerDay": 6999,
+      "originalPrice": 8500,
+      "specs": "5 Seats • Automatic • TwinPower Turbo • Leather",
+      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Premium luxury executive",
+        "Chauffeur option",
+        "Harman Kardon"
+      ],
+      "availableLocations": [
+        "Dehradun",
+        "Rishikesh"
+      ],
+      "rating": 5,
+      "status": "available"
+    },
+    {
+      "id": "veh-bike-1",
+      "name": "Royal Enfield Classic 350",
+      "category": "bike",
+      "type": "Cruiser",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 1199,
+      "originalPrice": 1500,
+      "specs": "350cc • Dual Channel ABS • Helmet Included",
+      "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Thumping exhaust",
+        "Highway comfort",
+        "Phone mount included"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Dehradun"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-bike-2",
+      "name": "Royal Enfield Himalayan 450",
+      "category": "bike",
+      "type": "Adventure",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 1799,
+      "originalPrice": 2200,
+      "specs": "450cc • Long Travel Suspension • GPS Navigation",
+      "image": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Perfect for Char Dham & high passes",
+        "Luggage panniers ready",
+        "Slipper clutch"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 5,
+      "status": "available"
+    },
+    {
+      "id": "veh-bike-3",
+      "name": "KTM Duke 200",
+      "category": "bike",
+      "type": "Sports",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 1499,
+      "originalPrice": 1800,
+      "specs": "200cc • Sharp Handling • WP Apex Suspension",
+      "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Thrilling mountain twisties",
+        "Underbelly exhaust",
+        "Lightweight"
+      ],
+      "availableLocations": [
+        "Rishikesh"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-bike-4",
+      "name": "Honda CB350 H’ness",
+      "category": "bike",
+      "type": "Cruiser",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 1299,
+      "originalPrice": 1600,
+      "specs": "350cc • Smooth Torque • Traction Control",
+      "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Refined Japanese engine",
+        "Slipper clutch",
+        "Bluetooth cluster"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-bike-5",
+      "name": "Hero Xpulse 200 4V",
+      "category": "bike",
+      "type": "Adventure",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 999,
+      "originalPrice": 1300,
+      "specs": "200cc • 21-inch Front Spoke Wheel • Light Trail Bike",
+      "image": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Incredible trail clearance",
+        "Low fuel cost",
+        "Nimble handling"
+      ],
+      "availableLocations": [
+        "Rishikesh"
+      ],
+      "rating": 4.7,
+      "status": "available"
+    },
+    {
+      "id": "veh-scooty-1",
+      "name": "Honda Activa 6G",
+      "category": "scooty",
+      "type": "Scooter",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 499,
+      "originalPrice": 650,
+      "specs": "110cc • Telescopic Suspension • 50 km/l",
+      "image": "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Reliable everyday explorer",
+        "Spacious footboard",
+        "2 Helmets included"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Dehradun",
+        "Mussoorie"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-scooty-2",
+      "name": "TVS Ntorq 125 Race Edition",
+      "category": "scooty",
+      "type": "125cc",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 549,
+      "originalPrice": 700,
+      "specs": "125cc 3-Valve • Bluetooth Navigation • Sporty Exhaust",
+      "image": "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Fast hill climb",
+        "Turn by turn navigation",
+        "Pass switch"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-scooty-3",
+      "name": "Ather 450X Gen 3",
+      "category": "scooty",
+      "type": "Electric",
+      "seats": 2,
+      "fuel": "Electric",
+      "pricePerDay": 649,
+      "originalPrice": 850,
+      "specs": "Electric Warp Mode • 105 KM TrueRange • Google Maps Onboard",
+      "image": "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Instant electric acceleration",
+        "Touchscreen navigation",
+        "Eco-friendly"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-scooty-4",
+      "name": "Vespa VX 125 Elegante",
+      "category": "scooty",
+      "type": "Premium",
+      "seats": 2,
+      "fuel": "Petrol",
+      "pricePerDay": 749,
+      "originalPrice": 950,
+      "specs": "125cc Italian Styling • Monocoque Steel Body",
+      "image": "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=500&q=80",
+      "benefits": [
+        "Iconic retro photo aesthetic",
+        "Chrome accents",
+        "Premium ride"
+      ],
+      "availableLocations": [
+        "Rishikesh"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-1",
+      "name": "Maruti Suzuki Dzire",
+      "category": "taxi",
+      "type": "Sedan",
+      "seats": 4,
+      "transmission": "Manual",
+      "pricePerDay": 999,
+      "originalPrice": 1200,
+      "specs": "4 Passengers • 3 Large Bags • AC • Chauffeur",
+      "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "AC included",
+        "Experienced hill driver",
+        "Sanitized vehicle"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Dehradun Airport"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-2",
+      "name": "Toyota Etios",
+      "category": "taxi",
+      "type": "Sedan",
+      "seats": 4,
+      "transmission": "Manual",
+      "pricePerDay": 1099,
+      "originalPrice": 1300,
+      "specs": "4 Passengers • 4 Bags • Extra Legroom",
+      "image": "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Huge boot space",
+        "Smooth highway ride",
+        "Clean interiors"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Dehradun"
+      ],
+      "rating": 4.7,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-3",
+      "name": "Maruti Suzuki Ertiga",
+      "category": "taxi",
+      "type": "SUV",
+      "seats": 6,
+      "transmission": "Manual",
+      "pricePerDay": 1399,
+      "originalPrice": 1700,
+      "specs": "6 Passengers • 4 Bags • Rear AC Vents",
+      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Best family cab",
+        "High seating view",
+        "Spacious seating"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Dehradun Airport"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-4",
+      "name": "Toyota Innova Crysta",
+      "category": "taxi",
+      "type": "Luxury SUV",
+      "seats": 7,
+      "transmission": "Manual",
+      "pricePerDay": 1999,
+      "originalPrice": 2500,
+      "specs": "7 Passengers • 5 Bags • Captain Seats • Dual AC",
+      "image": "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Supreme mountain comfort",
+        "Captain bucket seats",
+        "USB fast chargers"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Dehradun Airport",
+        "Char Dham Route"
+      ],
+      "rating": 5,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-5",
+      "name": "Force Tempo Traveller 12-Seater",
+      "category": "taxi",
+      "type": "Group Van",
+      "seats": 12,
+      "transmission": "Manual",
+      "pricePerDay": 3499,
+      "originalPrice": 4200,
+      "specs": "12 Pushback Seats • Individual AC • Music System",
+      "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Ideal for large groups & Char Dham",
+        "Luggage carrier on top",
+        "First aid on board"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-6",
+      "name": "Dehradun Airport (Jolly Grant) to Rishikesh Drop",
+      "category": "taxi",
+      "type": "Fixed Route",
+      "seats": 4,
+      "transmission": "Chauffeur",
+      "pricePerDay": 899,
+      "originalPrice": 1100,
+      "specs": "Direct Airport Pick & Drop • Flight Tracking",
+      "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Zero waiting fee for delayed flights",
+        "Name signboard pickup",
+        "Tolls included"
+      ],
+      "availableLocations": [
+        "Dehradun Airport",
+        "Rishikesh"
+      ],
+      "rating": 5,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-7",
+      "name": "Haridwar to Rishikesh Intercity AC Taxi",
+      "category": "taxi",
+      "type": "Intercity",
+      "seats": 4,
+      "transmission": "Chauffeur",
+      "pricePerDay": 799,
+      "originalPrice": 999,
+      "specs": "Door to Door Pickup • Luggage Assistance • Fastag",
+      "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Fixed pricing",
+        "No waiting surge",
+        "AC included"
+      ],
+      "availableLocations": [
+        "Haridwar",
+        "Rishikesh"
+      ],
+      "rating": 4.8,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-8",
+      "name": "Rishikesh to Mussoorie Hill Station Taxi",
+      "category": "taxi",
+      "type": "Hill Route",
+      "seats": 4,
+      "transmission": "Chauffeur",
+      "pricePerDay": 2499,
+      "originalPrice": 3000,
+      "specs": "Scenic Mountain Drive via Dehradun & Kempty Route",
+      "image": "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Hill driving expert",
+        "Sightseeing photo stops",
+        "Toll taxes covered"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Mussoorie"
+      ],
+      "rating": 4.9,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-9",
+      "name": "Rishikesh to Sonprayag / Kedarnath Base SUV Taxi",
+      "category": "taxi",
+      "type": "Yatra Route",
+      "seats": 6,
+      "transmission": "Chauffeur",
+      "pricePerDay": 4499,
+      "originalPrice": 5500,
+      "specs": "High Ground Clearance 4x2 SUV • 215 KM Mountain Highway",
+      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Early morning departure",
+        "Spacious boot for yatra bags",
+        "Experienced hill captain"
+      ],
+      "availableLocations": [
+        "Rishikesh",
+        "Haridwar",
+        "Sonprayag"
+      ],
+      "rating": 5,
+      "status": "available"
+    },
+    {
+      "id": "veh-taxi-10",
+      "name": "Char Dham 10-Day Dedicated Chauffeur Car (Toyota Crysta)",
+      "category": "taxi",
+      "type": "Yatra Route",
+      "seats": 6,
+      "transmission": "Chauffeur",
+      "pricePerDay": 3999,
+      "originalPrice": 4800,
+      "specs": "Entire Yatra Circuit Chauffeur • Daily Maintenance & Fuel Included",
+      "image": "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=600&q=80",
+      "benefits": [
+        "Dedicated driver throughout yatra",
+        "All toll, state tax and parking paid",
+        "Oxygen support on board"
+      ],
+      "availableLocations": [
+        "Haridwar",
+        "Rishikesh",
+        "Dehradun"
+      ],
+      "rating": 5,
+      "status": "available"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1",
+      "name": "White Water River Rafting (Marine Drive to Rishikesh 16 KM)",
+      "category": "rafting",
+      "location": "Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 1199,
+      "originalPrice": 1500,
+      "duration": "3.5 Hours",
+      "difficulty": "Moderate",
+      "altitude": "1,200 ft",
+      "groupType": "Groups & Solo",
+      "image": "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Battle Grade III/IV rapids like Roller Coaster, Golf Course and Club House with cliff jumping at Maggi Point.",
+      "inclusions": [
+        "Grade IV approved lifejacket & helmet",
+        "Certified river guide & safety kayaker",
+        "Transport from Tapovan to launch point"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 840,
+      "status": "published"
+    },
+    {
+      "id": "act-2",
+      "name": "Jumpin Heights 83m Bungee Jump",
+      "category": "bungee",
+      "location": "Mohan Chatti, Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 3799,
+      "originalPrice": 4200,
+      "duration": "2 Hours",
+      "difficulty": "Advanced",
+      "altitude": "1,500 ft",
+      "groupType": "Solo friendly",
+      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80",
+      "highlights": "India’s highest fixed platform bungee jumping over the Hall River gorge designed by New Zealand jump masters.",
+      "inclusions": [
+        "New Zealand safety standards & jump gear",
+        "Dare to Jump certificate",
+        "Jump footage viewing"
+      ],
+      "rating": 5,
+      "reviewsCount": 1250,
+      "status": "published"
+    },
+    {
+      "id": "act-3",
+      "name": "Giant Swing & Asia’s Longest Flying Fox",
+      "category": "adventure",
+      "location": "Mohan Chatti, Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 3499,
+      "originalPrice": 3900,
+      "duration": "2 Hours",
+      "difficulty": "Moderate",
+      "altitude": "1,500 ft",
+      "groupType": "Couples & Solo",
+      "image": "https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Soar 1 km across the canyon at 140 km/h suspended 120 meters above the canyon floor.",
+      "inclusions": [
+        "Tandem or solo harness",
+        "Safety briefing",
+        "Certificate"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 420,
+      "status": "published"
+    },
+    {
+      "id": "act-4",
+      "name": "High Fly Tandem Paragliding",
+      "category": "paragliding",
+      "location": "Rishikesh / Mazhkhali",
+      "destinationSlug": "rishikesh",
+      "price": 3299,
+      "originalPrice": 4000,
+      "duration": "25 Minutes Flight",
+      "difficulty": "Easy",
+      "altitude": "4,500 ft",
+      "groupType": "Solo & Couples",
+      "image": "https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Thermal glide over emerald Himalayan foothills and winding Ganga tributaries with certified pilot.",
+      "inclusions": [
+        "Certified tandem pilot",
+        "GoPro wide angle aerial video",
+        "Safety helmet & harness"
+      ],
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "status": "published"
+    },
+    {
+      "id": "act-5",
+      "name": "Chopta Tungnath & Chandrashila Peak Trek",
+      "category": "trekking",
+      "location": "Chopta, Rudraprayag",
+      "destinationSlug": "kedarnath",
+      "price": 1499,
+      "originalPrice": 2000,
+      "duration": "1 Day Trip",
+      "difficulty": "Moderate",
+      "altitude": "13,100 ft",
+      "groupType": "Solo friendly",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Hike to the world’s highest Shiva temple Tungnath (1,000 years old) and summit Chandrashila for 360° Himalayan views.",
+      "inclusions": [
+        "Local mountain guide",
+        "Packed lunch",
+        "Trek stick & microspikes in snow"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 520,
+      "status": "published"
+    },
+    {
+      "id": "act-6",
+      "name": "Kedarkantha Snow Peak Winter Trek",
+      "category": "trekking",
+      "location": "Sankri, Uttarkashi",
+      "destinationSlug": "dehradun",
+      "price": 6999,
+      "originalPrice": 8500,
+      "duration": "4 Days",
+      "difficulty": "Beginner",
+      "altitude": "12,500 ft",
+      "groupType": "Solo friendly",
+      "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+      "highlights": "India’s most celebrated beginner winter snow trek with pine forests, frozen Juda Ka Talab lake, and 360° sunrise summit.",
+      "inclusions": [
+        "Tents, sleeping bags, crampons",
+        "All meals on trek",
+        "Certified mountaineering guides",
+        "Forest permits"
+      ],
+      "rating": 5,
+      "reviewsCount": 680,
+      "status": "published"
+    },
+    {
+      "id": "act-7",
+      "name": "Jim Corbett Morning 4x4 Jeep Tiger Safari",
+      "category": "safari",
+      "location": "Jim Corbett National Park",
+      "destinationSlug": "jim-corbett",
+      "price": 4299,
+      "originalPrice": 5000,
+      "duration": "3.5 Hours",
+      "difficulty": "Easy",
+      "altitude": "1,300 ft",
+      "groupType": "Family & Groups",
+      "image": "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Early morning safari in Bijrani/Jhirna zone tracking Royal Bengal Tigers, wild elephant herds, and deer.",
+      "inclusions": [
+        "Entire private 4x4 Maruti Gypsy",
+        "Government forest permit & taxes",
+        "Registered wildlife guide"
+      ],
+      "rating": 4.8,
+      "reviewsCount": 490,
+      "status": "published"
+    },
+    {
+      "id": "act-8",
+      "name": "Riverside Luxury Camping with Bonfire & Live Barbecue",
+      "category": "camping",
+      "location": "Shivpuri, Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 1899,
+      "originalPrice": 2500,
+      "duration": "Overnight",
+      "difficulty": "Easy",
+      "altitude": "1,200 ft",
+      "groupType": "Groups & Couples",
+      "image": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Swiss alpine luxury tents with attached washrooms, swimming pool, volleyball court, and evening DJ & bonfire by the stream.",
+      "inclusions": [
+        "Buffet breakfast, lunch and dinner",
+        "Evening snacks & bonfire",
+        "Swimming pool access",
+        "River crossing activity"
+      ],
+      "rating": 4.7,
+      "reviewsCount": 380,
+      "status": "published"
+    },
+    {
+      "id": "act-9",
+      "name": "Sunrise Trek to Kunjapuri Temple",
+      "category": "trekking",
+      "location": "Kunjapuri, Tehri Garhwal",
+      "destinationSlug": "rishikesh",
+      "price": 1299,
+      "originalPrice": 1700,
+      "duration": "5 Hours",
+      "difficulty": "Easy",
+      "altitude": "5,400 ft",
+      "groupType": "Couples & Solo",
+      "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Watch the sunrise light up Chaukhamba, Bandarpunch and Swargarohini peaks before trekking 9 km downhill through mountain hamlets.",
+      "inclusions": [
+        "Hotel pickup & drop",
+        "Local guide",
+        "Tea and breakfast on the ridge"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 290,
+      "status": "published"
+    },
+    {
+      "id": "act-10",
+      "name": "Waterfall Rappelling at Neer Garh",
+      "category": "adventure",
+      "location": "Neer Garh, Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 1299,
+      "originalPrice": 1600,
+      "duration": "2.5 Hours",
+      "difficulty": "Moderate",
+      "altitude": "1,800 ft",
+      "groupType": "Adventurers",
+      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Rappel down a roaring 60-foot natural waterfall face attached to high tensile static ropes.",
+      "inclusions": [
+        "Full mountaineering harness & helmet",
+        "Two certified instructors",
+        "First aid support"
+      ],
+      "rating": 4.8,
+      "reviewsCount": 175,
+      "status": "published"
+    },
+    {
+      "id": "act-11",
+      "name": "Kashmir Great Lakes Alpine Trek",
+      "category": "trekking",
+      "location": "Sonamarg, Kashmir",
+      "destinationSlug": "auli",
+      "price": 14499,
+      "originalPrice": 17500,
+      "duration": "7 Days",
+      "difficulty": "Moderate",
+      "altitude": "13,750 ft",
+      "groupType": "Solo friendly",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+      "highlights": "7 pristine turquoise alpine lakes and rolling flower-carpeted Himalayan valleys.",
+      "inclusions": [
+        "All meals on trek",
+        "Tents & sleeping bags",
+        "Guides & permits"
+      ],
+      "rating": 5,
+      "reviewsCount": 390,
+      "status": "published"
+    },
+    {
+      "id": "act-12",
+      "name": "Hampta Pass & Chandratal Lake Trek",
+      "category": "trekking",
+      "location": "Manali, Himachal Pradesh",
+      "destinationSlug": "dehradun",
+      "price": 9999,
+      "originalPrice": 12500,
+      "duration": "5 Days",
+      "difficulty": "Moderate",
+      "altitude": "14,065 ft",
+      "groupType": "Groups & Solo",
+      "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Dramatically shifts from the lush green pine forests of Kullu to the stark arid desert of Spiti.",
+      "inclusions": [
+        "Camping equipment",
+        "Meals",
+        "Chandratal vehicle transfer"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 460,
+      "status": "published"
+    },
+    {
+      "id": "act-13",
+      "name": "Har Ki Dun Ancient Valley of Gods Trek",
+      "category": "trekking",
+      "location": "Sankri, Uttarkashi",
+      "destinationSlug": "dehradun",
+      "price": 8499,
+      "originalPrice": 10500,
+      "duration": "6 Days",
+      "difficulty": "Moderate",
+      "altitude": "11,811 ft",
+      "groupType": "Couples & Solo",
+      "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Cradle-shaped amphitheater valley with ancient wooden temples and Swargarohini peak views.",
+      "inclusions": [
+        "Expert leaders",
+        "Homestays & camps",
+        "Meals"
+      ],
+      "rating": 4.8,
+      "reviewsCount": 320,
+      "status": "published"
+    },
+    {
+      "id": "act-14",
+      "name": "Dayara Bugyal Rolling Alpine Meadow Trek",
+      "category": "trekking",
+      "location": "Barsu, Uttarkashi",
+      "destinationSlug": "dehradun",
+      "price": 6499,
+      "originalPrice": 8200,
+      "duration": "4 Days",
+      "difficulty": "Beginner",
+      "altitude": "12,000 ft",
+      "groupType": "Family friendly",
+      "image": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Sprawling high-altitude meadows (Bugyal) with breathtaking panorama of Bandarpoonch peak.",
+      "inclusions": [
+        "Guide & tents",
+        "Fresh cooked vegetarian meals"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 280,
+      "status": "published"
+    },
+    {
+      "id": "act-15",
+      "name": "Ranthambore National Park Tiger Safari",
+      "category": "safari",
+      "location": "Sawai Madhopur, Rajasthan",
+      "destinationSlug": "jim-corbett",
+      "price": 3899,
+      "originalPrice": 4600,
+      "duration": "3.5 Hours",
+      "difficulty": "Easy",
+      "altitude": "800 ft",
+      "groupType": "Family & Solo",
+      "image": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80",
+      "highlights": "High chances of spotting Royal Bengal Tigers roaming among 10th-century castle ruins.",
+      "inclusions": [
+        "Shared open canter/gypsy",
+        "Zone permit",
+        "Naturalist guide"
+      ],
+      "rating": 4.7,
+      "reviewsCount": 510,
+      "status": "published"
+    },
+    {
+      "id": "act-16",
+      "name": "Rajaji National Park Elephant Corridor Safari",
+      "category": "safari",
+      "location": "Chilla, Haridwar",
+      "destinationSlug": "haridwar",
+      "price": 2999,
+      "originalPrice": 3600,
+      "duration": "3 Hours",
+      "difficulty": "Easy",
+      "altitude": "1,000 ft",
+      "groupType": "Family friendly",
+      "image": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Dense foothills sanctuary with roaming wild Asian elephant herds, leopards and migratory birds.",
+      "inclusions": [
+        "4x4 Gypsy vehicle",
+        "Forest permit",
+        "Guide"
+      ],
+      "rating": 4.6,
+      "reviewsCount": 230,
+      "status": "published"
+    },
+    {
+      "id": "act-17",
+      "name": "White Water Kayaking 3-Day Foundation Course",
+      "category": "rafting",
+      "location": "Shivpuri, Rishikesh",
+      "destinationSlug": "rishikesh",
+      "price": 6499,
+      "originalPrice": 8000,
+      "duration": "3 Days",
+      "difficulty": "Moderate",
+      "altitude": "1,200 ft",
+      "groupType": "Solo adventurers",
+      "image": "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Learn the Eskimo roll, river reading, eddy turns, and paddle through Class II/III rapids.",
+      "inclusions": [
+        "Professional Dagger kayak & paddle",
+        "Wetsuit & safety gear",
+        "ACA certified instructor"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 160,
+      "status": "published"
+    },
+    {
+      "id": "act-18",
+      "name": "Hot Air Balloon Tethered Flight & Aerial View",
+      "category": "adventure",
+      "location": "Maldevta, Dehradun",
+      "destinationSlug": "dehradun",
+      "price": 2499,
+      "originalPrice": 3200,
+      "duration": "1 Hour",
+      "difficulty": "Easy",
+      "altitude": "2,500 ft",
+      "groupType": "Family & Couples",
+      "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Float above green terraced valley fields with sunrise Himalayan views.",
+      "inclusions": [
+        "Flight pass",
+        "Safety briefing",
+        "Flight certificate"
+      ],
+      "rating": 4.7,
+      "reviewsCount": 190,
+      "status": "published"
+    },
+    {
+      "id": "act-19",
+      "name": "Ganga Sunset Silent Kayaking Tour",
+      "category": "rafting",
+      "location": "Brahmpuri to Laxman Jhula",
+      "destinationSlug": "rishikesh",
+      "price": 1499,
+      "originalPrice": 1999,
+      "duration": "2 Hours",
+      "difficulty": "Beginner",
+      "altitude": "1,200 ft",
+      "groupType": "Couples & Solo",
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Paddle downstream on calm holy waters as temple bells chime and evening candles illuminate the ghats.",
+      "inclusions": [
+        "Sit-on-top tandem or solo kayak",
+        "Guide",
+        "Lifejacket"
+      ],
+      "rating": 4.9,
+      "reviewsCount": 280,
+      "status": "published"
+    },
+    {
+      "id": "act-20",
+      "name": "Night Astronomy & Stargazing Camp at Dhanaulti",
+      "category": "camping",
+      "location": "Kanatal / Dhanaulti",
+      "destinationSlug": "dhanaulti",
+      "price": 2199,
+      "originalPrice": 2800,
+      "duration": "Overnight",
+      "difficulty": "Easy",
+      "altitude": "8,500 ft",
+      "groupType": "Family & Couples",
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
+      "highlights": "Zero light pollution skies: gaze at Saturn’s rings, Jupiter’s moons, and the Milky Way through 8-inch telescopes.",
+      "inclusions": [
+        "High-powered telescope sessions with astrophysicist",
+        "Swiss tent stay",
+        "Dinner & breakfast"
+      ],
+      "rating": 5,
+      "reviewsCount": 215,
+      "status": "published"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "YM-2026-8812",
+      "customerId": "usr-6",
+      "customerName": "Sameer Sharma",
+      "customerEmail": "sameer@example.com",
+      "customerPhone": "+91 98765 43210",
+      "productId": "pkg-1",
+      "productType": "package",
+      "productTitle": "Complete Char Dham Sacred Yatra",
+      "bookingDate": "2026-05-10",
+      "travelStartDate": "2026-05-18",
+      "travelEndDate": "2026-05-27",
+      "travellers": 2,
+      "travellerDetails": [
+        {
+          "name": "Sameer Sharma",
+          "age": 34,
+          "gender": "Male"
+        },
+        {
+          "name": "Kavita Sharma",
+          "age": 31,
+          "gender": "Female"
+        }
+      ],
+      "basePrice": 69998,
+      "taxes": 3499,
+      "serviceFee": 500,
+      "discount": 3500,
+      "couponApplied": "4DHAM25",
+      "finalAmount": 70497,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-10T14:32:00Z"
+    },
+    {
+      "id": "YM-2026-8945",
+      "customerId": "usr-6",
+      "customerName": "Sameer Sharma",
+      "customerEmail": "sameer@example.com",
+      "customerPhone": "+91 98765 43210",
+      "productId": "htl-2",
+      "productType": "hotel",
+      "productTitle": "Aloha on the Ganges (Superior Ganges Facing)",
+      "bookingDate": "2026-04-12",
+      "travelStartDate": "2026-04-20",
+      "travelEndDate": "2026-04-23",
+      "travellers": 2,
+      "travellerDetails": [
+        {
+          "name": "Sameer Sharma",
+          "age": 34,
+          "gender": "Male"
+        },
+        {
+          "name": "Kavita Sharma",
+          "age": 31,
+          "gender": "Female"
+        }
+      ],
+      "basePrice": 17697,
+      "taxes": 2124,
+      "serviceFee": 0,
+      "discount": 500,
+      "couponApplied": "WELCOME500",
+      "finalAmount": 19321,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Completed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-04-12T09:15:00Z"
+    },
+    {
+      "id": "YM-2026-9041",
+      "customerId": "usr-6",
+      "customerName": "Sameer Sharma",
+      "customerEmail": "sameer@example.com",
+      "customerPhone": "+91 98765 43210",
+      "productId": "veh-car-4",
+      "productType": "vehicle",
+      "productTitle": "Mahindra Thar 4x4 (3 Days Self Drive)",
+      "bookingDate": "2026-06-01",
+      "travelStartDate": "2026-06-15",
+      "travelEndDate": "2026-06-18",
+      "travellers": 2,
+      "basePrice": 10497,
+      "taxes": 1259,
+      "serviceFee": 200,
+      "discount": 500,
+      "couponApplied": "RENT25",
+      "finalAmount": 11456,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-01T11:45:00Z"
+    },
+    {
+      "id": "YM-2026-9150",
+      "customerId": "usr-6",
+      "customerName": "Sameer Sharma",
+      "customerEmail": "sameer@example.com",
+      "customerPhone": "+91 98765 43210",
+      "productId": "act-1",
+      "productType": "activity",
+      "productTitle": "White Water River Rafting 16 KM Marine Drive",
+      "bookingDate": "2026-03-25",
+      "travelStartDate": "2026-04-02",
+      "travelEndDate": "2026-04-02",
+      "travellers": 4,
+      "basePrice": 4796,
+      "taxes": 240,
+      "serviceFee": 0,
+      "discount": 800,
+      "couponApplied": "TRILL25",
+      "finalAmount": 4236,
+      "paymentMethod": "Netbanking",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Completed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-03-25T16:20:00Z"
+    },
+    {
+      "id": "YM-2026-9218",
+      "customerId": "usr-7",
+      "customerName": "Aarav Patel",
+      "customerEmail": "aarav.patel@gmail.com",
+      "customerPhone": "+91 9810011223",
+      "productId": "pkg-3",
+      "productType": "package",
+      "productTitle": "Kedarnath Helicopter & VIP Darshan",
+      "bookingDate": "2026-06-05",
+      "travelStartDate": "2026-06-22",
+      "travelEndDate": "2026-06-25",
+      "travellers": 2,
+      "basePrice": 57998,
+      "taxes": 2899,
+      "serviceFee": 500,
+      "discount": 2000,
+      "couponApplied": "YATRI10",
+      "finalAmount": 59397,
+      "paymentMethod": "Bank Transfer",
+      "paymentStatus": "Payment Pending",
+      "bookingStatus": "Pending",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-05T18:10:00Z"
+    },
+    {
+      "id": "YM-2026-9289",
+      "customerId": "usr-8",
+      "customerName": "Diya Kapoor",
+      "customerEmail": "diya.kapoor@gmail.com",
+      "customerPhone": "+91 9814321567",
+      "productId": "htl-1",
+      "productType": "hotel",
+      "productTitle": "Ganga Kinare Retreat (Executive Suite)",
+      "bookingDate": "2026-05-20",
+      "travelStartDate": "2026-06-10",
+      "travelEndDate": "2026-06-12",
+      "travellers": 2,
+      "basePrice": 9598,
+      "taxes": 1152,
+      "serviceFee": 0,
+      "discount": 0,
+      "couponApplied": "",
+      "finalAmount": 10750,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-05-20T10:00:00Z"
+    },
+    {
+      "id": "YM-2026-9340",
+      "customerId": "usr-9",
+      "customerName": "Rohan Iyer",
+      "customerEmail": "rohan.iyer@gmail.com",
+      "customerPhone": "+91 9818642901",
+      "productId": "veh-bike-2",
+      "productType": "vehicle",
+      "productTitle": "Royal Enfield Himalayan 450 (4 Days)",
+      "bookingDate": "2026-05-28",
+      "travelStartDate": "2026-06-08",
+      "travelEndDate": "2026-06-12",
+      "travellers": 1,
+      "basePrice": 7196,
+      "taxes": 863,
+      "serviceFee": 100,
+      "discount": 500,
+      "couponApplied": "RENT25",
+      "finalAmount": 7659,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-28T15:30:00Z"
+    },
+    {
+      "id": "YM-2026-9411",
+      "customerId": "usr-10",
+      "customerName": "Neha Gupta",
+      "customerEmail": "neha.gupta@gmail.com",
+      "customerPhone": "+91 9822964235",
+      "productId": "act-2",
+      "productType": "activity",
+      "productTitle": "Jumpin Heights 83m Bungee Jump",
+      "bookingDate": "2026-05-15",
+      "travelStartDate": "2026-05-22",
+      "travelEndDate": "2026-05-22",
+      "travellers": 2,
+      "basePrice": 7598,
+      "taxes": 380,
+      "serviceFee": 0,
+      "discount": 800,
+      "couponApplied": "TRILL25",
+      "finalAmount": 7178,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Refunded",
+      "bookingStatus": "Cancelled",
+      "cancellationStatus": "Cancelled by Customer (Bad weather reschedule offered)",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-15T09:40:00Z"
+    },
+    {
+      "id": "YM-2026-9501",
+      "customerId": "usr-11",
+      "customerName": "Kabir Malhotra",
+      "customerEmail": "kabir.malhotra@gmail.com",
+      "customerPhone": "+91 9827285644",
+      "productId": "pkg-4",
+      "productType": "package",
+      "productTitle": "Rishikesh Spiritual & Adventure Odyssey",
+      "bookingDate": "2026-05-18",
+      "travelStartDate": "2026-06-18",
+      "travelEndDate": "2026-06-21",
+      "travellers": 3,
+      "basePrice": 35997,
+      "taxes": 1800,
+      "serviceFee": 300,
+      "discount": 1000,
+      "couponApplied": "WELCOME500",
+      "finalAmount": 37097,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-18T10:15:00Z"
+    },
+    {
+      "id": "YM-2026-9502",
+      "customerId": "usr-12",
+      "customerName": "Ishaan Chawla",
+      "customerEmail": "ishaan.chawla@gmail.com",
+      "customerPhone": "+91 9831607053",
+      "productId": "veh-car-3",
+      "productType": "vehicle",
+      "productTitle": "Hyundai Creta Automatic (4 Days)",
+      "bookingDate": "2026-06-02",
+      "travelStartDate": "2026-06-25",
+      "travelEndDate": "2026-06-29",
+      "travellers": 4,
+      "basePrice": 11196,
+      "taxes": 1343,
+      "serviceFee": 200,
+      "discount": 500,
+      "couponApplied": "RENT25",
+      "finalAmount": 12239,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-02T14:40:00Z"
+    },
+    {
+      "id": "YM-2026-9503",
+      "customerId": "usr-13",
+      "customerName": "Tanvi Singhal",
+      "customerEmail": "tanvi.singhal@gmail.com",
+      "customerPhone": "+91 9835928462",
+      "productId": "htl-9",
+      "productType": "hotel",
+      "productTitle": "Himalayan Hideaway Mussoorie (Valley View Deluxe)",
+      "bookingDate": "2026-05-25",
+      "travelStartDate": "2026-07-01",
+      "travelEndDate": "2026-07-04",
+      "travellers": 2,
+      "basePrice": 11397,
+      "taxes": 1367,
+      "serviceFee": 0,
+      "discount": 500,
+      "couponApplied": "WELCOME500",
+      "finalAmount": 12264,
+      "paymentMethod": "Netbanking",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-25T11:20:00Z"
+    },
+    {
+      "id": "YM-2026-9504",
+      "customerId": "usr-14",
+      "customerName": "Arjun Saxena",
+      "customerEmail": "arjun.saxena@gmail.com",
+      "customerPhone": "+91 9840249871",
+      "productId": "act-6",
+      "productType": "activity",
+      "productTitle": "Kedarkantha Snow Peak Winter Trek",
+      "bookingDate": "2026-04-10",
+      "travelStartDate": "2026-04-20",
+      "travelEndDate": "2026-04-24",
+      "travellers": 2,
+      "basePrice": 13998,
+      "taxes": 700,
+      "serviceFee": 0,
+      "discount": 800,
+      "couponApplied": "TRILL25",
+      "finalAmount": 13898,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Completed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-04-10T16:00:00Z"
+    },
+    {
+      "id": "YM-2026-9505",
+      "customerId": "usr-15",
+      "customerName": "Pooja Nair",
+      "customerEmail": "pooja.nair@gmail.com",
+      "customerPhone": "+91 9844571280",
+      "productId": "pkg-6",
+      "productType": "package",
+      "productTitle": "Jim Corbett Wildlife & Tiger Safari Expedition",
+      "bookingDate": "2026-05-12",
+      "travelStartDate": "2026-06-14",
+      "travelEndDate": "2026-06-17",
+      "travellers": 2,
+      "basePrice": 26998,
+      "taxes": 1350,
+      "serviceFee": 400,
+      "discount": 1500,
+      "couponApplied": "YATRI10",
+      "finalAmount": 27248,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-12T13:45:00Z"
+    },
+    {
+      "id": "YM-2026-9506",
+      "customerId": "usr-16",
+      "customerName": "Aditya Joshi",
+      "customerEmail": "aditya.joshi@gmail.com",
+      "customerPhone": "+91 9848892689",
+      "productId": "veh-scooty-2",
+      "productType": "vehicle",
+      "productTitle": "TVS Ntorq 125 Race Edition (3 Days)",
+      "bookingDate": "2026-06-03",
+      "travelStartDate": "2026-06-10",
+      "travelEndDate": "2026-06-13",
+      "travellers": 2,
+      "basePrice": 1647,
+      "taxes": 198,
+      "serviceFee": 50,
+      "discount": 400,
+      "couponApplied": "RENT25",
+      "finalAmount": 1495,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-03T09:30:00Z"
+    },
+    {
+      "id": "YM-2026-9507",
+      "customerId": "usr-17",
+      "customerName": "Simran Kaur",
+      "customerEmail": "simran.kaur@gmail.com",
+      "customerPhone": "+91 9853214098",
+      "productId": "htl-18",
+      "productType": "hotel",
+      "productTitle": "Corbett Wild Iris Spa Resort (Jungle Thatch Cottage)",
+      "bookingDate": "2026-05-02",
+      "travelStartDate": "2026-05-20",
+      "travelEndDate": "2026-05-22",
+      "travellers": 2,
+      "basePrice": 8998,
+      "taxes": 1080,
+      "serviceFee": 0,
+      "discount": 500,
+      "couponApplied": "WELCOME500",
+      "finalAmount": 9578,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Completed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-05-02T18:20:00Z"
+    },
+    {
+      "id": "YM-2026-9508",
+      "customerId": "usr-18",
+      "customerName": "Varun Deshmukh",
+      "customerEmail": "varun.deshmukh@gmail.com",
+      "customerPhone": "+91 9857535507",
+      "productId": "act-3",
+      "productType": "activity",
+      "productTitle": "Giant Swing & Asia Longest Flying Fox",
+      "bookingDate": "2026-06-04",
+      "travelStartDate": "2026-06-20",
+      "travelEndDate": "2026-06-20",
+      "travellers": 2,
+      "basePrice": 6998,
+      "taxes": 350,
+      "serviceFee": 0,
+      "discount": 800,
+      "couponApplied": "TRILL25",
+      "finalAmount": 6548,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-04T12:00:00Z"
+    },
+    {
+      "id": "YM-2026-9509",
+      "customerId": "usr-19",
+      "customerName": "Riya Sen",
+      "customerEmail": "riya.sen@gmail.com",
+      "customerPhone": "+91 9861856916",
+      "productId": "pkg-7",
+      "productType": "package",
+      "productTitle": "Mussoorie & Dhanaulti Romantic Getaway",
+      "bookingDate": "2026-05-30",
+      "travelStartDate": "2026-06-28",
+      "travelEndDate": "2026-07-02",
+      "travellers": 2,
+      "basePrice": 29998,
+      "taxes": 1500,
+      "serviceFee": 500,
+      "discount": 1500,
+      "couponApplied": "YATRI10",
+      "finalAmount": 30498,
+      "paymentMethod": "Bank Transfer",
+      "paymentStatus": "Payment Pending",
+      "bookingStatus": "Pending",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-05-30T15:10:00Z"
+    },
+    {
+      "id": "YM-2026-9510",
+      "customerId": "usr-20",
+      "customerName": "Kunal Trivedi",
+      "customerEmail": "kunal.trivedi@gmail.com",
+      "customerPhone": "+91 9866178325",
+      "productId": "veh-taxi-4",
+      "productType": "taxi",
+      "productTitle": "Toyota Innova Crysta with Chauffeur (3 Days)",
+      "bookingDate": "2026-06-06",
+      "travelStartDate": "2026-06-18",
+      "travelEndDate": "2026-06-21",
+      "travellers": 5,
+      "basePrice": 5997,
+      "taxes": 720,
+      "serviceFee": 100,
+      "discount": 500,
+      "couponApplied": "RENT25",
+      "finalAmount": 6317,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-06T10:40:00Z"
+    },
+    {
+      "id": "YM-2026-9511",
+      "customerId": "usr-21",
+      "customerName": "Sneha Reddy",
+      "customerEmail": "sneha.reddy@gmail.com",
+      "customerPhone": "+91 9870499734",
+      "productId": "htl-16",
+      "productType": "hotel",
+      "productTitle": "Snowline Boutique Auli (Glacier View Room)",
+      "bookingDate": "2026-01-15",
+      "travelStartDate": "2026-02-10",
+      "travelEndDate": "2026-02-13",
+      "travellers": 2,
+      "basePrice": 14997,
+      "taxes": 1800,
+      "serviceFee": 0,
+      "discount": 500,
+      "couponApplied": "WELCOME500",
+      "finalAmount": 16297,
+      "paymentMethod": "Credit Card",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Completed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-01-15T11:00:00Z"
+    },
+    {
+      "id": "YM-2026-9512",
+      "customerId": "usr-22",
+      "customerName": "Gaurav Bhatia",
+      "customerEmail": "gaurav.bhatia@gmail.com",
+      "customerPhone": "+91 9874821143",
+      "productId": "act-7",
+      "productType": "activity",
+      "productTitle": "Jim Corbett Morning 4x4 Jeep Tiger Safari",
+      "bookingDate": "2026-05-22",
+      "travelStartDate": "2026-06-12",
+      "travelEndDate": "2026-06-12",
+      "travellers": 4,
+      "basePrice": 4299,
+      "taxes": 215,
+      "serviceFee": 0,
+      "discount": 500,
+      "couponApplied": "TRILL25",
+      "finalAmount": 4014,
+      "paymentMethod": "Online UPI",
+      "paymentStatus": "Paid",
+      "bookingStatus": "Confirmed",
+      "cancellationStatus": "None",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-05-22T08:30:00Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-101",
+      "name": "Dr. Manish Kulkarni",
+      "phone": "+91 98205 77112",
+      "email": "dr.manish@apollo.org",
+      "source": "Website Enquiry Form",
+      "destination": "Kedarnath & Badrinath (Do Dham)",
+      "travelDates": "2026-09-15 to 2026-09-22",
+      "travellers": 4,
+      "adults": 4,
+      "children": 0,
+      "budget": "₹1,20,000",
+      "hotelCategory": "4-Star / Deluxe",
+      "transportPreference": "Toyota Innova Crysta Private",
+      "activities": "VIP Darshan pass, helicopter option for parents",
+      "specialRequirements": "Wheelchair assistance required for elderly mother at helipad.",
+      "assignedAgent": "Priya Patel",
+      "status": "Qualified",
+      "followUpDate": "2026-06-12",
+      "notes": "Client very keen on helicopter slots. Informed about medical fitness cert.",
+      "createdAt": "2026-06-08T11:20:00Z"
+    },
+    {
+      "id": "lead-102",
+      "name": "Pooja Bhattacharya",
+      "phone": "+91 98310 99441",
+      "email": "pooja.b@tcs.com",
+      "source": "WhatsApp CRM",
+      "destination": "Rishikesh Adventure Weekend",
+      "travelDates": "2026-07-04 to 2026-07-07",
+      "travellers": 8,
+      "adults": 8,
+      "children": 0,
+      "budget": "₹80,000",
+      "hotelCategory": "Riverside Camping with Pool",
+      "transportPreference": "Tempo Traveller",
+      "activities": "Rafting 24km, Bungee jump for 4 persons, bonfire & music",
+      "specialRequirements": "Corporate group of tech colleagues looking for team building.",
+      "assignedAgent": "Rahul Verma",
+      "status": "Quotation Sent",
+      "followUpDate": "2026-06-11",
+      "notes": "Quotation #Q-2026-441 sent via WhatsApp and PDF email. Waiting for team vote.",
+      "createdAt": "2026-06-07T14:45:00Z"
+    },
+    {
+      "id": "lead-103",
+      "name": "Rameshwar Lal Singhal",
+      "phone": "+91 98112 33445",
+      "email": "rl.singhal@rediffmail.com",
+      "source": "Google Search",
+      "destination": "Complete Char Dham Yatra",
+      "travelDates": "2026-09-01 to 2026-09-11",
+      "travellers": 6,
+      "adults": 6,
+      "children": 0,
+      "budget": "₹2,50,000",
+      "hotelCategory": "Top category available in hills",
+      "transportPreference": "Force Urbania / Innova",
+      "activities": "Full pooja samagri, pandit assistance",
+      "specialRequirements": "Pure sattvic food (no onion, no garlic)",
+      "assignedAgent": "Priya Patel",
+      "status": "Contacted",
+      "followUpDate": "2026-06-13",
+      "notes": "Spoke on phone for 20 mins. Family from Kanpur.",
+      "createdAt": "2026-06-09T08:30:00Z"
+    },
+    {
+      "id": "lead-104",
+      "name": "Vikramaditya Roy",
+      "phone": "+91 98711 00223",
+      "email": "vikram.roy@startup.in",
+      "source": "Instagram Ad",
+      "destination": "Auli Skiing Camp",
+      "travelDates": "2026-12-24 to 2026-12-29",
+      "travellers": 2,
+      "adults": 2,
+      "children": 0,
+      "budget": "₹60,000",
+      "hotelCategory": "Heated Chalet / Boutique",
+      "transportPreference": "Self drive car",
+      "activities": "Skiing lessons with certified instructor",
+      "specialRequirements": "Honeymoon couple, romantic setup requested.",
+      "assignedAgent": "Rahul Verma",
+      "status": "New",
+      "followUpDate": "2026-06-10",
+      "notes": "Received enquiry 2 hours ago. Need to call back regarding December dates.",
+      "createdAt": "2026-06-09T16:00:00Z"
+    },
+    {
+      "id": "lead-105",
+      "name": "Siddharth Menon",
+      "phone": "+91 98450 66551",
+      "email": "siddharth.m@infosys.com",
+      "source": "Website Enquiry Form",
+      "destination": "Jim Corbett & Nainital",
+      "travelDates": "2026-10-15 to 2026-10-20",
+      "travellers": 4,
+      "adults": 2,
+      "children": 2,
+      "budget": "₹95,000",
+      "hotelCategory": "5-Star Wildlife Resort",
+      "transportPreference": "Innova Crysta",
+      "activities": "Dhikala core zone safaris, lake yachting",
+      "specialRequirements": "Child friendly rooms with extra bedding.",
+      "assignedAgent": "Priya Patel",
+      "status": "Confirmed",
+      "followUpDate": "2026-06-15",
+      "notes": "Converted to booking #YM-2026-8812. Advance deposit of ₹25,000 collected.",
+      "createdAt": "2026-06-01T10:15:00Z"
+    },
+    {
+      "id": "lead-106",
+      "name": "Harishankar Tiwari",
+      "phone": "+91 98234 11998",
+      "email": "h.tiwari@lucknowlaw.in",
+      "source": "Website Enquiry Form",
+      "destination": "Badrinath & Kedarnath Yatra",
+      "travelDates": "2026-09-20 to 2026-09-27",
+      "travellers": 5,
+      "adults": 5,
+      "children": 0,
+      "budget": "₹1,50,000",
+      "hotelCategory": "Best available stays",
+      "transportPreference": "Toyota Innova Crysta",
+      "activities": "Maha Pooja at Badrinath and Kedarnath",
+      "specialRequirements": "Senior citizen medical assistance.",
+      "assignedAgent": "Priya Patel",
+      "status": "Qualified",
+      "followUpDate": "2026-06-14",
+      "notes": "Requested complete package including VIP line passes.",
+      "createdAt": "2026-06-08T12:00:00Z"
+    },
+    {
+      "id": "lead-107",
+      "name": "Natasha Fernandez",
+      "phone": "+91 98190 44321",
+      "email": "natasha.f@ogilvy.com",
+      "source": "Instagram Ad",
+      "destination": "Rishikesh Yoga & River Cleanse",
+      "travelDates": "2026-07-15 to 2026-07-20",
+      "travellers": 2,
+      "adults": 2,
+      "children": 0,
+      "budget": "₹45,000",
+      "hotelCategory": "Boutique Riverside Yoga Ashram",
+      "transportPreference": "Scooty",
+      "activities": "Daily yoga, organic cafe hopping, sunrise trek",
+      "specialRequirements": "Strictly vegan meal options.",
+      "assignedAgent": "Rahul Verma",
+      "status": "Contacted",
+      "followUpDate": "2026-06-11",
+      "notes": "Sent list of Tapovan boutique ashrams.",
+      "createdAt": "2026-06-07T16:30:00Z"
+    },
+    {
+      "id": "lead-108",
+      "name": "Balvinder Singh",
+      "phone": "+91 98141 88765",
+      "email": "balvinder.singh@punjabauto.com",
+      "source": "Referral",
+      "destination": "Valley of Flowers & Hemkund Sahib",
+      "travelDates": "2026-08-05 to 2026-08-11",
+      "travellers": 6,
+      "adults": 6,
+      "children": 0,
+      "budget": "₹1,10,000",
+      "hotelCategory": "Comfortable Guesthouses",
+      "transportPreference": "Tempo Traveller",
+      "activities": "Hemkund Sahib darshan and valley floral hike",
+      "specialRequirements": "Pony arrangement for 2 family members.",
+      "assignedAgent": "Priya Patel",
+      "status": "Follow-up",
+      "followUpDate": "2026-06-12",
+      "notes": "Discussed rainy season gear and footwear.",
+      "createdAt": "2026-06-06T11:00:00Z"
+    },
+    {
+      "id": "lead-109",
+      "name": "Karan Mehra",
+      "phone": "+91 98760 12345",
+      "email": "karan.mehra@deloittedigital.com",
+      "source": "Website Enquiry Form",
+      "destination": "Rishikesh Weekend Bachelor Trip",
+      "travelDates": "2026-07-24 to 2026-07-26",
+      "travellers": 10,
+      "adults": 10,
+      "children": 0,
+      "budget": "₹1,00,000",
+      "hotelCategory": "Luxury Riverside Camp",
+      "transportPreference": "12-Seater Tempo Traveller",
+      "activities": "Rafting 36km, Bungee jumping, Flying fox",
+      "specialRequirements": "All adventure videos package.",
+      "assignedAgent": "Rahul Verma",
+      "status": "Quotation Sent",
+      "followUpDate": "2026-06-13",
+      "notes": "Quotation #QT-2026-444 shared on WhatsApp.",
+      "createdAt": "2026-06-05T14:15:00Z"
+    },
+    {
+      "id": "lead-110",
+      "name": "Sunita Narang",
+      "phone": "+91 98101 99283",
+      "email": "sunita.narang@gmail.com",
+      "source": "Website Enquiry Form",
+      "destination": "Nainital & Jim Corbett Family Break",
+      "travelDates": "2026-10-02 to 2026-10-07",
+      "travellers": 5,
+      "adults": 4,
+      "children": 1,
+      "budget": "₹85,000",
+      "hotelCategory": "4-Star Resorts",
+      "transportPreference": "Innova Crysta",
+      "activities": "Jeep safari and Naini lake yachting",
+      "specialRequirements": "Ground floor rooms for elderly.",
+      "assignedAgent": "Priya Patel",
+      "status": "New",
+      "followUpDate": "2026-06-10",
+      "notes": "New enquiry received this morning.",
+      "createdAt": "2026-06-09T09:00:00Z"
+    }
+  ],
+  "quotations": [
+    {
+      "id": "QT-2026-441",
+      "leadId": "lead-102",
+      "customerName": "Pooja Bhattacharya",
+      "customerPhone": "+91 98310 99441",
+      "customerEmail": "pooja.b@tcs.com",
+      "tripTitle": "Rishikesh Extreme Rapids & Luxury Riverside Camping Weekend",
+      "destination": "Rishikesh",
+      "dates": "04 Jul 2026 – 07 Jul 2026",
+      "travellers": 8,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Riverside Camp Haven (4 Luxury Swiss Tents, 3 Nights)",
+          "cost": 22788
+        },
+        {
+          "category": "Transport",
+          "name": "Force Tempo Traveller 12-Seater (Airport Pickup, Drops & Sightseeing)",
+          "cost": 13996
+        },
+        {
+          "category": "Activities",
+          "name": "Marine Drive 16 KM White Water Rafting with Cliff Jump (8 pax)",
+          "cost": 9592
+        },
+        {
+          "category": "Activities",
+          "name": "Jumpin Heights 83m Bungee Jump (4 persons)",
+          "cost": 15196
+        },
+        {
+          "category": "Meals",
+          "name": "Full Board: 3 Breakfasts, 2 Lunches, 3 Barbecue Dinners with Bonfire",
+          "cost": 12000
+        },
+        {
+          "category": "Guide & Services",
+          "name": "Dedicated Trip Leader & First Aid Specialist",
+          "cost": 4000
+        }
+      ],
+      "subtotal": 77572,
+      "discount": 3572,
+      "tax": 3700,
+      "totalAmount": 77700,
+      "status": "Sent",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-08T15:00:00Z",
+      "validUntil": "2026-06-22"
+    },
+    {
+      "id": "QT-2026-442",
+      "leadId": "lead-101",
+      "customerName": "Dr. Manish Kulkarni",
+      "customerPhone": "+91 98205 77112",
+      "customerEmail": "dr.manish@apollo.org",
+      "tripTitle": "Do Dham VIP Pilgrimage: Kedarnath & Badrinath with Helicopter Transfer",
+      "destination": "Kedarnath & Badrinath",
+      "dates": "15 Sep 2026 – 22 Sep 2026",
+      "travellers": 4,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "4-Star Mountain Resorts in Guptkashi & Badrinath (7 Nights)",
+          "cost": 49000
+        },
+        {
+          "category": "Transport",
+          "name": "Toyota Innova Crysta with Experienced Hill Chauffeur",
+          "cost": 28000
+        },
+        {
+          "category": "Helicopter",
+          "name": "Return Helicopter Shuttles Phata-Kedarnath for 4 pax",
+          "cost": 48000
+        },
+        {
+          "category": "Services",
+          "name": "Priority Darshan Coordination & Wheelchair Assistance",
+          "cost": 6000
+        }
+      ],
+      "subtotal": 131000,
+      "discount": 6000,
+      "tax": 6250,
+      "totalAmount": 131250,
+      "status": "Draft",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-09T10:30:00Z",
+      "validUntil": "2026-06-25"
+    },
+    {
+      "id": "QT-2026-443",
+      "leadId": "lead-106",
+      "customerName": "Harishankar Tiwari",
+      "customerPhone": "+91 98234 11998",
+      "customerEmail": "h.tiwari@lucknowlaw.in",
+      "tripTitle": "Sacred Badrinath & Kedarnath Yatra with Dedicated Innova",
+      "destination": "Kedarnath & Badrinath",
+      "dates": "20 Sep 2026 – 27 Sep 2026",
+      "travellers": 5,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Deluxe Hotels in Guptkashi, Joshimath & Badrinath (7 Nights)",
+          "cost": 56000
+        },
+        {
+          "category": "Transport",
+          "name": "Dedicated Toyota Innova Crysta for 8 Days with Hill Chauffeur",
+          "cost": 32000
+        },
+        {
+          "category": "Helicopter",
+          "name": "VIP Helicopter Booking Shuttles for 5 pax",
+          "cost": 60000
+        },
+        {
+          "category": "Services",
+          "name": "Special Maha Pooja at Badrinath & Kedarnath with Priest",
+          "cost": 10000
+        }
+      ],
+      "subtotal": 158000,
+      "discount": 8000,
+      "tax": 7500,
+      "totalAmount": 157500,
+      "status": "Sent",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-08T18:00:00Z",
+      "validUntil": "2026-06-25"
+    },
+    {
+      "id": "QT-2026-444",
+      "leadId": "lead-109",
+      "customerName": "Karan Mehra",
+      "customerPhone": "+91 98760 12345",
+      "customerEmail": "karan.mehra@deloittedigital.com",
+      "tripTitle": "Rishikesh Thrill Weekend: 36 KM Rafting & Bungee Extravaganza",
+      "destination": "Rishikesh",
+      "dates": "24 Jul 2026 – 26 Jul 2026",
+      "travellers": 10,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Riverside Camp Haven (5 Luxury Swiss Tents, 2 Nights)",
+          "cost": 20000
+        },
+        {
+          "category": "Transport",
+          "name": "12-Seater AC Force Tempo Traveller Pickup, Drops & Transfers",
+          "cost": 11000
+        },
+        {
+          "category": "Activities",
+          "name": "Extreme 36 KM Kaudiyala White Water Rafting with Cliff Jump",
+          "cost": 24990
+        },
+        {
+          "category": "Activities",
+          "name": "Jumpin Heights 83m Bungee Jump for 10 pax",
+          "cost": 37990
+        },
+        {
+          "category": "Meals",
+          "name": "All Meals: 2 Breakfasts, 2 Lunches, 2 Barbecue Bonfire Dinners",
+          "cost": 14000
+        }
+      ],
+      "subtotal": 107980,
+      "discount": 5980,
+      "tax": 5100,
+      "totalAmount": 107100,
+      "status": "Sent",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-07T11:30:00Z",
+      "validUntil": "2026-06-21"
+    },
+    {
+      "id": "QT-2026-445",
+      "leadId": "lead-108",
+      "customerName": "Balvinder Singh",
+      "customerPhone": "+91 98141 88765",
+      "customerEmail": "balvinder.singh@punjabauto.com",
+      "tripTitle": "Valley of Flowers & Hemkund Sahib Sacred Trek Experience",
+      "destination": "Valley of Flowers",
+      "dates": "05 Aug 2026 – 11 Aug 2026",
+      "travellers": 6,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Hotels in Joshimath and Swiss Guesthouse in Ghangaria (6 Nights)",
+          "cost": 42000
+        },
+        {
+          "category": "Transport",
+          "name": "Tempo Traveller Haridwar to Govindghat Return",
+          "cost": 26000
+        },
+        {
+          "category": "Trekking Services",
+          "name": "Certified Mountain Guide, Medical Oxygen & Forest Permits",
+          "cost": 18000
+        },
+        {
+          "category": "Pony / Porter",
+          "name": "Reserved Mules & Porters for personal luggage",
+          "cost": 12000
+        }
+      ],
+      "subtotal": 98000,
+      "discount": 4000,
+      "tax": 4700,
+      "totalAmount": 98700,
+      "status": "Draft",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-08T09:00:00Z",
+      "validUntil": "2026-06-22"
+    },
+    {
+      "id": "QT-2026-446",
+      "leadId": "lead-105",
+      "customerName": "Siddharth Menon",
+      "customerPhone": "+91 98450 66551",
+      "customerEmail": "siddharth.m@infosys.com",
+      "tripTitle": "Jim Corbett & Nainital Luxury Family Holiday",
+      "destination": "Jim Corbett & Nainital",
+      "dates": "15 Oct 2026 – 20 Oct 2026",
+      "travellers": 4,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Corbett Wild Iris Spa Resort & Nainital Heritage Stay (5 Nights)",
+          "cost": 48000
+        },
+        {
+          "category": "Transport",
+          "name": "Toyota Innova Crysta for 6 Days",
+          "cost": 24000
+        },
+        {
+          "category": "Safaris",
+          "name": "2 Private 4x4 Jeep Safaris into Bijrani and Jhirna Core Zones",
+          "cost": 9000
+        },
+        {
+          "category": "Activities",
+          "name": "Naini Lake Private Yachting & Cable Car passes",
+          "cost": 4500
+        }
+      ],
+      "subtotal": 85500,
+      "discount": 3500,
+      "tax": 4100,
+      "totalAmount": 86100,
+      "status": "Accepted",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-01T11:00:00Z",
+      "validUntil": "2026-06-15"
+    },
+    {
+      "id": "QT-2026-447",
+      "leadId": "lead-104",
+      "customerName": "Vikramaditya Roy",
+      "customerPhone": "+91 98711 00223",
+      "customerEmail": "vikram.roy@startup.in",
+      "tripTitle": "Auli Romantic Winter Skiing & Himalayan Chalet",
+      "destination": "Auli",
+      "dates": "24 Dec 2026 – 29 Dec 2026",
+      "travellers": 2,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Snowline Boutique Auli (Heated Glacier Attic, 5 Nights)",
+          "cost": 37500
+        },
+        {
+          "category": "Ski Lessons",
+          "name": "Private Coach and Ski Gear for 4 Days",
+          "cost": 16000
+        },
+        {
+          "category": "Ropeway",
+          "name": "Cable Car Passes Joshimath-Auli",
+          "cost": 4000
+        }
+      ],
+      "subtotal": 57500,
+      "discount": 2500,
+      "tax": 2750,
+      "totalAmount": 57750,
+      "status": "Draft",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-09T17:00:00Z",
+      "validUntil": "2026-06-30"
+    },
+    {
+      "id": "QT-2026-448",
+      "leadId": "lead-107",
+      "customerName": "Natasha Fernandez",
+      "customerPhone": "+91 98190 44321",
+      "customerEmail": "natasha.f@ogilvy.com",
+      "tripTitle": "Rishikesh 5-Day Wellness, Yoga & Nature Retreat",
+      "destination": "Rishikesh",
+      "dates": "15 Jul 2026 – 20 Jul 2026",
+      "travellers": 2,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Sattva Retreat Sanctuary Room (5 Nights with Sattvic Meals)",
+          "cost": 24495
+        },
+        {
+          "category": "Transport",
+          "name": "Honda Activa 6G Scooty Rental for 5 Days",
+          "cost": 2495
+        },
+        {
+          "category": "Therapies",
+          "name": "Ayurvedic Abhyanga Massage & Sound Healing Sessions",
+          "cost": 8000
+        }
+      ],
+      "subtotal": 34990,
+      "discount": 1490,
+      "tax": 1700,
+      "totalAmount": 35200,
+      "status": "Sent",
+      "assignedAgent": "Rahul Verma",
+      "createdAt": "2026-06-08T12:00:00Z",
+      "validUntil": "2026-06-25"
+    },
+    {
+      "id": "QT-2026-449",
+      "leadId": "lead-103",
+      "customerName": "Rameshwar Lal Singhal",
+      "customerPhone": "+91 98112 33445",
+      "customerEmail": "rl.singhal@rediffmail.com",
+      "tripTitle": "Grand Complete Char Dham 10-Day Royal Pilgrim Circuit",
+      "destination": "Char Dham",
+      "dates": "01 Sep 2026 – 11 Sep 2026",
+      "travellers": 6,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "Super Deluxe Hotels across Barkot, Uttarkashi, Guptkashi, Badrinath (10 Nights)",
+          "cost": 110000
+        },
+        {
+          "category": "Transport",
+          "name": "Luxury Force Urbania with Recliner Seats & Air Suspension",
+          "cost": 75000
+        },
+        {
+          "category": "Meals",
+          "name": "Pure Sattvic Dining (Breakfast, Lunch & Dinner cooked fresh)",
+          "cost": 42000
+        },
+        {
+          "category": "Assistance",
+          "name": "VIP Darshan Coordination & Local Pandits",
+          "cost": 18000
+        }
+      ],
+      "subtotal": 245000,
+      "discount": 10000,
+      "tax": 11750,
+      "totalAmount": 246750,
+      "status": "Draft",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-09T14:00:00Z",
+      "validUntil": "2026-06-30"
+    },
+    {
+      "id": "QT-2026-450",
+      "leadId": "lead-110",
+      "customerName": "Sunita Narang",
+      "customerPhone": "+91 98101 99283",
+      "customerEmail": "sunita.narang@gmail.com",
+      "tripTitle": "Kumaon Lakes & Corbett Tiger Reserve 6-Day Break",
+      "destination": "Nainital & Jim Corbett",
+      "dates": "02 Oct 2026 – 07 Oct 2026",
+      "travellers": 5,
+      "items": [
+        {
+          "category": "Accommodation",
+          "name": "4-Star Resorts in Nainital & Corbett (5 Nights)",
+          "cost": 44000
+        },
+        {
+          "category": "Transport",
+          "name": "Toyota Innova Crysta Pickup & Drop",
+          "cost": 22000
+        },
+        {
+          "category": "Safaris",
+          "name": "Jeep Safari and Lake Yachting passes",
+          "cost": 8500
+        }
+      ],
+      "subtotal": 74500,
+      "discount": 2500,
+      "tax": 3600,
+      "totalAmount": 75600,
+      "status": "Draft",
+      "assignedAgent": "Priya Patel",
+      "createdAt": "2026-06-09T18:00:00Z",
+      "validUntil": "2026-06-25"
+    }
+  ],
+  "coupons": [
+    {
+      "code": "RENT25",
+      "type": "percentage",
+      "discountValue": 25,
+      "minBookingAmount": 1000,
+      "maxDiscount": 500,
+      "applicableTo": "vehicle",
+      "description": "Avail up to 25% Off on rental vehicles (Bikes, Scooties & Cars)",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    },
+    {
+      "code": "TRILL25",
+      "type": "percentage",
+      "discountValue": 25,
+      "minBookingAmount": 1500,
+      "maxDiscount": 800,
+      "applicableTo": "activity",
+      "description": "Avail up to 25% Off on rafting, bungee jumping and adventure thrills",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    },
+    {
+      "code": "4DHAM25",
+      "type": "percentage",
+      "discountValue": 15,
+      "minBookingAmount": 10000,
+      "maxDiscount": 3500,
+      "applicableTo": "package",
+      "description": "Avail up to 15% Off on all Char Dham and Do Dham tour packages",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    },
+    {
+      "code": "WELCOME500",
+      "type": "flat",
+      "discountValue": 500,
+      "minBookingAmount": 2500,
+      "maxDiscount": 500,
+      "applicableTo": "all",
+      "description": "Flat ₹500 discount for your first hotel or holiday booking",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    },
+    {
+      "code": "YATRI10",
+      "type": "percentage",
+      "discountValue": 10,
+      "minBookingAmount": 3000,
+      "maxDiscount": 2000,
+      "applicableTo": "all",
+      "description": "10% member discount on all bookings across India",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "productType": "hotel",
+      "productId": "htl-1",
+      "author": "Sameer Sharma",
+      "rating": 5,
+      "title": "Serene Ganga views and remarkable hospitality",
+      "comment": "Waking up to the morning Ganga Aarti right from the balcony was an unforgettable experience. The breakfast spread was healthy and the staff took care of every request.",
+      "date": "2026-04-25",
+      "status": "approved"
+    },
+    {
+      "id": "rev-2",
+      "productType": "package",
+      "productId": "pkg-1",
+      "author": "Neha Gupta",
+      "rating": 5,
+      "title": "Life-changing Char Dham experience",
+      "comment": "Yatrimap made this arduous Himalayan pilgrimage completely stress-free. Our driver Bhupendra was a mountain master, and the VIP darshan pass saved us 6 hours in line.",
+      "date": "2026-05-30",
+      "status": "approved"
+    },
+    {
+      "id": "rev-3",
+      "productType": "activity",
+      "productId": "act-1",
+      "author": "Rohan Iyer",
+      "rating": 5,
+      "title": "Top notch rafting guides and safety",
+      "comment": "Done rafting in Colorado and Bali, but the Class IV rapids on the Ganga with Yatrimap were world-class! The cliff jump into the river was thrilling.",
+      "date": "2026-04-10",
+      "status": "approved"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "blog-1",
+      "slug": "complete-guide-to-char-dham-yatra-2026",
+      "title": "The Ultimate Guide to Char Dham Yatra 2026: Route, Helicopter Bookings & Tips",
+      "category": "Pilgrimage Guide",
+      "author": "Ananya Sen (Content Specialist)",
+      "readTime": "6 min read",
+      "coverImage": "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?auto=format&fit=crop&w=1200&q=85",
+      "excerpt": "Everything you need to know before undertaking the sacred journey to Yamunotri, Gangotri, Kedarnath, and Badrinath.",
+      "content": "Undertaking the Char Dham Yatra is one of the most spiritually transformative journeys in India. In this guide, we outline the exact chronological circuit starting from Yamunotri and culminating at Badrinath, biometric registration procedures, high altitude acclimatization essentials, and how to secure reliable helicopter shuttles.",
+      "publishedAt": "2026-04-01"
+    },
+    {
+      "id": "blog-2",
+      "slug": "top-10-hidden-waterfalls-and-cafes-in-rishikesh",
+      "title": "Top 10 Hidden Waterfalls & Bohemian Cafes in Rishikesh You Never Knew Existed",
+      "category": "Travel & Lifestyle",
+      "author": "Priya Patel (Senior Travel Agent)",
+      "readTime": "4 min read",
+      "coverImage": "https://images.unsplash.com/photo-1532978379173-523e16f371f2?auto=format&fit=crop&w=1200&q=85",
+      "excerpt": "Escape the tourist crowds and discover secret plunge pools, vegan sourdough bakeries, and cliffside sunset views.",
+      "content": "While Laxman Jhula and Ram Jhula capture most travellers’ attention, Rishikesh holds secluded treasures just a short scooty ride away. From the hidden cascading pools of Patna Waterfall to authentic wood-fired bakeries tucked in Tapovan.",
+      "publishedAt": "2026-04-15"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "userId": "usr-6",
+      "title": "Char Dham Booking Confirmed",
+      "message": "Your booking YM-2026-8812 for Complete Char Dham Sacred Yatra is confirmed. Download your voucher now.",
+      "type": "booking",
+      "read": false,
+      "createdAt": "2026-05-10T14:35:00Z"
+    },
+    {
+      "id": "notif-2",
+      "userId": "usr-6",
+      "title": "Trip Reminder: Upcoming Thar 4x4 Rental",
+      "message": "Your self-drive rental starts in 5 days on 15 June 2026. Keep your driving license ready.",
+      "type": "trip",
+      "read": true,
+      "createdAt": "2026-06-10T09:00:00Z"
+    },
+    {
+      "id": "notif-3",
+      "userId": "usr-6",
+      "title": "Special Offer: 25% Off Adventure Activities",
+      "message": "Use coupon TRILL25 at checkout to save up to ₹800 on river rafting and bungee jumping.",
+      "type": "promo",
+      "read": false,
+      "createdAt": "2026-06-05T12:00:00Z"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TCK-1001",
+      "customerId": "usr-6",
+      "customerName": "Sameer Sharma",
+      "bookingId": "YM-2026-9041",
+      "category": "Vehicle Pickup",
+      "priority": "Medium",
+      "subject": "Request pickup location near Rishikesh Railway Station",
+      "message": "Can I pick up the Mahindra Thar from the new Rishikesh Yog Nagari railway station instead of Tapovan office?",
+      "status": "Resolved",
+      "assignedAgent": "Rahul Verma",
+      "response": "Yes Sameer! Our representative will deliver the Thar at Yog Nagari station parking at 10:00 AM at no extra cost.",
+      "createdAt": "2026-06-02T10:00:00Z",
+      "updatedAt": "2026-06-02T12:30:00Z"
+    }
+  ],
+  "itineraries": [
+    {
+      "id": "itin-sample-1",
+      "userId": "usr-6",
+      "title": "4-Day Rishikesh Weekend Escape",
+      "destination": "Rishikesh",
+      "dates": "2026-07-10 to 2026-07-14",
+      "travellers": 2,
+      "estimatedCost": 18450,
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival & Ganga Aarti Immersion",
+          "hotel": "Ganga Kinare Retreat",
+          "transport": "Scooty Rental (Honda Activa 6G)",
+          "activities": [
+            "Explore Ram Jhula & Beatles Ashram",
+            "Triveni Ghat Evening Maha Aarti"
+          ],
+          "notes": "Reach by 12 noon, check in, take scooty and head to Beatles Ashram."
+        },
+        {
+          "day": 2,
+          "title": "River Rapids & Cliff Jumping",
+          "hotel": "Ganga Kinare Retreat",
+          "transport": "Scooty Rental",
+          "activities": [
+            "16 KM White Water Rafting Marine Drive",
+            "Maggi Point Cliff Jump",
+            "Cafe hopping in Tapovan"
+          ],
+          "notes": "Wear quick-dry clothes. Carry waterproof phone pouch."
+        },
+        {
+          "day": 3,
+          "title": "Bungee Jump & Riverside Dining",
+          "hotel": "Ganga Kinare Retreat",
+          "transport": "Scooty Rental",
+          "activities": [
+            "Jumpin Heights 83m Bungee Jump",
+            "Sunset Rooftop Dinner at Divine Resort"
+          ],
+          "notes": "Reach Mohan Chatti by 10 AM."
+        },
+        {
+          "day": 4,
+          "title": "Kunjapuri Sunrise & Departure",
+          "hotel": "Check-out",
+          "transport": "Taxi drop to Dehradun Airport",
+          "activities": [
+            "Sunrise at Kunjapuri Temple",
+            "Souvenir shopping in Swarg Ashram"
+          ],
+          "notes": "Early morning 4:30 AM departure for sunrise."
+        }
+      ],
+      "createdAt": "2026-05-15T10:00:00Z"
+    }
+  ]
+};
+}
+
+export { generate };
+export default { generate };

@@ -1,0 +1,1 @@
+document.addEventListener('click',event=>{const card=event.target.closest('.category-card');if(card?.querySelector('span')?.textContent==='Trekking'){event.preventDefault();event.stopImmediatePropagation();location.href='trekking.html'}},true);

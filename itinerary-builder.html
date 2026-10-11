@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Custom Trip Itinerary Builder for Rishikesh, Char Dham & Himalayas. Design your dream journey.">
+  <title>Custom Trip Itinerary Builder | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+  <link rel="stylesheet" href="platform.css">
+  <style>
+    .builder-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      padding-top: 32px;
+      padding-bottom: 80px;
+    }
+    .step-navigator {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      font: 600 13px 'DM Sans', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .step-nav-btn.active {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+    }
+    .step-nav-btn.done {
+      background: #eaf7fc;
+      color: var(--forest);
+      border-color: var(--forest);
+    }
+    .step-panel {
+      display: none;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step-panel h2 {
+      font: 600 24px 'Playfair Display', serif;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .step-panel p.subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 24px;
+    }
+    .selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .selectable-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      background: #fff;
+      position: relative;
+    }
+    .selectable-card:hover {
+      border-color: var(--forest);
+      transform: translateY(-2px);
+    }
+    .selectable-card.selected {
+      border-color: var(--forest);
+      background: #f4fbff;
+      box-shadow: 0 0 0 3px rgba(39, 158, 211, 0.2);
+    }
+    .selectable-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+    .selectable-card-body {
+      padding: 12px;
+    }
+    .selectable-card-body strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .selectable-card-body span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .selectable-card-body .price-tag {
+      font-weight: 700;
+      color: var(--forest);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .selectable-card.selected::before {
+      content: '✓';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background: var(--forest);
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    /* Day by day timeline cards in Step 7 */
+    .day-planner-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+      background: #fafdfe;
+    }
+    .day-planner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .day-badge {
+      background: var(--forest);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .day-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .slot-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+    }
+    .slot-box b {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--forest);
+      margin-bottom: 4px;
+    }
+    .slot-box input, .slot-box select {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      font: 500 13px 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    /* Sidebar summary */
+    .summary-card {
+      position: sticky;
+      top: 90px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .summary-card h3 {
+      font: 600 20px 'Playfair Display', serif;
+      color: var(--ink);
+      margin: 0 0 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: #436272;
+    }
+    .summary-item b {
+      color: var(--ink);
+      text-align: right;
+    }
+    .total-cost-box {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 2px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .total-cost-box span {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .total-cost-box strong {
+      font-size: 26px;
+      color: var(--forest);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .builder-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 950px) {
+      .builder-layout { grid-template-columns: 1fr; }
+      .day-slots-grid { grid-template-columns: 1fr; }
+      .summary-card { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Navigation Header -->
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand" aria-label="Yatrimap home"><span class="brand-mark">y</span>yatrimap</a>
+    <button class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="nav-search">
+      <span>⌕</span>
+      <input id="site-search" placeholder="Search destinations, stays, thrills" aria-label="Search destinations" autocomplete="off" />
+    </div>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="destination.html">Destinations</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Rentals</a>
+      <a href="trekking.html">Activities</a>
+      <a href="itinerary-builder.html" style="color:var(--forest);font-weight:700;">Trip Builder</a>
+      <a href="my-trips.html">My Trips</a>
+      <button class="login" id="login">Login</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="builder-layout">
+      <!-- Left Panel: 7 Steps -->
+      <section class="builder-steps-container">
+        <!-- Step Navigator Tabs -->
+        <nav class="step-navigator" id="step-nav" aria-label="Builder steps">
+          <button class="step-nav-btn active" data-step="1">1. Destination</button>
+          <button class="step-nav-btn" data-step="2">2. Dates</button>
+          <button class="step-nav-btn" data-step="3">3. Travellers</button>
+          <button class="step-nav-btn" data-step="4">4. Stays</button>
+          <button class="step-nav-btn" data-step="5">5. Transport</button>
+          <button class="step-nav-btn" data-step="6">6. Activities</button>
+          <button class="step-nav-btn" data-step="7">7. Daily Planner</button>
+        </nav>
+
+        <!-- STEP 1: DESTINATION -->
+        <div class="step-panel active" id="step-1">
+          <h2>Step 1: Where will your journey take you?</h2>
+          <p class="subtitle">Select your primary Himalayan travel destination or circuit.</p>
+          <div class="selection-grid" id="dest-choices"></div>
+          <div style="display:flex;justify-content:flex-end;">
+            <button class="btn-primary" onclick="goToStep(2)">Continue to Dates →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: TRAVEL DATES -->
+        <div class="step-panel" id="step-2">
+          <h2>Step 2: When are you travelling?</h2>
+          <p class="subtitle">Choose your departure date and duration in days.</p>
+          <div class="input-grid-2" style="max-width:550px;margin-bottom:24px;">
+            <div class="input-row">
+              <label>Start Date</label>
+              <input type="date" id="itin-start-date" required>
+            </div>
+            <div class="input-row">
+              <label>Duration</label>
+              <select id="itin-duration">
+                <option value="3">3 Days / 2 Nights (Quick Reset)</option>
+                <option value="4" selected>4 Days / 3 Nights (Recommended)</option>
+                <option value="5">5 Days / 4 Nights (Full Circuit)</option>
+                <option value="7">7 Days / 6 Nights (Deep Expedition)</option>
+                <option value="10">10 Days / 9 Nights (Complete Char Dham)</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <button class="btn-outline" onclick="goToStep(1)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(3)">Continue to Travellers →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: TRAVELLERS -->
+        <div class="step-panel" id="step-3">
+          <h2>Step 3: Who is travelling with you?</h2>
+          <p class="subtitle">Specify group count to customize rooms and vehicle seating.</p>
+          <div class="input-grid-2" style="max-width:550px;margin-bottom:24px;">
+            <div class="input-row">
+              <label>Adults (12+ yrs)</label>
+              <select id="itin-adults">
+                <option value="1">1 Solo</option>
+                <option value="2" selected>2 Adults (Couple / Friends)</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+                <option value="6">6 Adults</option>
+                <option value="10">10+ Group</option>
+              </select>
+            </div>
+            <div class="input-row">
+              <label>Children (0–11 yrs)</label>
+              <select id="itin-children">
+                <option value="0" selected>0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <button class="btn-outline" onclick="goToStep(2)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(4)">Continue to Stays →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: HOTELS -->
+        <div class="step-panel" id="step-4">
+          <h2>Step 4: Select Your Accommodation</h2>
+          <p class="subtitle">Pick from verified riverside resorts, yoga retreats, or luxury camps.</p>
+          <div class="selection-grid" id="hotel-choices"></div>
+          <div style="display:flex;justify-content:space-between;">
+            <button class="btn-outline" onclick="goToStep(3)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(5)">Continue to Transport →</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: TRANSPORT -->
+        <div class="step-panel" id="step-5">
+          <h2>Step 5: How will you travel?</h2>
+          <p class="subtitle">Choose self-drive cars, dedicated mountain taxis, or iconic bikes.</p>
+          <div class="selection-grid" id="vehicle-choices"></div>
+          <div style="display:flex;justify-content:space-between;">
+            <button class="btn-outline" onclick="goToStep(4)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(6)">Continue to Activities →</button>
+          </div>
+        </div>
+
+        <!-- STEP 6: ACTIVITIES -->
+        <div class="step-panel" id="step-6">
+          <h2>Step 6: Choose Your Thrills & Experiences</h2>
+          <p class="subtitle">Select white water rafting, bungee jumping, treks, or sunrise excursions (select multiple).</p>
+          <div class="selection-grid" id="activity-choices"></div>
+          <div style="display:flex;justify-content:space-between;">
+            <button class="btn-outline" onclick="goToStep(5)">← Back</button>
+            <button class="btn-primary" onclick="goToStep(7)">Review Day-by-Day Planner →</button>
+          </div>
+        </div>
+
+        <!-- STEP 7: DAY BY DAY PLANNER -->
+        <div class="step-panel" id="step-7">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+            <div>
+              <h2>Step 7: Customize Day-by-Day Schedule</h2>
+              <p class="subtitle" style="margin:0;">Refine morning, afternoon, and evening activities for each day.</p>
+            </div>
+            <button class="btn-outline" id="btn-add-day" style="font-size:12px;">+ Add Extra Day</button>
+          </div>
+
+          <div id="day-by-day-list"></div>
+
+          <div style="display:flex;justify-content:space-between;margin-top:24px;">
+            <button class="btn-outline" onclick="goToStep(6)">← Back</button>
+            <button class="btn-primary" id="btn-save-trip-final">Save & Finalize Trip ✓</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Summary Panel -->
+      <aside class="builder-summary-container">
+        <div class="summary-card">
+          <h3>Trip Summary</h3>
+          <div class="summary-item">
+            <span>Destination:</span>
+            <b id="sum-dest">Rishikesh</b>
+          </div>
+          <div class="summary-item">
+            <span>Duration:</span>
+            <b id="sum-duration">4 Days / 3 Nights</b>
+          </div>
+          <div class="summary-item">
+            <span>Travellers:</span>
+            <b id="sum-pax">2 Persons</b>
+          </div>
+          <div class="summary-item">
+            <span>Stay:</span>
+            <b id="sum-hotel">Ganga Kinare Retreat</b>
+          </div>
+          <div class="summary-item">
+            <span>Transport:</span>
+            <b id="sum-transport">Honda Activa 6G Scooty</b>
+          </div>
+          <div class="summary-item">
+            <span>Activities:</span>
+            <b id="sum-acts">Rafting 16km, Bungee</b>
+          </div>
+
+          <div class="total-cost-box">
+            <span>Estimated Cost:</span>
+            <strong id="sum-total">₹18,450</strong>
+          </div>
+
+          <div class="builder-actions">
+            <button class="btn-primary" id="btn-book-trip-direct" style="width:100%;">
+              Book This Trip Now 💳
+            </button>
+            <button class="btn-outline" id="btn-download-pdf-itin" style="width:100%;">
+              📄 Download PDF Itinerary
+            </button>
+            <button class="btn-whatsapp" id="btn-share-whatsapp" style="width:100%;justify-content:center;">
+              Share on WhatsApp 💬
+            </button>
+            <button class="btn-outline" id="btn-send-to-expert" style="width:100%;">
+              Send to Travel Expert 👨‍💼
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">y</span>yatrimap</a>
+      <p>Yatrimap Custom Trip Planning System. Build, share, and book your dream Himalayan escape.</p>
+      <span>© 2026 Yatrimap</span>
+    </div>
+  </footer>
+
+  <script src="platform.js"></script>
+  <script>
+    // State of the builder
+    const trip = {
+      destination: 'Rishikesh',
+      destinationSlug: 'rishikesh',
+      startDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
+      duration: 4,
+      adults: 2,
+      children: 0,
+      selectedHotel: null,
+      selectedVehicle: null,
+      selectedActivities: [],
+      days: []
+    };
+
+    let allDestinations = [];
+    let allHotels = [];
+    let allVehicles = [];
+    let allActivities = [];
+
+    async function initBuilder() {
+      // Set start date minimum to today
+      const today = new Date().toISOString().slice(0, 10);
+      document.getElementById('itin-start-date').min = today;
+      document.getElementById('itin-start-date').value = trip.startDate;
+
+      // Check URL query parameters (e.g. ?package=pkg-1 or ?destination=auli)
+      const params = new URLSearchParams(window.location.search);
+      const urlDest = params.get('destination');
+      if (urlDest) trip.destination = urlDest;
+
+      // Load database inventories in parallel
+      const [destRes, htlRes, vehRes, actRes] = await Promise.all([
+        Yatrimap.api.get('/api/destinations'),
+        Yatrimap.api.get('/api/hotels'),
+        Yatrimap.api.get('/api/vehicles'),
+        Yatrimap.api.get('/api/activities')
+      ]);
+
+      allDestinations = (destRes && destRes.destinations) || [];
+      allHotels = (htlRes && htlRes.hotels) || [];
+      allVehicles = (vehRes && vehRes.vehicles) || [];
+      allActivities = (actRes && actRes.activities) || [];
+
+      // Set default hotel & vehicle
+      trip.selectedHotel = allHotels[0] || null;
+      trip.selectedVehicle = allVehicles.find(v => v.category === 'scooty') || allVehicles[0] || null;
+      trip.selectedActivities = allActivities.slice(0, 2);
+
+      renderStep1Destinations();
+      renderStep4Hotels();
+      renderStep5Vehicles();
+      renderStep6Activities();
+      generateDefaultDays();
+      updateSummary();
+      setupEvents();
+    }
+
+    function goToStep(stepNum) {
+      document.querySelectorAll('.step-nav-btn').forEach(btn => {
+        const num = Number(btn.dataset.step);
+        btn.classList.toggle('active', num === stepNum);
+        btn.classList.toggle('done', num < stepNum);
+      });
+
+      document.querySelectorAll('.step-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === `step-${stepNum}`);
+      });
+
+      if (stepNum === 7) {
+        renderDayPlanner();
+      }
+
+      updateSummary();
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function renderStep1Destinations() {
+      const container = document.getElementById('dest-choices');
+      container.innerHTML = allDestinations.map(d => `
+        <div class="selectable-card ${d.name.toLowerCase() === trip.destination.toLowerCase() ? 'selected' : ''}" data-name="${d.name}" data-slug="${d.slug}">
+          <img src="${d.heroImage}" alt="${d.name}">
+          <div class="selectable-card-body">
+            <strong>${d.name}</strong>
+            <span>${d.state}, India</span>
+            <div class="price-tag">From ₹${d.startingPrice}/day</div>
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.selectable-card').forEach(card => {
+        card.onclick = () => {
+          container.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          trip.destination = card.dataset.name;
+          trip.destinationSlug = card.dataset.slug;
+          updateSummary();
+        };
+      });
+    }
+
+    function renderStep4Hotels() {
+      const container = document.getElementById('hotel-choices');
+      container.innerHTML = allHotels.slice(0, 6).map(h => `
+        <div class="selectable-card ${trip.selectedHotel && trip.selectedHotel.id === h.id ? 'selected' : ''}" data-id="${h.id}">
+          <img src="${h.heroImage}" alt="${h.name}">
+          <div class="selectable-card-body">
+            <strong>${h.name}</strong>
+            <span>${h.location} • ★ ${h.rating}</span>
+            <div class="price-tag">₹${h.pricePerNight.toLocaleString('en-IN')} / night</div>
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.selectable-card').forEach(card => {
+        card.onclick = () => {
+          container.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          trip.selectedHotel = allHotels.find(h => h.id === card.dataset.id);
+          updateSummary();
+        };
+      });
+    }
+
+    function renderStep5Vehicles() {
+      const container = document.getElementById('vehicle-choices');
+      container.innerHTML = allVehicles.slice(0, 6).map(v => `
+        <div class="selectable-card ${trip.selectedVehicle && trip.selectedVehicle.id === v.id ? 'selected' : ''}" data-id="${v.id}">
+          <img src="${v.image}" alt="${v.name}">
+          <div class="selectable-card-body">
+            <strong>${v.name}</strong>
+            <span>${v.type} (${v.category.toUpperCase()})</span>
+            <div class="price-tag">₹${v.pricePerDay.toLocaleString('en-IN')} / day</div>
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.selectable-card').forEach(card => {
+        card.onclick = () => {
+          container.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          trip.selectedVehicle = allVehicles.find(v => v.id === card.dataset.id);
+          updateSummary();
+        };
+      });
+    }
+
+    function renderStep6Activities() {
+      const container = document.getElementById('activity-choices');
+      container.innerHTML = allActivities.slice(0, 8).map(a => {
+        const isSelected = trip.selectedActivities.some(sa => sa.id === a.id);
+        return `
+          <div class="selectable-card ${isSelected ? 'selected' : ''}" data-id="${a.id}">
+            <img src="${a.image}" alt="${a.name}">
+            <div class="selectable-card-body">
+              <strong>${a.name}</strong>
+              <span>${a.location} • ${a.duration}</span>
+              <div class="price-tag">₹${a.price.toLocaleString('en-IN')} / pax</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.querySelectorAll('.selectable-card').forEach(card => {
+        card.onclick = () => {
+          const act = allActivities.find(a => a.id === card.dataset.id);
+          const idx = trip.selectedActivities.findIndex(sa => sa.id === act.id);
+          if (idx !== -1) {
+            trip.selectedActivities.splice(idx, 1);
+            card.classList.remove('selected');
+          } else {
+            trip.selectedActivities.push(act);
+            card.classList.add('selected');
+          }
+          updateSummary();
+        };
+      });
+    }
+
+    function generateDefaultDays() {
+      trip.days = [];
+      const titles = [
+        'Arrival, Hotel Check-in & Scenic Aarti',
+        'High Rapids White Water Rafting & Cliff Jump',
+        'Mountain Summit Exploration & Cafe Hopping',
+        'Sunrise Point Hike, Souvenir Shopping & Departure',
+        'Deep Alpine Valley Trek & Campfire',
+        'Yoga Immersion & Waterfall Trek',
+        'Village Heritage Walk & Photography Trail'
+      ];
+
+      for (let i = 1; i <= trip.duration; i++) {
+        trip.days.push({
+          day: i,
+          title: titles[i - 1] || `Day ${i} Exploration`,
+          hotel: trip.selectedHotel ? trip.selectedHotel.name : 'Riverside Retreat',
+          transport: trip.selectedVehicle ? trip.selectedVehicle.name : 'Local Vehicle',
+          activities: trip.selectedActivities.map(a => a.name).slice(0, 2),
+          notes: i === 1 ? 'Check in by 1:00 PM' : (i === trip.duration ? 'Pack bags for 11:00 AM check-out' : '')
+        });
+      }
+    }
+
+    function renderDayPlanner() {
+      const list = document.getElementById('day-by-day-list');
+      list.innerHTML = trip.days.map((day, idx) => `
+        <div class="day-planner-card" data-idx="${idx}">
+          <div class="day-planner-header">
+            <span class="day-badge">DAY 0${day.day}</span>
+            <input type="text" class="day-title-input" value="${day.title}" style="border:0;background:none;font:600 15px 'DM Sans';color:var(--ink);width:70%;outline:none;border-bottom:1px dashed var(--border);">
+            <button class="btn-outline remove-day-btn" style="padding:3px 8px;font-size:11px;color:#c53030;" data-idx="${idx}">Remove</button>
+          </div>
+          <div class="day-slots-grid">
+            <div class="slot-box">
+              <b>Morning Slot</b>
+              <input type="text" class="day-morning-input" value="${day.morning || 'Buffet Breakfast & Departure'}">
+            </div>
+            <div class="slot-box">
+              <b>Afternoon Slot</b>
+              <input type="text" class="day-afternoon-input" value="${day.afternoon || (trip.selectedActivities[idx % trip.selectedActivities.length] ? trip.selectedActivities[idx % trip.selectedActivities.length].name : 'Local Sightseeing')}">
+            </div>
+            <div class="slot-box">
+              <b>Evening Slot</b>
+              <input type="text" class="day-evening-input" value="${day.evening || 'Riverside Bonfire & Dinner'}">
+            </div>
+          </div>
+          <div style="margin-top:10px;">
+            <input type="text" class="day-notes-input" placeholder="Add custom notes (e.g. wear sports shoes, camera permit required...)" value="${day.notes || ''}" style="width:100%;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;">
+          </div>
+        </div>
+      `).join('');
+
+      // Bind inputs
+      list.querySelectorAll('.day-planner-card').forEach(card => {
+        const idx = Number(card.dataset.idx);
+        card.querySelector('.day-title-input').onchange = (e) => { trip.days[idx].title = e.target.value; };
+        card.querySelector('.day-morning-input').onchange = (e) => { trip.days[idx].morning = e.target.value; };
+        card.querySelector('.day-afternoon-input').onchange = (e) => { trip.days[idx].afternoon = e.target.value; };
+        card.querySelector('.day-evening-input').onchange = (e) => { trip.days[idx].evening = e.target.value; };
+        card.querySelector('.day-notes-input').onchange = (e) => { trip.days[idx].notes = e.target.value; };
+      });
+
+      list.querySelectorAll('.remove-day-btn').forEach(btn => {
+        btn.onclick = () => {
+          const idx = Number(btn.dataset.idx);
+          if (trip.days.length <= 1) {
+            Yatrimap.toast.show('An itinerary must contain at least 1 day', 'warning');
+            return;
+          }
+          trip.days.splice(idx, 1);
+          trip.duration = trip.days.length;
+          // Reindex
+          trip.days.forEach((d, i) => { d.day = i + 1; });
+          renderDayPlanner();
+          updateSummary();
+        };
+      });
+    }
+
+    function calculateTotalCost() {
+      let cost = 0;
+      const hotelRate = trip.selectedHotel ? trip.selectedHotel.pricePerNight : 2500;
+      const vehicleRate = trip.selectedVehicle ? trip.selectedVehicle.pricePerDay : 800;
+
+      // Accommodation for (duration - 1) nights or min 1 night
+      const nights = Math.max(1, trip.duration - 1);
+      cost += hotelRate * nights;
+
+      // Vehicle for duration days
+      cost += vehicleRate * trip.duration;
+
+      // Activities per adult
+      const actsTotal = trip.selectedActivities.reduce((s, a) => s + a.price, 0);
+      cost += actsTotal * trip.adults;
+
+      return cost;
+    }
+
+    function updateSummary() {
+      document.getElementById('sum-dest').textContent = trip.destination;
+      document.getElementById('sum-duration').textContent = `${trip.duration} Days / ${Math.max(1, trip.duration - 1)} Nights`;
+      document.getElementById('sum-pax').textContent = `${trip.adults} Adults${trip.children ? `, ${trip.children} Kids` : ''}`;
+      document.getElementById('sum-hotel').textContent = trip.selectedHotel ? trip.selectedHotel.name : 'None selected';
+      document.getElementById('sum-transport').textContent = trip.selectedVehicle ? trip.selectedVehicle.name : 'None selected';
+      document.getElementById('sum-acts').textContent = trip.selectedActivities.length
+        ? trip.selectedActivities.map(a => a.name.split(' ')[0]).join(', ')
+        : 'None selected';
+
+      const total = calculateTotalCost();
+      document.getElementById('sum-total').textContent = `₹${total.toLocaleString('en-IN')}`;
+    }
+
+    function setupEvents() {
+      // Step Nav click
+      document.querySelectorAll('.step-nav-btn').forEach(btn => {
+        btn.onclick = () => goToStep(Number(btn.dataset.step));
+      });
+
+      // Date / Duration changes
+      document.getElementById('itin-start-date').onchange = (e) => {
+        trip.startDate = e.target.value;
+      };
+      document.getElementById('itin-duration').onchange = (e) => {
+        trip.duration = Number(e.target.value);
+        generateDefaultDays();
+        updateSummary();
+      };
+      document.getElementById('itin-adults').onchange = (e) => {
+        trip.adults = Number(e.target.value);
+        updateSummary();
+      };
+      document.getElementById('itin-children').onchange = (e) => {
+        trip.children = Number(e.target.value);
+        updateSummary();
+      };
+
+      // Add day button
+      document.getElementById('btn-add-day').onclick = () => {
+        trip.duration += 1;
+        trip.days.push({
+          day: trip.duration,
+          title: `Day ${trip.duration} Himalayan Exploration`,
+          hotel: trip.selectedHotel ? trip.selectedHotel.name : 'Riverside Retreat',
+          transport: trip.selectedVehicle ? trip.selectedVehicle.name : 'Vehicle',
+          activities: ['Leisure & Sightseeing'],
+          notes: ''
+        });
+        renderDayPlanner();
+        updateSummary();
+      };
+
+      // Save trip final button
+      document.getElementById('btn-save-trip-final').onclick = async () => {
+        const payload = {
+          title: `${trip.duration}-Day ${trip.destination} Customized Journey`,
+          destination: trip.destination,
+          dates: `${trip.startDate} (${trip.duration} Days)`,
+          travellers: trip.adults + trip.children,
+          estimatedCost: calculateTotalCost(),
+          days: trip.days
+        };
+        const res = await Yatrimap.api.post('/api/itineraries', payload);
+        if (res.success) {
+          Yatrimap.toast.show('Itinerary saved to your My Trips dashboard!', 'success', 'Trip Saved');
+        } else {
+          Yatrimap.toast.show(res.message || 'Error saving trip', 'error');
+        }
+      };
+
+      // Direct Book Trip
+      document.getElementById('btn-book-trip-direct').onclick = () => {
+        const queryParams = new URLSearchParams({
+          type: 'package',
+          id: 'custom-trip',
+          title: `${trip.duration}-Day Custom ${trip.destination} Trip`,
+          rate: calculateTotalCost(),
+          travellers: trip.adults,
+          start: trip.startDate
+        });
+        window.location.href = `checkout.html?${queryParams.toString()}`;
+      };
+
+      // Download PDF
+      document.getElementById('btn-download-pdf-itin').onclick = () => {
+        window.open('/api/pdf/itinerary/itin-sample-1', '_blank');
+      };
+
+      // WhatsApp Share
+      document.getElementById('btn-share-whatsapp').onclick = () => {
+        const msg = `*YATRIMAP CUSTOM ITINERARY: ${trip.duration}-Day ${trip.destination} Trip*\n\nDates: ${trip.startDate}\nTravellers: ${trip.adults} Adults\nStay: ${trip.selectedHotel ? trip.selectedHotel.name : 'Boutique Hotel'}\nTransport: ${trip.selectedVehicle ? trip.selectedVehicle.name : 'Dedicated Ride'}\nEstimated Total: ₹${calculateTotalCost().toLocaleString('en-IN')}\n\nBuild yours: ${window.location.origin}/itinerary-builder.html`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+      };
+
+      // Send to Expert
+      document.getElementById('btn-send-to-expert').onclick = () => {
+        Yatrimap.openLeadModal(trip.destination);
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', initBuilder);
+  </script>
+</body>
+</html>

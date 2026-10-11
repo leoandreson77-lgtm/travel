@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yatrimap — discover extraordinary stays, rentals and adventures in Rishikesh." />
+  <title>Yatrimap — Live Life Differently</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="overrides.css" />
+  <link rel="stylesheet" href="platform.css" />
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a href="index.html" class="brand" aria-label="Yatrimap home"><span class="brand-mark">y</span>yatrimap</a>
+    <button class="mobile-menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="nav-search"><span>⌕</span><input id="site-search" placeholder="Search destinations, stays, thrills" aria-label="Search destinations or activities" autocomplete="off" /></div>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <button class="country" id="currency">IN <span>⌄</span></button>
+      <a href="destination.html">Destinations</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Rentals</a>
+      <a href="trekking.html">Activities</a>
+      <a href="itinerary-builder.html" style="color:var(--forest);font-weight:700;">Trip Builder</a>
+      <a href="my-trips.html">My Trips</a>
+      <button class="link-button" id="signup">Sign up</button><button class="login" id="login">Login</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Travel search">
+      <div class="hero-image active" style="background-image:linear-gradient(90deg,rgba(11,34,29,.70),rgba(11,34,29,.12)),url('https://images.unsplash.com/photo-1532978379173-523e16f371f2?auto=format&fit=crop&w=2000&q=85')"></div>
+      <div class="hero-image" style="background-image:linear-gradient(90deg,rgba(11,34,29,.70),rgba(11,34,29,.12)),url('https://images.unsplash.com/photo-1605538883669-82524632f1a5?auto=format&fit=crop&w=2000&q=85')"></div>
+      <div class="hero-image" style="background-image:linear-gradient(90deg,rgba(11,34,29,.70),rgba(11,34,29,.12)),url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=2000&q=85')"></div>
+      <div class="hero-content container">
+        <p class="eyebrow light">MAKE A LITTLE ROOM FOR WONDER</p>
+        <h1>What's your<br><em>destination?</em></h1>
+        <p class="hero-tagline">Live Life Differently!!</p>
+      </div>
+      <button class="carousel-arrow previous" aria-label="Previous slide">‹</button><button class="carousel-arrow next" aria-label="Next slide">›</button>
+      <form class="search-card container" id="booking-form">
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="Rental">Rental</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="Activities">Activities</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="Hotels">Hotels</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="CharDham">CharDham</button>
+        </div>
+        <div class="search-fields">
+          <label><span id="type-label">Vehicle type</span><select id="type"><option>Scooty</option><option>Motorbike</option><option>Car</option><option>Taxi</option></select></label>
+          <label><span>Location</span><select id="location"><option>Rishikesh</option><option>Haridwar</option><option>Dehradun</option><option>Mussoorie</option></select></label>
+          <label><span id="start-label">Pickup date</span><input id="start-date" type="date" required /></label>
+          <label><span id="end-label">Return date</span><input id="end-date" type="date" required /></label>
+          <button class="search-button" type="submit">SEARCH <span>→</span></button>
+        </div>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="offers container" aria-label="Offers">
+      <article class="offer-card coral"><span class="promo">RENT25</span><div><strong>Avail up to 30% Off</strong><small>Rental vehicle booking</small></div><span class="offer-icon">⌁</span></article>
+      <article class="offer-card orange"><span class="promo">TRILL25</span><div><strong>Avail up to 30% Off</strong><small>Activities booking</small></div><span class="offer-icon">✦</span></article>
+      <article class="offer-card green"><span class="promo">4DHAM25</span><div><strong>Avail up to 15% Off</strong><small>Char Dham package booking</small></div><span class="offer-icon">⌂</span></article>
+    </section>
+
+    <section class="categories-section container" id="discover">
+      <div class="section-heading"><div><p class="eyebrow">STAY YOUR WAY</p><h2>Accommodation</h2></div><div class="scroll-controls"><button data-scroll="accommodation" aria-label="Previous">‹</button><button data-scroll="accommodation" data-direction="right" aria-label="Next">›</button></div></div>
+      <div class="category-row" id="accommodation">
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80')"><span>Hotel</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=700&q=80')"><span>Resort / Camps</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')"><span>Home Stay</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80')"><b>COMING SOON</b><span>Villa</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80')"><span>Apartment</span></a>
+      </div>
+    </section>
+
+    <section class="categories-section container">
+      <div class="section-heading"><div><p class="eyebrow">ON THE ROAD</p><h2>Rental <em>services</em></h2></div><div class="scroll-controls"><button data-scroll="rentals" aria-label="Previous">‹</button><button data-scroll="rentals" data-direction="right" aria-label="Next">›</button></div></div>
+      <div class="category-row" id="rentals">
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80')"><span>Scooty</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80')"><span>Bike</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=700&q=80')"><b>COMING SOON</b><span>Bus</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=700&q=80')"><b>COMING SOON</b><span>Taxi</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80')"><span>Self Drive Cars</span></a>
+      </div>
+    </section>
+
+    <section class="categories-section container">
+      <div class="section-heading"><div><p class="eyebrow">CHASE THE RUSH</p><h2>Activity</h2></div><div class="scroll-controls"><button data-scroll="activities" aria-label="Previous">‹</button><button data-scroll="activities" data-direction="right" aria-label="Next">›</button></div></div>
+      <div class="category-row" id="activities">
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=700&q=80')"><span>Bungee Jumping</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=700&q=80')"><span>River Rafting</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=700&q=80')"><span>Paragliding</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=700&q=80')"><span>Trekking</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80')"><b>COMING SOON</b><span>Hot Air Balloon</span></a>
+        <a href="#" class="category-card" style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=700&q=80')"><span>Jungle Safari</span></a>
+      </div>
+    </section>
+
+    <section class="why-section" id="help"><div class="container"><p class="eyebrow center">THE YATRIMAP DIFFERENCE</p><h2 class="center">Why choose <em>Yatrimap?</em></h2><div class="features">
+      <article><i>✥</i><h3>Discover the possibilities</h3><p>With nearly half a million attractions, hotels & more, you're sure to find joy.</p></article>
+      <article><i>◒</i><h3>Enjoy deals & delights</h3><p>Quality activities. Great prices. Plus, earn credits to save more.</p></article>
+      <article><i>⌑</i><h3>Exploring made easy</h3><p>Book last minute, skip lines & get free cancellation for easier exploring.</p></article>
+      <article><i>◌</i><h3>Travel you can trust</h3><p>Read reviews & get reliable customer support. We're with you at every step.</p></article>
+    </div></div></section>
+
+    <section class="inspiration container" id="app"><p class="eyebrow">CURATED FOR YOU</p><h2>Inspiration for your <em>itinerary</em></h2><div class="inspiration-grid">
+      <article class="story stay"><div><p>REST & RESET</p><h3>Best staycation deals<br>in Rishikesh</h3><span>Enjoy serene riverside resorts and yoga retreats in the heart of Rishikesh.</span><button class="outline-action">See activities <b>→</b></button></div></article>
+      <article class="story action"><div><p>MAKE A SPLASH</p><h3>All-time favourite<br>activities in Rishikesh</h3><span>Experience thrilling river rafting, bungee jumping, and spiritual adventures.</span><button class="outline-action">See activities <b>→</b></button></div></article>
+    </div></section>
+  </main>
+  <footer><div class="container footer-inner"><a href="#top" class="brand"><span class="brand-mark">y</span>yatrimap</a><p>Life is a journey. Make it a story worth telling.</p><span>© 2025 Yatrimap</span></div></footer>
+  <button class="whatsapp" id="whatsapp" aria-label="Chat on WhatsApp">◔<span>Need help?</span></button>
+  <dialog class="hotel-dialog" id="hotel-dialog" aria-labelledby="hotel-filter-title">
+    <div class="hotel-dialog-header"><div><p class="eyebrow">FIND YOUR STAY</p><h2 id="hotel-filter-title">Hotel filters</h2></div><button class="close-dialog hotel-close" aria-label="Close hotel filters">×</button></div>
+    <div class="hotel-filter-grid">
+      <section class="filter-card"><h3>Location</h3><label class="location-search"><span>⌕</span><input id="hotel-location-search" placeholder="Search Location" /></label><div class="location-list" id="location-list">
+        <label><input type="checkbox" value="Haridwar">Haridwar</label><label><input type="checkbox" value="Rishikesh">Rishikesh</label><label><input type="checkbox" value="Rampur">Rampur</label><label><input type="checkbox" value="Sitapur">Sitapur</label><label><input type="checkbox" value="Chopta">Chopta</label><label><input type="checkbox" value="Kedarnath">Kedarnath</label><label><input type="checkbox" value="Badrinath">Badrinath</label><label><input type="checkbox" value="Chamauli">Chamauli</label><label><input type="checkbox" value="Nainital">Nainital</label>
+      </div></section>
+      <section class="filter-card"><h3>Categories</h3><label><input type="checkbox">Couple friendly</label><label><input type="checkbox">Pay at hotel</label><label><input type="checkbox">Pet friendly</label></section>
+      <section class="filter-card"><h3>Room Type</h3><label><input type="checkbox">King</label><label><input type="checkbox">Queen</label><label><input type="checkbox">Twin</label><label><input type="checkbox">Suite</label></section>
+    </div>
+    <p class="hotel-notes">• Prices include GST. Contact hotel for detailed invoice.<br>• Flexible check-in/check-out available.<br>• Standard amenities provided for all guests.</p>
+    <div class="hotel-actions"><button class="clear-filters" type="button">Clear filters</button><button class="search-button hotel-search" type="button">Show stays <span>→</span></button></div>
+  </dialog>
+  <dialog class="rental-dialog" id="rental-dialog" aria-labelledby="rental-title">
+    <div class="hotel-dialog-header"><div><p class="eyebrow">RENTAL OPTIONS</p><h2 id="rental-title">Choose your ride</h2><p class="rental-subtitle" id="rental-subtitle">Flexible rentals for your Indian road trip.</p></div><button class="close-dialog rental-close" aria-label="Close rental options">×</button></div>
+    <div class="vehicle-class-row" id="vehicle-class-row"></div>
+    <div class="rental-content">
+      <section class="rental-filters"><h3>Deals</h3><label><input type="checkbox">Pay now & save <small>Save up to ₹250</small></label><h3>Vehicle type</h3><div id="vehicle-filter-list"></div></section>
+      <section class="rental-filters"><h3>Cancellation policy</h3><label><input type="checkbox">Free cancellation <small>From ₹349/day</small></label><label><input type="checkbox">Cancellation available <small>From ₹299/day</small></label><label><input type="checkbox">Fully refundable <small>From ₹399/day</small></label><h3>Payment</h3><label><input type="checkbox">Pay later <small>Reserve now</small></label><label><input type="checkbox">UPI / Card payment <small>Extra ₹100 off</small></label></section>
+      <section class="rental-filters"><h3>Fuel type</h3><label><input type="checkbox">Electric <small>Eco-friendly</small></label><label><input type="checkbox">Petrol <small>Popular choice</small></label><label><input type="checkbox">CNG <small>For selected cars</small></label><h3>Transmission</h3><label><input type="checkbox">Automatic <small>Easy city rides</small></label><label><input type="checkbox">Manual <small>More control</small></label></section>
+    </div>
+    <div class="rental-actions"><button class="clear-rental" type="button">Clear filters</button><button class="search-button rental-search" type="button">View available rentals <span>→</span></button></div>
+  </dialog>
+  <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="activity-filter-title">
+    <header class="activity-filter-header"><button class="activity-close" aria-label="Close filters">×</button><h2 id="activity-filter-title">Filters</h2><button class="activity-clear" type="button">Clear all</button></header>
+    <label class="activity-filter-search"><span>⌕</span><input id="activity-search" placeholder="Search activity or location" /></label>
+    <div class="activity-filter-body"><nav class="activity-filter-nav" id="activity-filter-nav" aria-label="Adventure filter categories"></nav><section class="activity-filter-content" id="activity-filter-content"></section></div>
+    <footer class="activity-filter-footer"><button class="search-button activity-apply" type="button">Show <span id="adventure-count">42</span> Adventures</button></footer>
+  </dialog>
+  <dialog id="auth-dialog"><button class="close-dialog" aria-label="Close">×</button><p class="eyebrow">WELCOME TO YATRIMAP</p><h2 id="dialog-title">Welcome back</h2><p id="dialog-copy">Log in to save your favourite escapes.</p><input placeholder="Email address" type="email"><button class="search-button dialog-action">Continue</button></dialog>
+  <script src="platform.js"></script>
+  <script src="trek-link.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

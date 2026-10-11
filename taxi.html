@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dedicated Taxis & Airport Transfers | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cars.css">
+  <link rel="stylesheet" href="platform.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand"><span>y</span>yatrimap</a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="cars.html">Self Drive Cars</a>
+      <a class="active" href="taxi.html">Taxi</a>
+      <a href="bike.html">Bikes</a>
+      <a href="my-trips.html">My Trips</a>
+    </nav>
+    <a href="index.html" class="back">← Home</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <i>▱</i>
+      <div>
+        <h1>Dedicated Taxis & Airport Transfers</h1>
+        <p>Book verified mountain chauffeurs at transparent rates. Clean AC sedans, Innova Crystas, and tempo travellers for Rishikesh, Char Dham & airport drops.</p>
+      </div>
+    </section>
+
+    <section class="car-search">
+      <label>Pick-up location
+        <select id="pickup-location">
+          <option>Rishikesh, Uttarakhand</option>
+          <option>Dehradun Airport (Jolly Grant)</option>
+          <option>Haridwar Railway Station</option>
+          <option>Kedarnath Route (Sonprayag)</option>
+        </select>
+      </label>
+      <label>Pick-up date
+        <input type="date" id="taxi-start-date">
+      </label>
+      <label>Drop-off date
+        <input type="date" id="taxi-end-date">
+      </label>
+      <button id="search-cars">Search taxi</button>
+    </section>
+
+    <p class="driver-note">ⓘ Certified licensed hill drivers with verified police credentials meet you at your pickup point.</p>
+
+    <section class="car-tabs" id="car-tabs">
+      <button class="active" data-type="All">₹<b>All Taxis</b><span>Full fleet</span></button>
+      <button data-type="SUV">▰<b>SUV</b><span>Innova & Ertiga</span></button>
+      <button data-type="Sedan">▱<b>Sedan</b><span>Dzire & Etios</span></button>
+      <button data-type="Luxury SUV">◇<b>Luxury</b><span>Captain seats</span></button>
+      <button data-type="Group Van">⌂<b>Group Van</b><span>12-Seater Tempo</span></button>
+      <button data-type="Fixed Route">✈<b>Airport Drop</b><span>Fixed pricing</span></button>
+    </section>
+
+    <div class="result-head">
+      <b id="result-count">Loading taxi options...</b>
+      <select id="sort">
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <section class="results">
+      <aside>
+        <div class="filter-title">
+          <b>Filters</b>
+          <button id="reset">Clear all</button>
+        </div>
+        <h3>Vehicle class</h3>
+        <label><input type="checkbox" value="Sedan"> Sedan (4 Pax)</label>
+        <label><input type="checkbox" value="SUV"> SUV (6 Pax)</label>
+        <label><input type="checkbox" value="Luxury SUV"> Luxury SUV (Innova)</label>
+        <label><input type="checkbox" value="Group Van"> Group Van (12 Pax)</label>
+        <label><input type="checkbox" value="Fixed Route"> Fixed Route / Airport</label>
+      </aside>
+
+      <div class="car-list" id="car-list"></div>
+    </section>
+  </main>
+
+  <script src="platform.js"></script>
+  <script src="taxi.js"></script>
+</body>
+</html>

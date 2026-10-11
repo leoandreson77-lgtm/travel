@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Self Drive Cars | Yatrimap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cars.css">
+  <link rel="stylesheet" href="platform.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand"><span>y</span>yatrimap</a>
+    <nav>
+      <a href="index.html">Explore</a>
+      <a href="hotels.html">Hotels</a>
+      <a class="active" href="cars.html">Self Drive Cars</a>
+      <a href="taxi.html">Taxis</a>
+      <a href="bike.html">Bikes</a>
+      <a href="trekking.html">Activities</a>
+      <a href="my-trips.html">My Trips</a>
+    </nav>
+    <a href="index.html" class="back">← Home</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <i>▱</i>
+      <div>
+        <h1>Self Drive Cars in Uttarakhand</h1>
+        <p>Verified sanitized rental cars with unlimited kilometres, 24/7 roadside assistance, and instant delivery in Rishikesh, Haridwar & Dehradun.</p>
+      </div>
+    </section>
+
+    <section class="car-search">
+      <label>Pick-up location
+        <select id="pickup-location">
+          <option>Rishikesh, Uttarakhand</option>
+          <option>Dehradun Airport</option>
+          <option>Haridwar Railway Station</option>
+        </select>
+      </label>
+      <label>Pick-up date
+        <input type="date" id="car-start-date">
+      </label>
+      <label>Return date
+        <input type="date" id="car-end-date">
+      </label>
+      <button id="search-cars">Search cars</button>
+    </section>
+
+    <section class="car-tabs" id="car-tabs">
+      <button class="active" data-type="All">⌘<b>All Cars</b><span>Best fleet</span></button>
+      <button data-type="SUV">▰<b>SUV</b><span>Spacious & powerful</span></button>
+      <button data-type="Luxury">◇<b>Luxury</b><span>Premium & stylish</span></button>
+      <button data-type="Sedan">▱<b>Sedan</b><span>Comfort & mileage</span></button>
+      <button data-type="Off-Roading">⌂<b>Off-Roading</b><span>Adventure ready</span></button>
+    </section>
+
+    <div class="result-head">
+      <b id="result-count">Loading fleet...</b>
+      <select id="sort">
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <section class="results">
+      <aside>
+        <div class="filter-title">
+          <b>Filters</b>
+          <button id="reset">Clear all</button>
+        </div>
+        <h3>Car type</h3>
+        <label><input type="checkbox" value="Hatchback"> Hatchback</label>
+        <label><input type="checkbox" value="Sedan"> Sedan</label>
+        <label><input type="checkbox" value="SUV"> SUV</label>
+        <label><input type="checkbox" value="Luxury"> Luxury</label>
+        <label><input type="checkbox" value="Off-Roading"> Off-Roading</label>
+
+        <h3>Fuel type</h3>
+        <label><input type="checkbox" value="Petrol" class="fuel-filter"> Petrol</label>
+        <label><input type="checkbox" value="Diesel" class="fuel-filter"> Diesel</label>
+        <label><input type="checkbox" value="Electric" class="fuel-filter"> Electric</label>
+      </aside>
+
+      <div class="car-list" id="car-list"></div>
+    </section>
+  </main>
+
+  <script src="platform.js"></script>
+  <script src="cars.js"></script>
+</body>
+</html>
